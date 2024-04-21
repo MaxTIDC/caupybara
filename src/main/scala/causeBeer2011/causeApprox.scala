@@ -1,0 +1,45 @@
+/* Methods here are the implementation of cause computation heuristic by Beer et al. 2011 */
+
+package causeBeer2011
+
+import lib.*
+
+type CausalPair = (State, String)
+val emptySet = Set()
+
+// The "C(pi^i, psi)" heuristic
+def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
+  // By definitions
+  case True => Set()
+  case False => Set()
+  case Atom(p) =>
+    if !(pi(i) contains p) then Set((i, p)) else Set()
+  case Not(Atom(p)) =>
+    if pi(i) contains p then Set((i, p)) else Set()
+  case X(phi) =>
+    if i < pi.size-1 then causeApprox(pi, i+1, phi) else Set()
+  case And(phiL, phiR) =>
+    causeApprox(pi, i, phiL) union causeApprox(pi, i, phiR)
+  case Or(phiL, phiR) =>
+    if valFunc(pi, i, phiL) == 0 && valFunc(pi, i, phiR) == 0 then
+      causeApprox(pi, i, phiL) union causeApprox(pi, i, phiR)
+    else
+      Set()
+  case G(phi) =>
+    if valFunc(pi, i, phi) == 0 then
+      causeApprox(pi, i, phi)
+    else if valFunc(pi, i, phi) == 1 && i < pi.size-1 && valFunc(pi, i, X(G(phi))) == 0 then
+      causeApprox(pi, i+1, G(phi))
+    else
+      Set()
+  case U(phiL, phiR) =>
+    Set((-1, "not implemented")) // TODO
+  // Do not catch equivalences
+  case _ =>
+    throw new RuntimeException("LTL formula needs to be in NNF")
+
+// The "val(pi^i, psi)" helper function
+def valFunc(pi: Trace, i: State, phi: LTL): Int = phi match
+  case True => 1
+  case False => 0
+  case _ => if causeApprox(pi, i, phi) == emptySet then 1 else 0
