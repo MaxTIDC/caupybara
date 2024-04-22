@@ -4,5 +4,5 @@ import Util.parseTraceFromPath
 
 @main
 def main(): Unit = {
-  println(parseTraceFromPath("input-files/Beer2011/req_ack_violation.txt"))
+  println(parseTraceFromPath("input-files/Beer2011/req_ack_violation_1.txt"))
 }
