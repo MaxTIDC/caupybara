@@ -1,8 +1,8 @@
 /* Methods here are the implementation of cause computation heuristic by Beer et al. 2011 */
 
-package causeBeer2011
+package CauseBeer2011
 
-import lib.*
+import Lib.*
 
 type CausalPair = (State, String)
 val emptySet = Set()

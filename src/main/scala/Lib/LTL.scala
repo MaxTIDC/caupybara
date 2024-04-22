@@ -1,4 +1,4 @@
-package lib
+package Lib
 
 /* ADT for LTL */
 sealed trait LTL
