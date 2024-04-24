@@ -11,6 +11,7 @@ case class Not(right: LTL) extends LTL
 case class And(left: LTL, right: LTL) extends LTL
 case class Or(left: LTL, right: LTL) extends LTL
 case class Implies(left: LTL, right: LTL) extends LTL
+case class Iff(left: LTL, right: LTL) extends LTL
 
 case class X(right: LTL) extends LTL
 case class F(right: LTL) extends LTL
