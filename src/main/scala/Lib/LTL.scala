@@ -5,7 +5,6 @@ sealed trait LTL
 
 case object True extends LTL
 case object False extends LTL
-
 case class Atom(name: String) extends LTL
 
 case class Not(right: LTL) extends LTL
