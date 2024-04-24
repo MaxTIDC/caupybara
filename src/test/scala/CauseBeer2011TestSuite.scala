@@ -50,4 +50,43 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
 
     assert(C == Set((1, "req1"), (2, "ack")))
   }
+
+  test("StartEndStatusTest") {
+    val psi =
+      G(
+        Or(
+          Or(
+            Or(
+              Atom("start"),
+              Atom("status_valid")
+            ),
+            Not(Atom("end")),
+          ),
+          U(
+            Not(Atom("start")),
+            Atom("status_valid")
+          )
+        )
+      )
+
+    val rou: Trace = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+
+    val C = causeApprox(rou, 0, psi)
+
+    assert(C == Set((6, "start"), (6, "end"), (6, "status_valid"),
+      (7, "status_valid"), (8, "status_valid"), (9, "start"), (9, "status_valid")))
+  }
 }

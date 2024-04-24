@@ -25,6 +25,25 @@ class UtilTestSuite extends AnyFunSuite {
     assert(parsedTrace == actualTrace)
   }
 
+  test("StartEndStatusParseTest01") {
+    val parsedTrace = parseTraceFromPath("input-files/Beer2011/start_end_status_violation.txt")
+    val actualTrace = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+    assert(parsedTrace == actualTrace)
+  }
+
   test("PLParseTest01") {
     val parsedPhi = LTLParser("!req1 & !req2")
     val actualPhi = And(Not(Atom("req1")), Not(Atom("req2")))

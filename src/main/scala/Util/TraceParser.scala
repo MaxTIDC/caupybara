@@ -7,7 +7,7 @@ import scala.io.Source
 import scala.util.matching.Regex
 
 def parseTraceFromPath(path: String): Trace = {
-  val pattern: Regex = """.*holds_at\(([a-zA-Z0-9]+),([0-9]+),.*\)\.""".r
+  val pattern: Regex = """.*holds_at\(([a-zA-Z].*),([0-9]+),.*\)\.""".r
 
   val trace = mutable.Map[Int, Set[String]]()
   val fileSource = Source.fromFile(path)

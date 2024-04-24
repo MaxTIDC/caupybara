@@ -33,7 +33,15 @@ def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
     else
       Set()
   case U(phiL, phiR) =>
-    Set((-1, "not implemented")) // TODO
+    if valFunc(pi, i, phiL) == 0 && valFunc(pi, i, phiR) == 0 then
+      causeApprox(pi, i, phiR) union causeApprox(pi, i, phiL)
+    else if valFunc(pi, i, phiL) == 1 && valFunc(pi, i, phiR) == 0 && i == pi.size-1 then
+      causeApprox(pi, i, phiR)
+    else if valFunc(pi, i, phiL) == 1 && valFunc(pi, i, phiR) == 0
+        && i < pi.size-1 && valFunc(pi, i, X(U(phiL, phiR))) == 0 then
+      causeApprox(pi, i, phiR) union causeApprox(pi, i+1, U(phiL, phiR))
+    else
+      Set()
   // Do not catch equivalences
   case _ =>
     throw new RuntimeException("LTL formula needs to be in NNF")
