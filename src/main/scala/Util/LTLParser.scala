@@ -26,8 +26,13 @@ case object LParen extends LTLToken
 case object RParen extends LTLToken
 //case object EqToken extends LTLTokens
 
-trait LTLCompilationError
-case class LTLLexerError(msg: String) extends LTLCompilationError
+trait LTLParserError
+case class LTLLexerError(msg: String) extends LTLParserError
+case class LTLTokenParserError(msg: String) extends LTLParserError
+
+object LTLParser extends Parsers {
+  // TODO
+}
 
 object LTLLexer extends RegexParsers {
   def t: Parser[LTLToken] = "true" ^^ (_ => TrueToken)
@@ -49,8 +54,8 @@ object LTLLexer extends RegexParsers {
   def rParen: Parser[LTLToken] = ")" ^^ (_ => RParen)
 
   def tokens: Parser[List[LTLToken]] = {
-    phrase(rep1(lParen | rParen | X | G | F | U | not
-      | and | or | iff | implies | t | f | atom)) ^^ identity
+    phrase(rep1(lParen | rParen | X | G | F | U | not |
+      and | or | iff | implies | t | f | atom)) ^^ identity
   }
 
   def apply(input: String):Either[LTLLexerError, List[LTLToken]] = {
@@ -61,35 +66,47 @@ object LTLLexer extends RegexParsers {
   }
 }
 
-object LTLParser extends Parsers {
+object LTLTokenParser extends Parsers {
   override type Elem = LTLToken
 
-  class WorkflowTokenReader(tokensList: Seq[LTLToken]) extends Reader[LTLToken] {
+  class LTLTokenReader(tokensList: Seq[LTLToken]) extends Reader[LTLToken] {
     override def first: LTLToken = tokensList.head
     override def atEnd: Boolean = tokensList.isEmpty
     override def pos: Position = NoPosition
-    override def rest: Reader[LTLToken] = new WorkflowTokenReader(tokensList.tail)
+    override def rest: Reader[LTLToken] = new LTLTokenReader(tokensList.tail)
   }
 
-//  def propAtom: Parser[LTL] = AtomToken ^^ { name => Atom(phi) }
+  def truth: Parser[LTL] = TrueToken ^^ {_ => True}
+  def falsity: Parser[LTL] = FalseToken ^^ { _ => False }
+  def propAtom: Parser[Atom] = accept("atom", { case AtomToken(name) => Atom(name) })
 
-  //  def term: Parser[LTL] = atom | notExpr | andExpr | orExpr | impliesExpr |
-  //    nextExpr | eventuallyExpr | alwaysExpr | untilExpr | ("(" ~> expr <~ ")")
-  //  def expr: Parser[LTL] = term
+  def nextTerm: Parser[X] = XToken ~> factor ^^ { phi => X(phi) }
+  def eventuallyTerm: Parser[F] = FToken ~> factor ^^ { phi => F(phi) }
+  def alwaysTerm: Parser[G] = GToken ~> factor ^^ { phi => G(phi) }
+  def notTerm: Parser[Not] = NotToken ~> factor ^^ { case phi => Not(phi) }
 
-  //  def notExpr: Parser[Not] = "!" ~> term ^^ { phi => Not(phi) }
-  //  def andExpr: Parser[And] = term ~ ("&" ~> term) ^^ { case phiL ~ phiR => And(phiL, phiR) }
-  //  def orExpr: Parser[Or] = term ~ ("|" ~> term) ^^ { case phiL ~ phiR => Or(phiL, phiR) }
-  //  def impliesExpr: Parser[Implies] = term ~ ("->" ~> term) ^^ { case phiL ~ phiR => Implies(phiL, phiR) }
-  //
-  //  def nextExpr: Parser[X] = next ~> term ^^ { phi => X(phi) }
-  //  def eventuallyExpr: Parser[F] = "F" ~> term ^^ { phi => F(phi) }
-  //  def alwaysExpr: Parser[G] = "G" ~> term ^^ { phi => G(phi) }
-  //  def untilExpr: Parser[U] = term ~ ("U" ~> term) ^^ { case phiL ~ phiR => U(phiL, phiR) }
-  //
+  def andExpr: Parser[And] = term ~ (AndToken ~> term) ^^ { case phiL ~ phiR => And(phiL, phiR) }
+  def orExpr: Parser[Or] = term ~ (OrToken ~> term) ^^ { case phiL ~ phiR => Or(phiL, phiR) }
+  def impliesExpr: Parser[Implies] = term ~ (ImpliesToken ~> term) ^^ { case phiL ~ phiR => Implies(phiL, phiR) }
+  def iffExpr: Parser[Iff] = term ~ (IffToken ~> term) ^^ { case phiL ~ phiR => Iff(phiL, phiR) }
+  def untilExpr: Parser[U] = term ~ (UToken ~> term) ^^ { case phiL ~ phiR => U(phiL, phiR) }
+
+  def bracketed: Parser[LTL] = LParen ~> expr <~ RParen ^^ identity
+
+  def expr: Parser[LTL] = andExpr | orExpr | impliesExpr | iffExpr | untilExpr | term
+  def term: Parser[LTL] = notTerm | nextTerm | eventuallyTerm | alwaysTerm | factor
+  def factor: Parser[LTL] = propAtom | truth | falsity | bracketed
+
   //  def parseLTL(str: String): ParseResult[LTL] = parseAll(expr, str)
   //  def apply(str: String): LTL = LTLParser.parseLTL(str) match {
   //    case LTLParser.Success(result: LTL, _) => result
   //    case _ => sys.error("Could not parse the input string: " + str)
   //  }
+  def apply(tokens: Seq[LTLToken]): Either[LTLTokenParserError, LTL] = {
+    val reader = new LTLTokenReader(tokens)
+    expr(reader) match {
+      case NoSuccess(msg, next) => Left(LTLTokenParserError(msg))
+      case Success(result, next) => Right(result)
+    }
+  }
 }
