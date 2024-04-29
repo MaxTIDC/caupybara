@@ -102,6 +102,21 @@ class UtilTestSuite extends AnyFunSuite {
 
   }
 
+  test("PLLexerTest01") {
+    val actualPhi = LTLLexer("!req1 & !req2")
+    val expectedPhi = Right(List(NotToken, AtomToken("req1"), AndToken, NotToken, AtomToken("req2")))
+    assert(actualPhi == expectedPhi)
+  }
+
+  test("ReqAckLTLLexerTest01") {
+    val actualPhi = LTLLexer("G((!req1 & !req2) | X(ack))")
+    val expectedPhi = Right(List(
+      GToken, LParen, LParen, NotToken, AtomToken("req1"), AndToken, NotToken, AtomToken("req2"), RParen,
+      OrToken, XToken, LParen, AtomToken("ack"), RParen, RParen
+    ))
+    assert(actualPhi == expectedPhi)
+  }
+
 //  test("PLParseTest01") {
 //    val actualPhi = LTLParser("!req1 & !req2")
 //    val expectedPhi = And(Not(Atom("req1")), Not(Atom("req2")))
