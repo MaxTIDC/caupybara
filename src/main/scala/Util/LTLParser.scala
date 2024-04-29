@@ -70,6 +70,9 @@ object LTLParser extends Parsers {
     override def pos: Position = NoPosition
     override def rest: Reader[LTLToken] = new WorkflowTokenReader(tokensList.tail)
   }
+
+//  def propAtom: Parser[LTL] = AtomToken ^^ { name => Atom(phi) }
+
   //  def term: Parser[LTL] = atom | notExpr | andExpr | orExpr | impliesExpr |
   //    nextExpr | eventuallyExpr | alwaysExpr | untilExpr | ("(" ~> expr <~ ")")
   //  def expr: Parser[LTL] = term
