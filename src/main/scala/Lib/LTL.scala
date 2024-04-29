@@ -1,6 +1,6 @@
 package Lib
 
-/* ADT for LTL */
+/** Abstract data type for LTL formulae */
 sealed trait LTL
 
 case object True extends LTL
@@ -18,19 +18,7 @@ case class F(right: LTL) extends LTL
 case class G(right: LTL) extends LTL
 case class U(left: LTL, right: LTL) extends LTL
 
-//// LTL evaluation in a TS
-//def eval(phi: LTL, env: Map[String, Boolean]): Boolean = phi match {
-//  case True => true
-//  case False => false
-//  case Atom(name) => env.getOrElse(name, false)
-//  case Not(p) => !eval(p, env)
-//  case And(p1, p2) => eval(p1, env) && eval(p2, env)
-//  case Or(p1, p2) => eval(p1, env) || eval(p2, env)
-//  case _ => false
-//}
-
-/* Type aliases */
+// Type aliases
+//type AtomicProps = Set[String]
 type State = Int
-
-type AtomicProps = Set[String]
 type Trace = Map[State, Set[String]]
