@@ -4,7 +4,7 @@ import Util.*
 
 @main
 def main(): Unit = {
-  val psi1 = toNNF(G(Implies(Or(Atom("req1"), Atom("req2")), X(Atom("ack")))))
+  val psi1 = toNNF(LTLParser("G((!req1 & !req2) | X ack)"))
 
   val rou1: Trace = Map(
     0 -> Set("req1"),
@@ -13,7 +13,5 @@ def main(): Unit = {
     3 -> Set()
   )
 
-  val C = causeApprox(rou1, 0, psi1)
-
-  println(C)
+  println(evalTrilean(rou1, 2, 3, psi1))
 }

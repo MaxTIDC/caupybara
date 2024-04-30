@@ -99,7 +99,7 @@ class UtilTestSuite extends AnyFunSuite {
           U(True, Atom("p2_active"))
         )
       )
-
+    assert(actualPhi == expectedPhi)
   }
 
   test("PLParseTest01") {
