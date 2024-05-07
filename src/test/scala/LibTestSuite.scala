@@ -56,4 +56,43 @@ class LibTestSuite extends AnyFunSuite {
     )
     assert(evalTrilean(rou, 0, 3, psi1) == Trilean.F)
   }
+
+  test("StartEndStatus3VLTest") {
+    val psi =
+      G(
+        Or(
+          Or(
+            Or(
+              Atom("start"),
+              Atom("status_valid")
+            ),
+            Not(Atom("end")),
+          ),
+          U(
+            Not(Atom("start")),
+            Atom("status_valid")
+          )
+        )
+      )
+
+    val trace: Trace = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+
+    assert(evalTrilean(trace, 0, 9, psi) == Trilean.F)
+    assert(evalTrilean(trace, 6, 9, psi) == Trilean.F)
+    assert(evalTrilean(trace, 7, 9, psi) != Trilean.F)
+    assert(evalTrilean(trace, 7, 11, psi) != Trilean.F)
+  }
 }
