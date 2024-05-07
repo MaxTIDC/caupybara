@@ -8,8 +8,6 @@ import Lib.*
  *  - literals (atoms + negated atoms)
  */
 def toNNF(phi: LTL): LTL = toImplFree(phi) match
-//  case Implies(a, b) => toNNF(Or(Not(a), b))
-//  case Iff(a, b) => toNNF(And(Implies(a, b), Implies(b, a)))
   // Propositional
   case Not(Not(a)) => toNNF(a)
 
@@ -36,7 +34,7 @@ def toNNF(phi: LTL): LTL = toImplFree(phi) match
   case a => a
 
 /**
- * Removes Implies' and Iffs' from LTL formula
+ * Removes Implies' and Iffs' from LTL formula.
  */
 def toImplFree(phi: LTL): LTL = phi match
   // Actual conversions

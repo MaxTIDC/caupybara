@@ -18,7 +18,7 @@ case class F(right: LTL) extends LTL
 case class G(right: LTL) extends LTL
 case class U(left: LTL, right: LTL) extends LTL
 
-// Type aliases
-//type AtomicProps = Set[String]
+/** Type aliases */
+type PropAtoms = Set[String]
 type State = Int
 type Trace = Map[State, Set[String]]

@@ -1,4 +1,4 @@
-/* Methods here are the implementation of cause computation heuristic by Beer et al. 2011 */
+/** Methods here are the implementation of cause computation heuristic by Beer et al. 2011 */
 
 package CauseBeer2011
 
@@ -7,9 +7,11 @@ import Lib.*
 type CausalPair = (State, String)
 val emptySet = Set()
 
-// The "C(pi^i, psi)" heuristic
+/**
+ * The "C(pi^i^, psi)" heuristic (Beer et al. 2011).
+ * To compute cause on entire path, use i = 0.
+ */
 def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
-  // By definitions
   case True => Set()
   case False => Set()
   case Atom(p) =>
@@ -42,11 +44,10 @@ def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
       causeApprox(pi, i, phiR) union causeApprox(pi, i+1, U(phiL, phiR))
     else
       Set()
-  // Do not catch equivalences
-  case _ =>
+  case _ =>   // Do not catch equivalences
     throw new RuntimeException("LTL formula needs to be in NNF")
 
-// The "val(pi^i, psi)" helper function
+/** The "val(pi^i^, psi)" helper function */
 def valFunc(pi: Trace, i: State, phi: LTL): Int = phi match
   case True => 1
   case False => 0
