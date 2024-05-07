@@ -8,8 +8,8 @@ import scala.collection.mutable
 type CausalSet = Set[(State, String, Boolean)]
 
 object Cause {
-  var causes: Set[CausalSet] = Set()
-  var usedAtomVals: CausalSet = Set()
+  private var causes: Set[CausalSet] = Set()
+  private var usedAtomVals: CausalSet = Set()
 
   /**
    * Compute all causes of violation to given LTL property in the trace,
@@ -31,6 +31,11 @@ object Cause {
       availableAtomVals = availableAtomVals diff usedAtomVals
 
     causes
+  }
+
+  def reset(): Unit = {
+    causes = Set()
+    usedAtomVals = Set()
   }
 
   // Helper functions

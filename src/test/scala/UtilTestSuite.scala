@@ -3,6 +3,7 @@ import Util.*
 import org.scalatest.funsuite.AnyFunSuite
 
 class UtilTestSuite extends AnyFunSuite {
+  // Trace file parse tests
   test("ReqAckTraceParseTest01") {
     val actualTrace = parseTraceFromPath("input-files/Beer2011/req_ack_violation_1.txt")
     val expectedTrace = Map(
@@ -44,6 +45,7 @@ class UtilTestSuite extends AnyFunSuite {
     assert(actualTrace == expectedTrace)
   }
 
+  // NNF tests
   test("ReqAckToNNFTest") {
     val actualPhi = toNNF(G(Implies(Or(Atom("req1"), Atom("req2")), X(Atom("ack")))))
     val expectedPhi =
@@ -102,6 +104,7 @@ class UtilTestSuite extends AnyFunSuite {
     assert(actualPhi == expectedPhi)
   }
 
+  // LTL parse tests
   test("PLParseTest01") {
     val actualPhi = LTLParser("!req1 & !req2")
     val expectedPhi = And(Not(Atom("req1")), Not(Atom("req2")))
@@ -121,4 +124,85 @@ class UtilTestSuite extends AnyFunSuite {
 //  test("MiscParseTest01") {
 //    assert(LTLParser("Foo") == Atom("Foo"))
 //  }
+
+  // Fault localizer tests
+  test("ReqAckFaultLocalizerTest01") {
+    val trace = Map(
+      0 -> Set("req1"),
+      1 -> Set("ack"),
+      2 -> Set("req1", "req2"),
+      3 -> Set()
+    )
+
+    val psi =
+      G(
+        Or(
+          And(
+            Not(Atom("req1")),
+            Not(Atom("req2"))
+          ),
+          X(Atom("ack"))
+        )
+      )
+
+    assert(localizeFaults(trace, psi) == Set((2, 3)))
+  }
+
+  test("ReqAckFaultLocalizerTest02") {
+    val trace = Map(
+      0 -> Set("req1"),
+      1 -> Set("req1", "ack"),
+      2 -> Set(),
+      3 -> Set()
+    )
+
+    val psi =
+      G(
+        Or(
+          And(
+            Not(Atom("req1")),
+            Not(Atom("req2"))
+          ),
+          X(Atom("ack"))
+        )
+      )
+
+    assert(localizeFaults(trace, psi) == Set((1, 2)))
+  }
+
+  test("StartEndStatusFaultLocalizerTest") {
+    val psi =
+      G(
+        Or(
+          Or(
+            Or(
+              Atom("start"),
+              Atom("status_valid")
+            ),
+            Not(Atom("end")),
+          ),
+          U(
+            Not(Atom("start")),
+            Atom("status_valid")
+          )
+        )
+      )
+
+    val trace: Trace = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+
+    assert(localizeFaults(trace, psi) == Set((6, 9)))
+  }
 }

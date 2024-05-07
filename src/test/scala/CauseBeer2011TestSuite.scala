@@ -51,6 +51,30 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
     assert(C == Set((1, "req1"), (2, "ack")))
   }
 
+  // Fig. 8 in Beer et al. 2011
+  test("ReqAckTest03") {
+    val psi = U(Atom("req"), Atom("ack"))
+
+    val trace: Trace = Map(
+      0 -> Set("req"),
+      1 -> Set("req"),
+      2 -> Set(),
+      3 -> Set(),
+      4 -> Set(),
+      5 -> Set(),
+      6 -> Set(),
+    )
+
+    val actualCauses = Set(
+      (0, "ack"),
+      (1, "ack"),
+      (2, "req"),
+      (2, "ack"),
+    )
+
+    assert(causeApprox(trace, 0, psi) == actualCauses)
+  }
+
   test("StartEndStatusTest") {
     val psi =
       G(

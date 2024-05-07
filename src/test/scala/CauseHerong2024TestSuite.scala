@@ -24,6 +24,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(flipAtomsInTrace(trace, cause) == newTrace)
+    Cause.reset()
   }
 
   test("FlipAtomsTest02") {
@@ -44,6 +45,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(flipAtomsInTrace(trace, cause) == newTrace)
+    Cause.reset()
   }
 
   test("GetMaximalCausalSetTest01") {
@@ -62,6 +64,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(getFullAtomVals(trace, 2, 3, propAtoms) == maximalCS)
+    Cause.reset()
   }
 
   // Tests for cause computation
@@ -90,6 +93,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(findViolationCauses(trace, 0, 3, psi) == actualCauses)
+    Cause.reset()
   }
 
   test("ReqAckTest02") {
@@ -117,6 +121,32 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(findViolationCauses(trace, 0, 3, psi) == actualCauses)
+    Cause.reset()
+  }
+
+  // Fig. 8 in Beer et al. 2011
+  test("ReqAckTest03") {
+    val psi = U(Atom("req"), Atom("ack"))
+
+    val trace: Trace = Map(
+      0 -> Set("req"),
+      1 -> Set("req"),
+      2 -> Set(),
+      3 -> Set(),
+      4 -> Set(),
+      5 -> Set(),
+      6 -> Set(),
+    )
+
+    val actualCauses = Set(
+      Set((0, "ack", false)),
+      Set((1, "ack", false)),
+      Set((2, "ack", false)),
+      Set((2, "req", false), (3, "ack", false))
+    )
+
+    assert(findViolationCauses(trace, 0, 6, psi) == actualCauses)
+    Cause.reset()
   }
 
   test("StartEndStatusTest") {
@@ -162,40 +192,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       Set((9, "status_valid", false))
     )
 
-//    val actualCauses = Set(
-//      Set((6, "start", false), (6, "end", true), (6, "status_valid", false),
-//        (7, "status_valid", false),
-//        (8, "status_valid", false),
-//        (9, "start", true), (9, "status_valid", false))
-//    )
-
     assert(findViolationCauses(trace, 6, 9, psi) == actualCauses)  // i=0, k=11 led to blowup
+    Cause.reset()
   }
-
-//  test("MinCritSetsOfSizeTest01") {
-//    val trace: Trace = Map(
-//      0 -> Set("req1"),
-//      1 -> Set("ack"),
-//      2 -> Set("req1", "req2"),
-//      3 -> Set()
-//    )
-//
-//    val psi = toNNF(
-//      G(
-//        Or(
-//          And(
-//            Not(Atom("req1")),
-//            Not(Atom("req2"))
-//          ),
-//          X(Atom("ack"))
-//        )
-//      ))
-//
-//    val propAtoms = Set("req1", "req2", "ack")
-//
-//    // Only cause of size 1 is {<3, !ack>}
-//    assert(findMinCritSetsOfSize(trace, 2, 3, psi, propAtoms, 1) == Set(Set((3, "ack", false))))
-//    // Only cause of size 2 is {<2, req1>, <2, req2>}
-//    assert(findMinCritSetsOfSize(trace, 2, 3, psi, propAtoms - "ack", 2) == Set(Set((2, "req1", true), (2, "req2", true))))
-//  }
 }
