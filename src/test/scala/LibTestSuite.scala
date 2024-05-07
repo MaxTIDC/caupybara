@@ -13,6 +13,10 @@ class LibTestSuite extends AnyFunSuite {
       )
     )
 
+  test("GetAtomsFromLTLTest01") {
+    assert(getAtoms(psi1) == Set("req1", "req2", "ack"))
+  }
+
   test("ReqAckTraceParseTest01") {
     val rou: Trace = Map(
       0 -> Set("req1"),

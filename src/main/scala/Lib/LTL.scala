@@ -18,7 +18,24 @@ case class F(right: LTL) extends LTL
 case class G(right: LTL) extends LTL
 case class U(left: LTL, right: LTL) extends LTL
 
-/** Type aliases */
+// Type aliases
 type PropAtoms = Set[String]
 type State = Int
 type Trace = Map[State, Set[String]]
+
+// Methods
+/** */
+def getAtoms(psi: LTL): PropAtoms = psi match
+  case Atom(name) => Set(name)
+
+  case Not(phi) => getAtoms(phi)
+  case X(phi) => getAtoms(phi)
+  case F(phi) => getAtoms(phi)
+  case G(phi) => getAtoms(phi)
+
+  case And(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Or(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Implies(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Iff(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case U(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case _ => Set()

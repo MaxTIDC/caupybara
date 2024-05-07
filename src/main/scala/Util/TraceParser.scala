@@ -16,16 +16,15 @@ def parseTraceFromPath(path: String): Trace = {
   val fileSource = Source.fromFile(path)
 
   for (line <- fileSource.getLines()) { line match
-    case pattern(atom, stateStr) => {
+    case pattern(atom, stateStr) =>
       val state = stateStr.toInt
 
       if !trace.contains(state) then
         trace += (state -> Set())
 
       if !(line contains "not_holds_at") then
-        val updatedSet = trace(state) + atom
-        trace.update(state, updatedSet)
-    }
+        trace.update(state, trace(state) + atom)
+
     case _ => ;  // pass
   }
 
