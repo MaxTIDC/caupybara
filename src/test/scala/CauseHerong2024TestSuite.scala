@@ -24,7 +24,6 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(flipAtomsInTrace(trace, cause) == newTrace)
-    Cause.reset()
   }
 
   test("FlipAtomsTest02") {
@@ -45,7 +44,6 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(flipAtomsInTrace(trace, cause) == newTrace)
-    Cause.reset()
   }
 
   test("GetNegativeLiteralAtomsTest01") {
@@ -64,7 +62,6 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(getNegativeLiteralsAtoms(trace, 2, 3, literals) == expectedCS)
-    Cause.reset()
   }
 
   test("GetNegativeLiteralAtomsTest02") {
@@ -109,7 +106,6 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
 
     assert(getNegativeLiteralsAtoms(trace, 6, 9, literals) == expectedCSPartial)
     assert(getNegativeLiteralsAtoms(trace, 0, 11, literals) == expectedCSFull)
-    Cause.reset()
   }
 
   // Tests for cause computation
@@ -138,10 +134,10 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(findViolationCauses(trace, 0, 3, psi) == expectedCauses)
-    Cause.reset()
+//    Cause.reset()
   }
 
-  test("ReqAckTest02") {
+  test("ReqAckCausalityTest02") {
     val psi =
       G(
         Or(
@@ -166,11 +162,11 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(findViolationCauses(trace, 0, 3, psi) == expectedCauses)
-    Cause.reset()
+//    Cause.reset()
   }
 
-  // Fig. 8 in Beer et al. 2011
-  test("ReqAckTest03") {
+  /** Fig. 8 in Beer et al. 2011 */
+  test("ReqAckCausalityTest03") {
     val psi = U(Atom("req"), Atom("ack"))
 
     val trace: Trace = Map(
@@ -191,10 +187,10 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
     assert(findViolationCauses(trace, 0, 6, psi) == expectedCauses)
-    Cause.reset()
+//    Cause.reset()
   }
 
-  test("StartEndStatusTest") {
+  test("StartEndStatusCausalityTest") {
     val psi =
       G(
         Or(
@@ -238,7 +234,8 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     )
 
 //    assert(findViolationCauses(trace, 6, 9, psi) == expectedCauses)
+//    Cause.reset()
     assert(findViolationCauses(trace, 0, 11, psi) == expectedCauses) // led to blowup
-    Cause.reset()
+//    Cause.reset()
   }
 }
