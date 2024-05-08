@@ -19,23 +19,24 @@ case class G(right: LTL) extends LTL
 case class U(left: LTL, right: LTL) extends LTL
 
 // Type aliases
-type PropAtoms = Set[String]
+//type PropAtoms = Set[String]
 type State = Int
 type Trace = Map[State, Set[String]]
 
 // Methods
 /** */
-def getAtoms(psi: LTL): PropAtoms = psi match
-  case Atom(name) => Set(name)
+def getLiterals(psi: LTL): Set[LTL] = psi match
+  case l@Atom(_) => Set(l)
+  case l@Not(Atom(_)) => Set(l)
 
-  case Not(phi) => getAtoms(phi)
-  case X(phi) => getAtoms(phi)
-  case F(phi) => getAtoms(phi)
-  case G(phi) => getAtoms(phi)
+  case Not(phi) => getLiterals(phi)
+  case X(phi) => getLiterals(phi)
+  case F(phi) => getLiterals(phi)
+  case G(phi) => getLiterals(phi)
 
-  case And(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
-  case Or(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
-  case Implies(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
-  case Iff(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
-  case U(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case And(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+  case Or(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+  case Implies(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+  case Iff(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+  case U(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case _ => Set()

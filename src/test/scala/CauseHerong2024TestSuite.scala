@@ -48,7 +48,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
     Cause.reset()
   }
 
-  test("GetMaximalCausalSetTest01") {
+  test("GetNegativeLiteralAtomsTest01") {
     val trace: Trace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -56,14 +56,59 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       3 -> Set()
     )
 
-    val propAtoms = Set("req1", "req2", "ack")
+    val literals = Set(Not(Atom("req1")), Not(Atom("req2")), Atom("ack"))
 
-    val maximalCS = Set(
+    val expectedCS = Set(
       (2, "req1", true), (2, "req2", true), (2, "ack", false),
-      (3, "req1", false), (3, "req2", false), (3, "ack", false)
+      (3, "ack", false),
     )
 
-    assert(getFullAtomVals(trace, 2, 3, propAtoms) == maximalCS)
+    assert(getNegativeLiteralsAtoms(trace, 2, 3, literals) == expectedCS)
+    Cause.reset()
+  }
+
+  test("GetNegativeLiteralAtomsTest02") {
+    val trace: Trace = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+
+    val literals = Set(Atom("start"), Atom("status_valid"), Not(Atom("end")), Not(Atom("start")))
+
+    val expectedCSPartial = Set(
+      (6, "start", false), (6, "status_valid", false), (6, "end", true),
+      (7, "start", false), (7, "status_valid", false),
+      (8, "start", false), (8, "status_valid", false),
+      (9, "start", true), (9, "status_valid", false),
+    )
+
+    val expectedCSFull = Set(
+      (0, "start", false), (0, "status_valid", false),
+      (1, "start", true), (1, "status_valid", false),
+      (2, "start", false), (2, "status_valid", false),
+      (3, "start", false), (3, "status_valid", false), (3, "end", true),
+      (4, "start", true),
+      (5, "start", false), (5, "status_valid", false),
+      (6, "start", false), (6, "status_valid", false), (6, "end", true),
+      (7, "start", false), (7, "status_valid", false),
+      (8, "start", false), (8, "status_valid", false),
+      (9, "start", true), (9, "status_valid", false),
+      (10, "start", false),
+      (11, "start", false), (11, "status_valid", false),
+    )
+
+    assert(getNegativeLiteralsAtoms(trace, 6, 9, literals) == expectedCSPartial)
+    assert(getNegativeLiteralsAtoms(trace, 0, 11, literals) == expectedCSFull)
     Cause.reset()
   }
 
@@ -87,12 +132,12 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       3 -> Set()
     )
 
-    val actualCauses = Set(
+    val expectedCauses = Set(
       Set((3, "ack", false)),
       Set((2, "req1", true), (2, "req2", true))
     )
 
-    assert(findViolationCauses(trace, 0, 3, psi) == actualCauses)
+    assert(findViolationCauses(trace, 0, 3, psi) == expectedCauses)
     Cause.reset()
   }
 
@@ -115,12 +160,12 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       3 -> Set()
     )
 
-    val actualCauses = Set(
+    val expectedCauses = Set(
       Set((1, "req1", true)),
       Set((2, "ack", false))
     )
 
-    assert(findViolationCauses(trace, 0, 3, psi) == actualCauses)
+    assert(findViolationCauses(trace, 0, 3, psi) == expectedCauses)
     Cause.reset()
   }
 
@@ -138,14 +183,14 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       6 -> Set(),
     )
 
-    val actualCauses = Set(
+    val expectedCauses = Set(
       Set((0, "ack", false)),
       Set((1, "ack", false)),
       Set((2, "ack", false)),
       Set((2, "req", false), (3, "ack", false))
     )
 
-    assert(findViolationCauses(trace, 0, 6, psi) == actualCauses)
+    assert(findViolationCauses(trace, 0, 6, psi) == expectedCauses)
     Cause.reset()
   }
 
@@ -182,7 +227,7 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       11 -> Set(),
     )
 
-    val actualCauses = Set(
+    val expectedCauses = Set(
       Set((6, "start", false)),
       Set((6, "end", true)),
       Set((6, "status_valid", false)),
@@ -192,7 +237,8 @@ class CauseHerong2024TestSuite extends AnyFunSuite {
       Set((9, "status_valid", false))
     )
 
-    assert(findViolationCauses(trace, 6, 9, psi) == actualCauses)  // i=0, k=11 led to blowup
+//    assert(findViolationCauses(trace, 6, 9, psi) == expectedCauses)
+    assert(findViolationCauses(trace, 0, 11, psi) == expectedCauses) // led to blowup
     Cause.reset()
   }
 }

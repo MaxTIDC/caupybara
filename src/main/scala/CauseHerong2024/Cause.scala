@@ -3,6 +3,8 @@
 package CauseHerong2024
 
 import Lib.*
+import Util.toNNF
+
 import scala.collection.mutable
 
 type CausalSet = Set[(State, String, Boolean)]
@@ -16,13 +18,13 @@ object Cause {
    * from state i to k. Follows Herong 2024 definition of causality.
    */
   def findViolationCauses(pi: Trace, i: State, k: State, psi: LTL): Set[CausalSet] = {
-    var availableAtomVals: CausalSet = getFullAtomVals(pi, i, k, getAtoms(psi)) diff usedAtomVals
+    var availableAtomVals: CausalSet = getNegativeLiteralsAtoms(pi, i, k, getLiterals(toNNF(psi))) diff usedAtomVals
 
     var size: Int = 1
     while size <= availableAtomVals.size do
-      val candidates: Set[CausalSet] = subsetsOfSize(availableAtomVals, size)
+      val candidateCausalSets: Set[CausalSet] = subsetsOfSize(availableAtomVals, size)
 
-      val newCauses = findCritSets(pi, i, k, psi, candidates)
+      val newCauses = findCritSets(pi, i, k, psi, candidateCausalSets)
       causes = causes union newCauses
       for cs <- newCauses do
         usedAtomVals = usedAtomVals union cs
@@ -71,14 +73,22 @@ object Cause {
   }
 
   /**
-   * Return all atomic valuations on the trace from state i to k,
-   * given in CausalSet format using ONLY the given propositional atoms.
+   * Return all (state, atom, value) where the atom belong to a literal in an NNF LTL formula,
+   * and the literal is false on the trace at the state.
+   *
+   * Pre:
+   * - literals extracted from NNF LTL formula.
    */
-  def getFullAtomVals(pi: Trace, i: State, k: State, propAtoms: PropAtoms): CausalSet = {
+  def getNegativeLiteralsAtoms(pi: Trace, i: State, k: State, literals: Set[LTL]): CausalSet = {
+    def atomTrueAt(pi: Trace, j: State, atom: String): Boolean = pi(j) contains atom
+
     var cs: CausalSet = Set()
     for j <- i to k do
-      for atom <- propAtoms do
-        cs += ((j, atom, pi(j) contains atom))
+      for l <- literals do l match
+        // Select literals that are negative
+        case Atom(name) => if !atomTrueAt(pi, j, name) then cs += ((j, name, atomTrueAt(pi, j, name)))
+        case Not(Atom(name)) => if atomTrueAt(pi, j, name) then cs += ((j, name, atomTrueAt(pi, j, name)))
+        case _ => ;
 
     cs
   }

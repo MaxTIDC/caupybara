@@ -14,7 +14,7 @@ class LibTestSuite extends AnyFunSuite {
     )
 
   test("GetAtomsFromLTLTest01") {
-    assert(getAtoms(psi1) == Set("req1", "req2", "ack"))
+    assert(getLiterals(psi1) == Set(Not(Atom("req1")), Not(Atom("req2")), Atom("ack")))
   }
 
   test("ReqAckTraceParseTest01") {
