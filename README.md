@@ -21,3 +21,8 @@ java -jar fyp-causality.jar [--ltl | -l LTL property string] [--trace | -t trace
 - `--trace` / `-t`: File describing the trace where the violation occurred. See `input-files` for format.
 - `--cause` / `-c`: Causality mode. Currently supported: `beer2011` (Beer et al. 2011), `herong2024`.
 - `--out` / `-o`: Output mode, `pickled` for pickled version, otherwise as default Scala format.
+
+Example: 
+```angular2html
+java -jar fyp-causality.jar -l "G((!req1 & !req2) | X ack)" -t "[PROJECT_ROOT]/input-files/Beer2011/req_ack_violation_1.txt" -c "Herong2024" --out "pickle"
+```
