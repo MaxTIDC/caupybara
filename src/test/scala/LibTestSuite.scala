@@ -17,7 +17,7 @@ class LibTestSuite extends AnyFunSuite {
     assert(getLiterals(psi1) == Set(Not(Atom("req1")), Not(Atom("req2")), Atom("ack")))
   }
 
-  test("ReqAckTraceParseTest01") {
+  test("ReqAckTrace3VLTest01") {
     val rou: Trace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -27,7 +27,7 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(rou, 0, 3, psi1) == Trilean.F)
   }
 
-  test("ReqAckTraceParseTest02") {
+  test("ReqAckTrace3VLTest02") {
     val rou: Trace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -37,7 +37,7 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(rou, 0, 3, psi1) == Trilean.U)
   }
 
-  test("ReqAckTraceParseTest03") {
+  test("ReqAckTrace3VLTest03") {
     val rou: Trace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -47,7 +47,7 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(rou, 0, 3, psi1) == Trilean.U)
   }
 
-  test("ReqAckTraceParseTest04") {
+  test("ReqAckTrace3VLTest04") {
     val rou: Trace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -95,4 +95,16 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(trace, 7, 9, psi) != Trilean.F)
     assert(evalTrilean(trace, 7, 11, psi) != Trilean.F)
   }
+
+  test("Minepump3VLTest01") {
+    val psi = And(Not(Atom("highwater")), Not(Atom("methane")))
+
+    val rou: Trace = Map(
+      0 -> Set(),
+      1 -> Set("highwater", "methane")
+    )
+
+    assert(evalTrilean(rou, 0, 1, psi) == Trilean.T)
+  }
+
 }

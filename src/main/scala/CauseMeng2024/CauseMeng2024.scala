@@ -21,8 +21,9 @@ object Cause {
     var causes: Set[CausalSet] = Set()
     var availableAtomVals: CausalSet = getNegativeLiteralsAtoms(pi, i, k, getLiterals(toNNF(psi))) // diff usedAtomVals
 
+    if evalTrilean(pi, i, k, psi) != Trilean.F then return causes
+
     for size <- 1 to math.min(availableAtomVals.size, maxSize + 1) do
-//    for size <- 1 to availableAtomVals.size do
       val candidateCausalSets: Set[CausalSet] = subsetsOfSize(availableAtomVals, size)
 
       // Find critical sets
