@@ -14,7 +14,7 @@ object LTLParser extends RegexParsers {
   def propAtom: Parser[Atom] = """[a-zA-Z_][a-zA-Z0-9_]*""".r ^^ { name => Atom(name) }
 
   // Term rules
-  private def nextTerm: Parser[X] = "X" ~> factor ^^ { phi => X(phi) }
+  private def nextTerm: Parser[X] = ("X" | "next") ~> factor ^^ { phi => X(phi) }
   private def eventuallyTerm: Parser[F] = "F" ~> factor ^^ { phi => F(phi) }
   private def alwaysTerm: Parser[G] = "G" ~> factor ^^ { phi => G(phi) }
   private def notTerm: Parser[Not] = "!" ~> factor ^^ { phi => Not(phi) }
@@ -31,7 +31,7 @@ object LTLParser extends RegexParsers {
   private def untilExpr: Parser[U] = term ~ ("U" ~> term) ^^ { case phiL ~ phiR => U(phiL, phiR) }
 
   // LTL grammar
-  private def expr: Parser[LTL] = andExpr | orExpr | impliesExpr | iffExpr | untilExpr | GFExpr | FGExpr | term
+  private def expr: Parser[LTL] = iffExpr | impliesExpr | orExpr | andExpr | untilExpr | GFExpr | FGExpr | term
   private def term: Parser[LTL] = notTerm | nextTerm | eventuallyTerm | alwaysTerm | factor
   private def factor: Parser[LTL] = truth | falsity | propAtom | ("(" ~> expr <~ ")") | expr
 

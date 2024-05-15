@@ -121,9 +121,15 @@ class UtilTestSuite extends AnyFunSuite {
     assert(LTLParser("GF!req1") == G(F(Not(Atom("req1")))))
   }
 
-//  test("MiscParseTest01") {
-//    assert(LTLParser("Foo") == Atom("Foo"))
-//  }
+  test("ArbiterParseTest01") {  // TODO: improve parser to support ambiguous bracketing
+    assert(LTLParser("!g1&!g2") == And(Not(Atom("g1")), Not(Atom("g2"))))
+//    assert(LTLParser("!a->!g1&!g2") == Implies(Not(Atom("a")), And(Not(Atom("g1")), Not(Atom("g2")))))
+//    assert(LTLParser("G(!a->!g1&!g2)") == G(Implies(Not(Atom("a")), And(Not(Atom("g1")), Not(Atom("g2"))))))
+  }
+
+  test("ArbiterParseTest02") {
+    assert(LTLParser("G(!a -> next(a))") == G(Implies(Not(Atom("a")), X(Atom("a")))))
+  }
 
   // Fault localizer tests
   test("ReqAckFaultLocalizerTest01") {

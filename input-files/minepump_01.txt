@@ -1,0 +1,11 @@
+not_holds_at(h,0,).
+not_holds_at(m,0,).
+not_holds_at(p,0,).
+
+    holds_at(h,1,).
+not_holds_at(m,1,).
+not_holds_at(p,1,).
+
+    holds_at(h,2,).
+    holds_at(m,2,).
+not_holds_at(p,2,).

@@ -42,5 +42,5 @@ def evalTrilean(pi: Trace, i: State, k: State, psi: LTL): Trilean = if i > k the
   case U(phi1, phi2) => evalTrilean(pi, i, k, Or(phi2, And(phi1, X(psi))))
   case G(phi) => evalTrilean(pi, i, k, And(phi, X(psi)))
 
-  case _ => Trilean.U  // TODO
+  case _ => Trilean.U  // Catch default
 }
