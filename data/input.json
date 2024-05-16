@@ -1,0 +1,44 @@
+{
+  "Arbiter/Arbiter_raw_violation.txt": {
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": [],
+    "G(!a -> (!g1 & !g2))": []
+  },
+  "Arbiter/Arbiter_edited_violation.txt": {
+    "G(!a -> next(a))": []
+  },
+  "Minepump/minepump_strong_auto_violation.txt": {
+    "!highwater & !methane": [],
+    "G(!highwater|!methane)": []
+  },
+  "Traffic/traffic_violation.txt": {
+    "!carA & (!carB & !emergency)": [],
+    "alwEv carA": [],
+    "alwEv carB": [],
+    "alwEv !emergency": [],
+    "alw ((carA & !greenA) -> next(carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & greenB) -> next(!carB))": []
+  },
+  "Traffic/traffic_violation_long.txt": {
+    "!carA & (!carB & !emergency)": [],
+    "alwEv carA": [],
+    "alwEv carB": [],
+    "alwEv !emergency": [],
+    "alw ((carA & !greenA) -> next(carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & greenB) -> next(!carB))": []
+  },
+  "Traffic/traffic_violation_double.txt": {
+    "!carA & (!carB & !emergency)": [],
+    "alwEv carA": [],
+    "alwEv carB": [],
+    "alwEv !emergency": [],
+    "alw ((carA & !greenA) -> next(carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & greenB) -> next(!carB))": []
+  }
+}

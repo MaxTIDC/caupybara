@@ -1,0 +1,152 @@
+{
+  "Arbiter/Arbiter_edited_violation.txt": {
+    "G(!a -> next(a))": [
+      [
+        1,
+        "a"
+      ],
+      [
+        2,
+        "a"
+      ]
+    ]
+  },
+  "Arbiter/Arbiter_raw_violation.txt": {
+    "G(!a -> (!g1 & !g2))": [],
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": []
+  },
+  "Minepump/minepump_strong_auto_violation.txt": {
+    "!highwater & !methane": [],
+    "G(!highwater|!methane)": [
+      [
+        1,
+        "highwater"
+      ],
+      [
+        1,
+        "methane"
+      ]
+    ]
+  },
+  "Traffic/traffic_violation.txt": {
+    "!carA & (!carB & !emergency)": [],
+    "alw ((carA & !greenA) -> next(carA))": [
+      [
+        1,
+        "carA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "carA"
+      ]
+    ],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carB & greenB) -> next(!carB))": [],
+    "alwEv !emergency": [],
+    "alwEv carA": [
+      [
+        2,
+        "carA"
+      ]
+    ],
+    "alwEv carB": [
+      [
+        0,
+        "carB"
+      ],
+      [
+        1,
+        "carB"
+      ],
+      [
+        2,
+        "carB"
+      ]
+    ]
+  },
+  "Traffic/traffic_violation_double.txt": {
+    "!carA & (!carB & !emergency)": [],
+    "alw ((carA & !greenA) -> next(carA))": [
+      [
+        1,
+        "carA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "carA"
+      ]
+    ],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carB & greenB) -> next(!carB))": [],
+    "alwEv !emergency": [],
+    "alwEv carA": [
+      [
+        4,
+        "carA"
+      ]
+    ],
+    "alwEv carB": [
+      [
+        4,
+        "carB"
+      ]
+    ]
+  },
+  "Traffic/traffic_violation_long.txt": {
+    "!carA & (!carB & !emergency)": [
+      [
+        0,
+        "carA"
+      ]
+    ],
+    "alw ((carA & !greenA) -> next(carA))": [
+      [
+        6,
+        "carA"
+      ],
+      [
+        6,
+        "greenA"
+      ],
+      [
+        7,
+        "carA"
+      ]
+    ],
+    "alw ((carA & greenA) -> next(!carA))": [],
+    "alw ((carB & !greenB) -> next(carB))": [],
+    "alw ((carB & greenB) -> next(!carB))": [],
+    "alwEv !emergency": [],
+    "alwEv carA": [
+      [
+        7,
+        "carA"
+      ]
+    ],
+    "alwEv carB": [
+      [
+        5,
+        "carB"
+      ],
+      [
+        6,
+        "carB"
+      ],
+      [
+        7,
+        "carB"
+      ]
+    ]
+  }
+}
