@@ -4,7 +4,7 @@ Cause computation tool for LTL properties violation.
 
 ### Dependencies
 
-#### Run pre-built Jar under `out/artifacts/fyp_causality_jar`
+#### Running pre-built Jar (under project root)
 
 JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/21/).
 
