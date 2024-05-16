@@ -45,6 +45,16 @@ class UtilTestSuite extends AnyFunSuite {
     assert(actualTrace == expectedTrace)
   }
 
+  test("TrafficParseTest01") {
+    val actualTrace = parseTraceFromPath("input-files/traffic.txt")
+    val expectedTrace = Map(
+      0 -> Set(),
+      1 -> Set("carA", "emergency"),
+      2 -> Set(),
+    )
+    assert(actualTrace == expectedTrace)
+  }
+
   // NNF tests
   test("ReqAckToNNFTest") {
     val actualPhi = toNNF(G(Implies(Or(Atom("req1"), Atom("req2")), X(Atom("ack")))))
@@ -129,6 +139,12 @@ class UtilTestSuite extends AnyFunSuite {
 
   test("ArbiterParseTest02") {
     assert(LTLParser("G(!a -> next(a))") == G(Implies(Not(Atom("a")), X(Atom("a")))))
+  }
+
+  test("TrafficParseTests") { // TODO: improve parser to support ambiguous bracketing
+    assert(LTLParser("alwEv carA") == G(F(Atom("carA"))))
+    assert(LTLParser("alw (carA & !greenA) -> next(carA)") == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA")))))
+    //    assert(LTLParser("alw carA & !greenA -> next(carA)") == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA")))))
   }
 
   // Fault localizer tests

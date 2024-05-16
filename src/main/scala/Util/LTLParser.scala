@@ -16,12 +16,20 @@ object LTLParser extends RegexParsers {
   // Term rules
   private def nextTerm: Parser[X] = ("X" | "next") ~> factor ^^ { phi => X(phi) }
   private def eventuallyTerm: Parser[F] = "F" ~> factor ^^ { phi => F(phi) }
-  private def alwaysTerm: Parser[G] = "G" ~> factor ^^ { phi => G(phi) }
+
+  private def alwaysTerm: Parser[G] = ("G" | "alw") ~> factor ^^ { phi => G(phi) }
   private def notTerm: Parser[Not] = "!" ~> factor ^^ { phi => Not(phi) }
 
   // Special shorthands for GR(1)
   private def GFExpr: Parser[LTL] = "GF" ~> term ^^ { phi => G(F(phi)) }
   private def FGExpr: Parser[LTL] = "FG" ~> term ^^ { phi => F(G(phi)) }
+
+  // Special rules for Spectra input format
+  private def spAlwEvExpr: Parser[LTL] = "alwEv" ~> expr ^^ { phi => G(F(phi)) }
+
+  private def spAlwExpr: Parser[LTL] = "alw" ~> expr ^^ { phi => G(phi) }
+
+  private def spIniExpr: Parser[LTL] = "ini" ~> expr ^^ identity
 
   // Expression rules
   private def andExpr: Parser[And] = term ~ ("&" ~> term) ^^ { case phiL ~ phiR => And(phiL, phiR) }
@@ -31,7 +39,7 @@ object LTLParser extends RegexParsers {
   private def untilExpr: Parser[U] = term ~ ("U" ~> term) ^^ { case phiL ~ phiR => U(phiL, phiR) }
 
   // LTL grammar
-  private def expr: Parser[LTL] = iffExpr | impliesExpr | orExpr | andExpr | untilExpr | GFExpr | FGExpr | term
+  private def expr: Parser[LTL] = spAlwEvExpr | spAlwExpr | spIniExpr | iffExpr | impliesExpr | orExpr | andExpr | untilExpr | GFExpr | FGExpr | term
   private def term: Parser[LTL] = notTerm | nextTerm | eventuallyTerm | alwaysTerm | factor
   private def factor: Parser[LTL] = truth | falsity | propAtom | ("(" ~> expr <~ ")") | expr
 

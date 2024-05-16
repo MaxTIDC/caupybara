@@ -10,7 +10,7 @@ import scala.util.matching.Regex
  * Parse input file (Tibi's format) into internal LTL trace representation.
  */
 def parseTraceFromPath(path: String): Trace = {
-  val pattern: Regex = """.*holds_at\(([a-zA-Z].*),([0-9]+),.*\)\.""".r
+  val pattern: Regex = """.*holds_at\(([a-zA-Z].*),\s*([0-9]+),.*\)\.""".r
 
   val trace = mutable.Map[Int, Set[String]]()
   val fileSource = Source.fromFile(path)
