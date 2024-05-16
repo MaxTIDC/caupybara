@@ -116,35 +116,57 @@ class UtilTestSuite extends AnyFunSuite {
 
   // LTL parse tests
   test("PLParseTest01") {
-    val actualPhi = LTLParser("!req1 & !req2")
-    val expectedPhi = And(Not(Atom("req1")), Not(Atom("req2")))
-    assert(actualPhi == expectedPhi)
+    assert(LTLParser("!req1 & !req2") == And(Not(Atom("req1")), Not(Atom("req2"))))
   }
 
   test("ReqAckLTLParseTest01") {
-    val actualPhi = LTLParser("G((!req1 & !req2) | X ack)")
-    val expectedPhi = G(Or(And(Not(Atom("req1")), Not(Atom("req2"))), X(Atom("ack"))))
-    assert(actualPhi == expectedPhi)
+    assert(
+      LTLParser("G((!req1 & !req2) | X ack)")
+        == G(Or(And(Not(Atom("req1")), Not(Atom("req2"))), X(Atom("ack"))))
+    )
   }
 
   test("ReqAckLTLParseTest03") {
     assert(LTLParser("GF!req1") == G(F(Not(Atom("req1")))))
   }
 
-  test("ArbiterParseTest01") {  // TODO: improve parser to support ambiguous bracketing
-    assert(LTLParser("!g1&!g2") == And(Not(Atom("g1")), Not(Atom("g2"))))
-//    assert(LTLParser("!a->!g1&!g2") == Implies(Not(Atom("a")), And(Not(Atom("g1")), Not(Atom("g2")))))
-//    assert(LTLParser("G(!a->!g1&!g2)") == G(Implies(Not(Atom("a")), And(Not(Atom("g1")), Not(Atom("g2"))))))
+  test("ArbiterParseTest01") {
+    assert(
+      LTLParser("G(!a->!g1&!g2)")
+        == G(Implies(Not(Atom("a")), And(Not(Atom("g1")), Not(Atom("g2")))))
+    )
   }
 
   test("ArbiterParseTest02") {
     assert(LTLParser("G(!a -> next(a))") == G(Implies(Not(Atom("a")), X(Atom("a")))))
   }
 
-  test("TrafficParseTests") { // TODO: improve parser to support ambiguous bracketing
-    assert(LTLParser("alwEv carA") == G(F(Atom("carA"))))
-    assert(LTLParser("alw (carA & !greenA) -> next(carA)") == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA")))))
-    //    assert(LTLParser("alw carA & !greenA -> next(carA)") == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA")))))
+  test("TrafficParseTests01") {
+    assert(
+      LTLParser("alw carA & !greenA -> next(carA)")
+        == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA"))))
+    )
+  }
+
+  test("TrafficParseTests02") {
+    assert(
+      LTLParser("alw carA & !greenA -> next(carA)")
+        == G(Implies(And(Atom("carA"), Not(Atom("greenA"))), X(Atom("carA"))))
+    )
+  }
+
+  test("TrafficParseTests03") {
+    assert(
+      LTLParser("ini !carA & !carB & !emergency")
+        == And(And(Not(Atom("carA")), Not(Atom("carB"))), Not(Atom("emergency")))
+    )
+  }
+
+  test("TrafficParseTests04") {
+    assert(
+      LTLParser("ini !carA & !carB | !emergency")
+        == Or(And(Not(Atom("carA")), Not(Atom("carB"))), Not(Atom("emergency")))
+    )
   }
 
   // Fault localizer tests

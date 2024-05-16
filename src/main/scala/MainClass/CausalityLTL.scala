@@ -3,8 +3,8 @@ package MainClass
 import CauseBeer2011.causeApprox
 import CauseMeng2024.Cause
 import Lib.*
-import upickle.default._
 import Util.*
+import upickle.default.*
 
 object CausalityLTL {
   private val usage =
@@ -31,8 +31,8 @@ object CausalityLTL {
     var argMap = argMapBuilder.result()
 
     // Throw errors when crucial fields not included
-    if !(argMap contains "psiStr") then throw IllegalArgumentException("LTL property not specified!")
-    if !(argMap contains "traceFilePath") then throw IllegalArgumentException("Trace file not specified!")
+    if !(argMap contains "psiStr") then throw sys.error("LTL property not specified!")
+    if !(argMap contains "traceFilePath") then throw sys.error("Trace file not specified!")
 
     // Catch default options
     if !(argMap contains "outputMode") then argMap.+=("outputMode" -> "")

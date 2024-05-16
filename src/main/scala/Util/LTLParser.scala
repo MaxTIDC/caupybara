@@ -9,43 +9,69 @@ import scala.util.parsing.combinator.*
  */
 object LTLParser extends RegexParsers {
   // Factors (terminals)
-  def truth: Parser[LTL] = "true" ^^ { _ => True }
-  def falsity: Parser[LTL] = "false" ^^ { _ => False }
-  def propAtom: Parser[Atom] = """[a-zA-Z_][a-zA-Z0-9_]*""".r ^^ { name => Atom(name) }
+  private def truth: Parser[LTL] = "true" ^^ { _ => True }
 
-  // Term rules
-  private def nextTerm: Parser[X] = ("X" | "next") ~> factor ^^ { phi => X(phi) }
-  private def eventuallyTerm: Parser[F] = "F" ~> factor ^^ { phi => F(phi) }
+  private def falsity: Parser[LTL] = "false" ^^ { _ => False }
 
-  private def alwaysTerm: Parser[G] = ("G" | "alw") ~> factor ^^ { phi => G(phi) }
-  private def notTerm: Parser[Not] = "!" ~> factor ^^ { phi => Not(phi) }
+  private def propAtom: Parser[Atom] = """[a-zA-Z_][a-zA-Z0-9_]*""".r ^^ { name => Atom(name) }
 
-  // Special shorthands for GR(1)
-  private def GFExpr: Parser[LTL] = "GF" ~> term ^^ { phi => G(F(phi)) }
-  private def FGExpr: Parser[LTL] = "FG" ~> term ^^ { phi => F(G(phi)) }
+  // Unary operator rules
+  private def next: Parser[X] = ("X" | "next") ~> factor ^^ { phi => X(phi) }
 
-  // Special rules for Spectra input format
+  private def eventually: Parser[F] = "F" ~> factor ^^ { phi => F(phi) }
+
+  private def always: Parser[G] = "G" ~> factor ^^ { phi => G(phi) }
+
+  private def not: Parser[Not] = "!" ~> factor ^^ { phi => Not(phi) }
+
+  // Special expressions for GR(1)
+  private def GFExpr: Parser[LTL] = "GF" ~> expr ^^ { phi => G(F(phi)) }
+
+  private def FGExpr: Parser[LTL] = "FG" ~> expr ^^ { phi => F(G(phi)) }
+
+  // Special Spectra-formatted expressions
   private def spAlwEvExpr: Parser[LTL] = "alwEv" ~> expr ^^ { phi => G(F(phi)) }
-
   private def spAlwExpr: Parser[LTL] = "alw" ~> expr ^^ { phi => G(phi) }
-
   private def spIniExpr: Parser[LTL] = "ini" ~> expr ^^ identity
 
-  // Expression rules
-  private def andExpr: Parser[And] = term ~ ("&" ~> term) ^^ { case phiL ~ phiR => And(phiL, phiR) }
-  private def orExpr: Parser[Or] = term ~ ("|" ~> term) ^^ { case phiL ~ phiR => Or(phiL, phiR) }
-  private def impliesExpr: Parser[Implies] = term ~ ("->" ~> term) ^^ { case phiL ~ phiR => Implies(phiL, phiR) }
-  private def iffExpr: Parser[Iff] = term ~ ("<->" ~> term) ^^ { case phiL ~ phiR => Iff(phiL, phiR) }
-  private def untilExpr: Parser[U] = term ~ ("U" ~> term) ^^ { case phiL ~ phiR => U(phiL, phiR) }
-
   // LTL grammar
-  private def expr: Parser[LTL] = spAlwEvExpr | spAlwExpr | spIniExpr | iffExpr | impliesExpr | orExpr | andExpr | untilExpr | GFExpr | FGExpr | term
-  private def term: Parser[LTL] = notTerm | nextTerm | eventuallyTerm | alwaysTerm | factor
-  private def factor: Parser[LTL] = truth | falsity | propAtom | ("(" ~> expr <~ ")") | expr
+  private def expr: Parser[LTL] = spAlwEvExpr | spAlwExpr | spIniExpr | GFExpr | FGExpr | binOps1
 
+  private def binOps1: Parser[LTL] = binOps2 ~ rep(("<->" | "->") ~ binOps2) ^^ {
+    case sub ~ list => list.foldLeft(sub) {
+      case (phiL, "<->" ~ phiR) => Iff(phiL, phiR)
+      case (phiL, "->" ~ phiR) => Implies(phiL, phiR)
+    }
+  }
+
+  private def binOps2: Parser[LTL] = binOps3 ~ rep(("|" | "||") ~ binOps3) ^^ {
+    case sub ~ list => list.foldLeft(sub) {
+      case (phiL, "|" ~ phiR) => Or(phiL, phiR)
+      case (phiL, "||" ~ phiR) => Or(phiL, phiR)
+    }
+  }
+
+  private def binOps3: Parser[LTL] = binOps4 ~ rep(("&" | "&&") ~ binOps4) ^^ {
+    case sub ~ list => list.foldLeft(sub) {
+      case (phiL, "&" ~ phiR) => And(phiL, phiR)
+      case (phiL, "&&" ~ phiR) => And(phiL, phiR)
+    }
+  }
+
+  private def binOps4: Parser[LTL] = unOps ~ rep("U" ~ unOps) ^^ {
+    case sub ~ list => list.foldLeft(sub) {
+      case (phiL, "U" ~ phiR) => U(phiL, phiR)
+    }
+  }
+
+  private def unOps: Parser[LTL] = eventually | always | next | not | factor
+
+  private def factor: Parser[LTL] = truth | falsity | propAtom | ("(" ~> expr <~ ")")
+
+  // Parser methods
   private def parseLTL(str: String): ParseResult[LTL] = parseAll(expr, str)
   def apply(str: String): LTL = LTLParser.parseLTL(str) match {
-    case LTLParser.Success(result: LTL, _) => result
-    case _ => sys.error("Could not parse the input string: " + str)
+    case Success(result: LTL, _) => result
+    case failure: NoSuccess => sys.error("Could not parse the input string: " + str + "\n" + failure)
   }
 }
