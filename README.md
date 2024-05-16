@@ -6,7 +6,7 @@ Cause computation tool for LTL properties violation.
 
 #### Running pre-built Jar (under project root)
 
-JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/21/).
+JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/23/).
 
 ### Usage
 
@@ -20,5 +20,5 @@ java -jar fyp-causality.jar [--ltl | -l LTL property string] [--trace | -t trace
 
 Example: 
 ```angular2html
-java -jar fyp-causality.jar -l "G((!req1 & !req2) | X ack)" -t "[PROJECT_ROOT]/input-files/Beer2011/req_ack_violation_1.txt" -c meng2024 -o pickle
+java -jar fyp-causality.jar -l "G((!req1 & !req2) | X ack)" -t "./input-files/Beer2011/req_ack_violation_1.txt" -c meng2024 -o pickle
 ```
