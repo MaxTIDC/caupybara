@@ -42,7 +42,7 @@ def write_to_file(json_file: str, output: dict) -> None:
     """
     try:
         with open(json_file, 'w') as f:
-            json.dump(output, f, indent=2, sort_keys=True)
+            json.dump(output, f, indent=2)
     except Exception as e:
         print(str(e))
 
