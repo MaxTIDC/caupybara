@@ -26,7 +26,6 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
         for ltl in data.get(trace).keys():  # For each LTL property
             args_tail = [
                 "-c", causality,
-                "-o", "pickled",
                 "-l", ltl,
                 "-t", trace_dir + trace,
             ]

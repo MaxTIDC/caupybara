@@ -56,14 +56,14 @@ object CausalityLTL {
     if argMap("causeMode") == "beer2011" || argMap("causeMode") == "beer" || argMap("causeMode") == "hana" then
       val cause = causeApprox(trace, 0, psi)
       argMap("outputMode") match
-        case "pickle" | "pickled" | "p" => println(write(cause))
-        case _ => println(cause)
+        case "original" => println(cause)
+        case _ => println(write(cause))
 
     else if argMap("causeMode") == "meng2024" || argMap("causeMode") == "meng" || argMap("causeMode") == "max" then
       val cause = Cause.findViolationCauses(trace, 0, trace.size-1, psi)
       argMap("outputMode") match
-        case "pickle" | "pickled" | "p" => println(write(cause))
-        case _ => println(cause)
+        case "original" => println(cause)
+        case _ => println(write(cause))
 
     else println("Please enter valid causality mode: beer2011 | meng2024.")
   }
