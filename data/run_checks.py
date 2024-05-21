@@ -9,7 +9,7 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
     """
     output = dict()
 
-    jar_path = os.path.join(project_dir, "fyp-causality.jar")
+    jar_path = os.path.join(project_dir, "bin", "fyp-causality.jar")
     bin_path = os.path.join(project_dir, "bin", 
                             "fyp-causality" + (".exe" if sys.platform.startswith("win") else ""))
     trace_dir = os.path.join(project_dir, "input-files/")
