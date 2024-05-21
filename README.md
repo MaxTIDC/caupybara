@@ -19,17 +19,17 @@ Pre-compiled binaries for Linux and Windows (recommended), JAR files are availab
 
 ##### Linux binary (recommended)
 ```angular2html
-./bin/fyp-causality -l 'G((!req1 & !req2) | X ack)' -t ./input-files/Beer2011/req_ack_violation_1.txt -c meng2024
+./bin/fyp-causality -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
-#### Windows executable (recommended)
+##### Windows executable (recommended)
 ```angular2html
-./bin/fyp-causality.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/Beer2011/req_ack_violation_1.txt -c meng2024
+./bin/fyp-causality.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
-#### JAR
+##### JAR
 ```angular2html
-java -jar fyp-causality.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/Beer2011/req_ack_violation_1.txt -c meng2024
+java -jar ./bin/fyp-causality.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
 ### Dependencies
