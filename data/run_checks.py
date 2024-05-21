@@ -9,29 +9,31 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
     """
     output = dict()
 
-    JAR_PATH = os.path.join(project_dir, "fyp-causality.jar")
-    BIN_PATH = os.path.join(project_dir, "bin", "fyp-causality.exe")  # TODO: support for Linux
-    TRACE_DIR = os.path.join(project_dir, "input-files/")
+    jar_path = os.path.join(project_dir, "fyp-causality.jar")
+    bin_path = os.path.join(project_dir, "bin", 
+                            "fyp-causality" + (".exe" if sys.platform.startswith("win") else ""))
+    trace_dir = os.path.join(project_dir, "input-files/")
+
+    if sys.platform.startswith("win") or sys.platform.startswith("linux"):
+        print(f"Running binary ({sys.platform}): {bin_path}")
+        args_head = [ bin_path ]  
+    else:
+        print(f"Running jar ({sys.platform}): {jar_path}")
+        args_head = [ 'java', '-jar', jar_path ]
 
     for trace in data.keys():  # For each trace file
         output.update({trace : dict()})
         for ltl in data.get(trace).keys():  # For each LTL property
+            args_tail = [
+                "-c", causality,
+                "-o", "pickled",
+                "-l", ltl,
+                "-t", trace_dir + trace,
+            ]
             try:
-#                 args = [
-#                     'java', '-jar', JAR_PATH,
-#                     "-c", causality,
-#                     "-o", "pickled",
-#                     "-l", ltl,
-#                     "-t", TRACE_DIR + trace,
-#                 ]
-                args = [
-                    BIN_PATH,
-                    "-c", causality,
-                    "-o", "pickled",
-                    "-l", ltl,
-                    "-t", TRACE_DIR + trace,
-                ]
-                process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)  # TODO: jar / binary mode
+                process = subprocess.Popen(args_head + args_tail, 
+                                           stdout=subprocess.PIPE, 
+                                           stderr=subprocess.PIPE)
                 
                 stdout, stderr = process.communicate()
                 if stderr:
