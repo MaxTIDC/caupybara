@@ -1,0 +1,20 @@
+{
+  "spec_name": "TrafficE2",
+  "env": [
+    "car",
+    "emergency",
+    "police"
+  ],
+  "sys": [
+    "green"
+  ],
+  "assumptions": {
+    "GF(!police)": [],
+    "G(car & !green -> next(car))": [],
+    "G(car & green -> next(!car))": []
+  },
+  "guarantees": {
+    "G(car -> F(green))": [],
+    "GF(!car)": []
+  }
+}

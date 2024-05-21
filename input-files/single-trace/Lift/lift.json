@@ -1,0 +1,35 @@
+{
+  "spec_name": "Lift",
+  "env": [
+    "b1",
+    "b2",
+    "b3",
+    "cancel"
+  ],
+  "sys": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "assumptions": {
+    "!b1 & !b2 & !b3": [],
+    "G(b1 & f1 -> next(!b1))": [],
+    "G(b2 & f2 -> next(!b2))": [],
+    "G(b3 & f3 -> next(!b3))": [],
+    "G(b1 & !f1 -> next(b1))": [],
+    "G(b2 & !f2 -> next(b2))": [],
+    "G(b3 & !f3 -> next(b3))": []
+  },
+  "guarantees": {
+    "f1 & !f2 & !f3": [],
+    "G(f1 -> !f2 & !f3)": [],
+    "G(f2 -> !f1 & !f3)": [],
+    "G(f3 -> !f1 & !f2)": [],
+    "G(f1 -> (next(f1) & !b2 & !b3) | (next(f2) & b2) | (next(f2) & b3))": [],
+    "G(f2 -> (next(f1) & b1) | (next(f2) & !b1 & !b3) | (next(f3) & b3))": [],
+    "G(f3 -> (next(f3) & !b1 & !b2) | (next(f2) & b1) | (next(f2) & b2))": [],
+    "G(b1 -> F(f1))": [],
+    "G(b2 -> F(f2))": [],
+    "G(b3 -> F(f3))": []
+  }
+}

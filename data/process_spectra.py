@@ -1,5 +1,6 @@
 #import re
 import json
+import os
 import sys
 
 USAGE = """
@@ -55,8 +56,14 @@ if __name__ == "__main__":
     if len(sys.argv) <= 1:
         print(USAGE)
     else:
-        file_path = sys.argv[1]
-        processed_dict = process_spectra(file_path)
+        input_path = sys.argv[1]
+        processed_dict = process_spectra(input_path)
 
+        output_path = f"{os.path.splitext(input_path)[0]}.json"
         # Print processed data
-        print(json.dumps(processed_dict, indent=2))
+        try:
+            with open(output_path, 'w') as f:
+                json.dump(processed_dict, f, indent=2)
+        except Exception as e:
+            print(str(e))
+#         print(json.dumps(processed_dict, indent=2))

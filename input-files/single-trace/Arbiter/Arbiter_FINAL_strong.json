@@ -1,0 +1,21 @@
+{
+  "spec_name": "Arbiter",
+  "env": [
+    "a",
+    "r1",
+    "r2"
+  ],
+  "sys": [
+    "g1",
+    "g2"
+  ],
+  "assumptions": {
+    "G(a)": []
+  },
+  "guarantees": {
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": [],
+    "G(!a->!g1&!g2)": [],
+    "G(!g1 | !g2)": []
+  }
+}
