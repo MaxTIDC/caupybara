@@ -3,6 +3,8 @@ import os
 import subprocess
 import sys
 
+# python run_checks.py '..'
+
 def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
     """
     Run causality check JAR file, with provided input arguments.
@@ -49,7 +51,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         project_dir = sys.argv[1]
     else:
-        project_dir = ".."
+        project_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
 
     if not os.path.isdir(project_dir):
         print(f"'{project_dir}' is not a valid directiory!")

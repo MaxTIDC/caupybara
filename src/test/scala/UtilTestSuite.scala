@@ -5,7 +5,7 @@ import org.scalatest.funsuite.AnyFunSuite
 class UtilTestSuite extends AnyFunSuite {
   // Trace file parse tests
   test("ReqAckTraceParseTest01") {
-    val actualTrace = parseTraceFromPath("input-files/Beer2011/req_ack_violation_1.txt")
+    val actualTrace = parseTraceFromPath("input-files/custom/req_ack_violation_1.txt")
     val expectedTrace = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
@@ -16,7 +16,7 @@ class UtilTestSuite extends AnyFunSuite {
   }
 
   test("ReqAckTraceParseTest02") {
-    val actualTrace = parseTraceFromPath("input-files/Beer2011/req_ack_violation_2.txt")
+    val actualTrace = parseTraceFromPath("input-files/custom/req_ack_violation_2.txt")
     val expectedTrace = Map(
       0 -> Set("req1"),
       1 -> Set("req1", "ack"),
@@ -27,7 +27,7 @@ class UtilTestSuite extends AnyFunSuite {
   }
 
   test("StartEndStatusParseTest01") {
-    val actualTrace = parseTraceFromPath("input-files/Beer2011/start_end_status_violation.txt")
+    val actualTrace = parseTraceFromPath("input-files/custom/start_end_status_violation.txt")
     val expectedTrace = Map(
       0 -> Set(),
       1 -> Set("start"),
@@ -46,7 +46,7 @@ class UtilTestSuite extends AnyFunSuite {
   }
 
   test("TrafficParseTest01") {
-    val actualTrace = parseTraceFromPath("input-files/traffic.txt")
+    val actualTrace = parseTraceFromPath("input-files/custom/traffic.txt")
     val expectedTrace = Map(
       0 -> Set(),
       1 -> Set("carA", "emergency"),

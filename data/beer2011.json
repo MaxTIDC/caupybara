@@ -1,5 +1,29 @@
 {
-  "Arbiter/Arbiter_edited_violation.txt": {
+  "single-trace/Arbiter/Arbiter_FINAL_strong_auto_violation.txt": {
+    "G(!a->!g1&!g2)": [],
+    "G(!g1 | !g2)": [],
+    "G(a)": [
+      [
+        0,
+        "a"
+      ]
+    ],
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": []
+  },
+  "single-trace/Arbiter/Arbiter_FINAL_strong_auto_violation_alt.txt": {
+    "G(!a->!g1&!g2)": [],
+    "G(!g1 | !g2)": [],
+    "G(a)": [
+      [
+        1,
+        "a"
+      ]
+    ],
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": []
+  },
+  "single-trace/Arbiter/Arbiter_edited_violation.txt": {
     "G(!a -> next(a))": [
       [
         1,
@@ -9,15 +33,21 @@
         2,
         "a"
       ]
-    ]
-  },
-  "Arbiter/Arbiter_raw_violation.txt": {
-    "G(!a -> (!g1 & !g2))": [],
+    ],
+    "G(!a->!g1&!g2)": [],
     "G(r1->F(g1))": [],
     "G(r2->F(g2))": []
   },
-  "Minepump/minepump_strong_auto_violation.txt": {
+  "single-trace/Arbiter/Arbiter_raw_violation.txt": {
+    "G(!a->!g1&!g2)": [],
+    "G(r1->F(g1))": [],
+    "G(r2->F(g2))": [],
+    "G(true)": [],
+    "GF(true)": []
+  },
+  "single-trace/Minepump/minepump_strong_auto_violation.txt": {
     "!highwater & !methane": [],
+    "!pump": [],
     "G(!highwater|!methane)": [
       [
         1,
@@ -27,11 +57,51 @@
         1,
         "methane"
       ]
-    ]
+    ],
+    "G(highwater->next(pump))": [],
+    "G(methane->next(!pump))": []
   },
-  "Traffic/traffic_violation.txt": {
-    "!carA & (!carB & !emergency)": [],
-    "alw ((carA & !greenA) -> next(carA))": [
+  "single-trace/Traffic/traffic_single_violation.txt": {
+    "G(car & !green -> next(car))": [],
+    "G(car & green -> next(!car))": [
+      [
+        1,
+        "car"
+      ],
+      [
+        1,
+        "green"
+      ],
+      [
+        2,
+        "car"
+      ]
+    ],
+    "G(car -> F(green))": [
+      [
+        2,
+        "car"
+      ],
+      [
+        2,
+        "green"
+      ]
+    ],
+    "GF(!car)": [
+      [
+        1,
+        "car"
+      ],
+      [
+        2,
+        "car"
+      ]
+    ],
+    "GF(!police)": []
+  },
+  "single-trace/Traffic/traffic_updated_FINAL_strong_auto_violation_9.txt": {
+    "G(!greenA | !greenB)": [],
+    "G(carA & !greenA -> next(carA))": [
       [
         1,
         "carA"
@@ -45,9 +115,52 @@
         "carA"
       ]
     ],
-    "alw ((carA & greenA) -> next(!carA))": [],
-    "alw ((carB & !greenB) -> next(carB))": [],
-    "alw ((carB & greenB) -> next(!carB))": [],
+    "G(carA & greenA -> next(!carA))": [],
+    "G(carA -> F(greenA))": [
+      [
+        0,
+        "carA"
+      ],
+      [
+        0,
+        "greenA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "greenA"
+      ]
+    ],
+    "G(carB & !greenB -> next(carB))": [],
+    "G(carB & greenB -> next(!carB))": [],
+    "G(carB -> F(greenB))": [],
+    "G(emergency -> !greenA & !greenB)": [],
+    "GF(!emergency)": []
+  },
+  "single-trace/Traffic/traffic_violation.txt": {
+    "alw carA & !greenA -> next(carA)": [
+      [
+        1,
+        "carA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "carA"
+      ]
+    ],
+    "alw carA & greenA -> next(!carA)": [],
+    "alw carB & !greenB -> next(carB)": [],
+    "alw carB & greenB -> next(!carB)": [],
+    "alw emergency -> !greenA & !greenB": [],
+    "alw greenA -> !greenB": [],
+    "alw greenB -> !greenA": [],
     "alwEv !emergency": [],
     "alwEv carA": [
       [
@@ -68,11 +181,40 @@
         2,
         "carB"
       ]
-    ]
+    ],
+    "alwEv greenA": [
+      [
+        0,
+        "greenA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "greenA"
+      ]
+    ],
+    "alwEv greenB": [
+      [
+        0,
+        "greenB"
+      ],
+      [
+        1,
+        "greenB"
+      ],
+      [
+        2,
+        "greenB"
+      ]
+    ],
+    "ini !carA & !carB & !emergency": [],
+    "ini !greenA & !greenB": []
   },
-  "Traffic/traffic_violation_double.txt": {
-    "!carA & (!carB & !emergency)": [],
-    "alw ((carA & !greenA) -> next(carA))": [
+  "single-trace/Traffic/traffic_violation_double.txt": {
+    "alw carA & !greenA -> next(carA)": [
       [
         1,
         "carA"
@@ -86,9 +228,21 @@
         "carA"
       ]
     ],
-    "alw ((carA & greenA) -> next(!carA))": [],
-    "alw ((carB & !greenB) -> next(carB))": [],
-    "alw ((carB & greenB) -> next(!carB))": [],
+    "alw carA & greenA -> next(!carA)": [],
+    "alw carB & !greenB -> next(carB)": [],
+    "alw carB & greenB -> next(!carB)": [],
+    "alw emergency -> !greenA & !greenB": [
+      [
+        3,
+        "emergency"
+      ],
+      [
+        3,
+        "greenB"
+      ]
+    ],
+    "alw greenA -> !greenB": [],
+    "alw greenB -> !greenA": [],
     "alwEv !emergency": [],
     "alwEv carA": [
       [
@@ -101,16 +255,106 @@
         4,
         "carB"
       ]
-    ]
-  },
-  "Traffic/traffic_violation_long.txt": {
-    "!carA & (!carB & !emergency)": [
+    ],
+    "alwEv greenA": [
+      [
+        1,
+        "greenA"
+      ],
+      [
+        3,
+        "greenA"
+      ],
+      [
+        2,
+        "greenA"
+      ],
       [
         0,
+        "greenA"
+      ],
+      [
+        4,
+        "greenA"
+      ]
+    ],
+    "alwEv greenB": [
+      [
+        4,
+        "greenB"
+      ]
+    ],
+    "ini !carA & !carB & !emergency": [],
+    "ini !greenA & !greenB": []
+  },
+  "single-trace/Traffic/traffic_violation_greenB_true.txt": {
+    "alw carA & !greenA -> next(carA)": [
+      [
+        1,
+        "carA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
         "carA"
       ]
     ],
-    "alw ((carA & !greenA) -> next(carA))": [
+    "alw carA & greenA -> next(!carA)": [],
+    "alw carB & !greenB -> next(carB)": [],
+    "alw carB & greenB -> next(!carB)": [],
+    "alw emergency -> !greenA & !greenB": [
+      [
+        1,
+        "emergency"
+      ],
+      [
+        1,
+        "greenB"
+      ]
+    ],
+    "alw greenA -> !greenB": [],
+    "alw greenB -> !greenA": [],
+    "alwEv !emergency": [],
+    "alwEv carA": [
+      [
+        2,
+        "carA"
+      ]
+    ],
+    "alwEv carB": [
+      [
+        2,
+        "carB"
+      ]
+    ],
+    "alwEv greenA": [
+      [
+        0,
+        "greenA"
+      ],
+      [
+        1,
+        "greenA"
+      ],
+      [
+        2,
+        "greenA"
+      ]
+    ],
+    "alwEv greenB": [
+      [
+        2,
+        "greenB"
+      ]
+    ],
+    "ini !carA & !carB & !emergency": [],
+    "ini !greenA & !greenB": []
+  },
+  "single-trace/Traffic/traffic_violation_long.txt": {
+    "alw carA & !greenA -> next(carA)": [
       [
         6,
         "carA"
@@ -124,9 +368,12 @@
         "carA"
       ]
     ],
-    "alw ((carA & greenA) -> next(!carA))": [],
-    "alw ((carB & !greenB) -> next(carB))": [],
-    "alw ((carB & greenB) -> next(!carB))": [],
+    "alw carA & greenA -> next(!carA)": [],
+    "alw carB & !greenB -> next(carB)": [],
+    "alw carB & greenB -> next(!carB)": [],
+    "alw emergency -> !greenA & !greenB": [],
+    "alw greenA -> !greenB": [],
+    "alw greenB -> !greenA": [],
     "alwEv !emergency": [],
     "alwEv carA": [
       [
@@ -147,6 +394,49 @@
         7,
         "carB"
       ]
-    ]
+    ],
+    "alwEv greenA": [
+      [
+        7,
+        "greenA"
+      ],
+      [
+        3,
+        "greenA"
+      ],
+      [
+        6,
+        "greenA"
+      ],
+      [
+        5,
+        "greenA"
+      ],
+      [
+        4,
+        "greenA"
+      ]
+    ],
+    "alwEv greenB": [
+      [
+        5,
+        "greenB"
+      ],
+      [
+        6,
+        "greenB"
+      ],
+      [
+        7,
+        "greenB"
+      ]
+    ],
+    "ini !carA & !carB & !emergency": [
+      [
+        0,
+        "carA"
+      ]
+    ],
+    "ini !greenA & !greenB": []
   }
 }
