@@ -7,7 +7,21 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
     """
     Run causality check executable file, with provided input arguments.
     """
-    output = dict()
+
+    def run_subprocess(args: list) -> list:
+        try:
+            process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            stdout, stderr = process.communicate()
+            if stderr:
+                print("ERROR: " + stderr.decode('utf-8').strip())
+                return [stderr.decode('utf-8').strip()]
+            return json.loads(stdout.decode('utf-8').strip())
+
+        except Exception as e:
+            print("Exception: " + e.str())
+            return [e.str()]
+
+    output = data.copy()
 
     jar_path = os.path.join(project_dir, "bin", "fyp-causality.jar")
     bin_path = os.path.join(project_dir, "bin", 
@@ -22,25 +36,13 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
         args_head = [ 'java', '-jar', jar_path ]
 
     for trace in data.keys():  # For each trace file
-        output.update({trace : dict()})
-        for ltl in data.get(trace).keys():  # For each LTL property
-            args_tail = [
-                "-c", causality,
-                "-l", ltl,
-                "-t", trace_dir + trace,
-            ]
-            try:
-                process = subprocess.Popen(args_head + args_tail, 
-                                           stdout=subprocess.PIPE, 
-                                           stderr=subprocess.PIPE)
-                
-                stdout, stderr = process.communicate()
-                if stderr:
-                    print("ERROR: " + stderr)
-                output.get(trace).update({ltl : json.loads(stdout.decode('utf-8').strip())})
+        for ltl in data.get(trace).get("assumptions").keys():  # For each LTL assumption
+            args_tail = ["-c", causality, "-l", ltl, "-t", trace_dir + trace]
+            output.get(trace).get("assumptions").update({ltl : run_subprocess(args_head + args_tail)})
 
-            except Exception as e:
-                return str(e)
+        for ltl in data.get(trace).get("guarantees").keys():  # For each LTL assumption
+            args_tail = ["-c", causality, "-l", ltl, "-t", trace_dir + trace]
+            output.get(trace).get("guarantees").update({ltl : run_subprocess(args_head + args_tail)})
 
     return output
 
@@ -75,10 +77,10 @@ if __name__ == "__main__":
         # Run checks on both definitions
         print("Running checks (Beer2011)...")
         output_beer = run_causality_checks(data, project_dir, causality="beer2011")
-        print("Running checks (Meng2024)...")
-        output_meng = run_causality_checks(data, project_dir, causality="meng2024")
-
-        # Write to files
         print("Writing outputs to files.")
         write_to_file(output_json_beer, output_beer)
+
+        print("Running checks (Meng2024)...")
+        output_meng = run_causality_checks(data, project_dir, causality="meng2024")
+        print("Writing outputs to files.")
         write_to_file(output_json_meng, output_meng)

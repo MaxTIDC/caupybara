@@ -11,7 +11,22 @@
       "g2"
     ],
     "assumptions": {
-      "G(!a -> next(a))": []
+      "G(!a -> next(a))": [
+        [
+          [
+            1,
+            "a",
+            false
+          ]
+        ],
+        [
+          [
+            2,
+            "a",
+            false
+          ]
+        ]
+      ]
     },
     "guarantees": {
       "G(r1->F(g1))": [],
@@ -32,7 +47,29 @@
     "assumptions": {
       "GF(!police)": [],
       "G(car & !green -> next(car))": [],
-      "G(car & green -> next(!car))": []
+      "G(car & green -> next(!car))": [
+        [
+          [
+            1,
+            "car",
+            true
+          ]
+        ],
+        [
+          [
+            1,
+            "green",
+            true
+          ]
+        ],
+        [
+          [
+            2,
+            "car",
+            true
+          ]
+        ]
+      ]
     },
     "guarantees": {
       "G(car -> F(green))": [],
