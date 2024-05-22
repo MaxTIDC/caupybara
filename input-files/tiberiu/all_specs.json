@@ -1,0 +1,498 @@
+{
+  ".\\input-files\\tiberiu\\specifications\\Arbiter_edited.spectra": {
+    "spec_name": "Arbiter",
+    "env": [
+      "a",
+      "r1",
+      "r2"
+    ],
+    "sys": [
+      "g1",
+      "g2"
+    ],
+    "assumptions": {
+      "G(!a -> next(a))": []
+    },
+    "guarantees": {
+      "G(r1->F(g1))": [],
+      "G(r2->F(g2))": [],
+      "G(!a->!g1&!g2)": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\Arbiter_FINAL_strong.spectra": {
+    "spec_name": "Arbiter",
+    "env": [
+      "a",
+      "r1",
+      "r2"
+    ],
+    "sys": [
+      "g1",
+      "g2"
+    ],
+    "assumptions": {
+      "G(a)": []
+    },
+    "guarantees": {
+      "G(r1->F(g1))": [],
+      "G(r2->F(g2))": [],
+      "G(!a->!g1&!g2)": [],
+      "G(!g1 | !g2)": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\Arbiter_raw.spectra": {
+    "spec_name": "Arbiter",
+    "env": [
+      "a",
+      "r1",
+      "r2"
+    ],
+    "sys": [
+      "g1",
+      "g2"
+    ],
+    "assumptions": {
+      "GF(true)": [],
+      "G(true)": []
+    },
+    "guarantees": {
+      "G(r1->F(g1))": [],
+      "G(r2->F(g2))": [],
+      "G(!a->!g1&!g2)": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\genbuf_05_normalised_dropped.spectra": {
+    "spec_name": "genbuf_05",
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ],
+    "assumptions": {
+      "(!stob_req0)": [],
+      "(!stob_req1)": [],
+      "(!stob_req2)": [],
+      "(!stob_req3)": [],
+      "(!stob_req4)": [],
+      "(!rtob_ack0)": [],
+      "(!rtob_ack1)": [],
+      "(!full)": [],
+      "(empty)": [],
+      "G( next(stob_req0) | !stob_req0)": [],
+      "G( next(!stob_req0))": [],
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": [],
+      "G(!btos_ack1 | next(!stob_req1))": [],
+      "G(btos_ack2 | next(stob_req2) )": [],
+      "G( next(!stob_req2))": [],
+      "G( next(stob_req3) | !stob_req3)": [],
+      "G(!btos_ack3 | next(!stob_req3))": [],
+      "G(btos_ack4 | next(stob_req4) | !stob_req4)": [],
+      "G(!btos_ack4 | next(!stob_req4))": [],
+      "G( next(!rtob_ack0))": [],
+      "G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)": [],
+      "G( next(!rtob_ack1))": [],
+      "G(next(rtob_ack1) | !btor_req1 )": [],
+      "G(deq | next(!empty) | !enq)": [],
+      "G( !deq | next(!full))": [],
+      "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": [],
+      "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": [],
+      "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
+    },
+    "guarantees": {
+      "(!btos_ack0)": [],
+      "(!btos_ack1)": [],
+      "(!btos_ack2)": [],
+      "(!btos_ack3)": [],
+      "(!btos_ack4)": [],
+      "(!btor_req0)": [],
+      "(!btor_req1)": [],
+      "(!stateg7_0)": [],
+      "(stateg7_1)": [],
+      "(!enq)": [],
+      "(!deq)": [],
+      "(!stateg12)": [],
+      "(!slc0)": [],
+      "(!slc1)": [],
+      "(!slc2)": [],
+      "G(stob_req0 | next(!btos_ack0) | next(!stob_req0))": [],
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": [],
+      "G(next(btos_ack0) | !btos_ack0 | !stob_req0)": [],
+      "G(!btos_ack0 | !btos_ack1)": [],
+      "G(!btos_ack0 | !btos_ack2)": [],
+      "G(!btos_ack0 | !btos_ack3)": [],
+      "G(!btos_ack0 | !btos_ack4)": [],
+      "G(stob_req1 | next(!btos_ack1) | next(!stob_req1))": [],
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": [],
+      "G(next(btos_ack1) | !btos_ack1 | !stob_req1)": [],
+      "G(!btos_ack1 | !btos_ack2)": [],
+      "G(!btos_ack1 | !btos_ack3)": [],
+      "G(!btos_ack1 | !btos_ack4)": [],
+      "G(stob_req2 | next(!btos_ack2) | next(!stob_req2))": [],
+      "G(btos_ack2 | stob_req2 | next(!btos_ack2))": [],
+      "G(next(btos_ack2) | !btos_ack2 | !stob_req2)": [],
+      "G(!btos_ack2 | !btos_ack3)": [],
+      "G(!btos_ack2 | !btos_ack4)": [],
+      "G(stob_req3 | next(!btos_ack3) | next(!stob_req3))": [],
+      "G(btos_ack3 | stob_req3 | next(!btos_ack3))": [],
+      "G(next(btos_ack3) | !btos_ack3 | !stob_req3)": [],
+      "G(!btos_ack3 | !btos_ack4)": [],
+      "G(stob_req4 | next(!btos_ack4) | next(!stob_req4))": [],
+      "G(btos_ack4 | stob_req4 | next(!btos_ack4))": [],
+      "G(next(btos_ack4) | !btos_ack4 | !stob_req4)": [],
+      "G(next(btor_req0) | rtob_ack0 | !btor_req0)": [],
+      "G(!btor_req0 | !btor_req1)": [],
+      "G(next(!btor_req0) | !rtob_ack0)": [],
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": [],
+      "G(next(!btor_req1) | !rtob_ack1)": [],
+      "G(btor_req0 | stateg7_1 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": [],
+      "G(btor_req1 | !btor_req0 | !stateg7_1 | (next(!stateg7_0) & next(!stateg7_1)))": [],
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": [],
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": [],
+      "G(btor_req1 | stateg7_0 | stateg7_1 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": [],
+      "G(btor_req0 | stateg7_0 | !btor_req1 | !stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": [],
+      "G(stateg7_1 | !btor_req0 | !stateg7_0)": [],
+      "G(!btor_req1 | !stateg7_0 | !stateg7_1)": [],
+      "G(btos_ack0 | next(enq) | next(!btos_ack0))": [],
+      "G(btos_ack0 | next(!btos_ack0) | (next(!slc0) & next(!slc1) & next(!slc2)))": [],
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": [],
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(slc2) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) | (next(btos_ack1) & next(slc0) & !btos_ack1 & next(!slc1) & next(!slc2)))": [],
+      "G(btos_ack2 | next(enq) | next(!btos_ack2))": [],
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(slc2) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": [],
+      "G(btos_ack3 | next(enq) | next(!btos_ack3))": [],
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc0)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc0)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": [],
+      "G(btos_ack4 | next(enq) | next(!btos_ack4))": [],
+      "G((btos_ack4 & next(slc0)) | (btos_ack4 & next(slc1)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(slc1) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": [],
+      "G(next(!enq) | (next(btos_ack0) & !btos_ack0) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack3) & !btos_ack3) | (next(btos_ack4) & !btos_ack4))": [],
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": [],
+      "G(next(deq) | next(rtob_ack1) | !rtob_ack1)": [],
+      "G(next(!deq) | (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": [],
+      "G(deq | !enq | !full)": [],
+      "G(!deq | !empty)": [],
+      "G(stateg12 | !empty | next(!stateg12))": [],
+      "G(stateg12 | !deq | next(!stateg12))": [],
+      "G(deq | empty | stateg12 | next(stateg12))": [],
+      "G(deq | next(stateg12) | !stateg12)": [],
+      "G(!deq | !stateg12 | next(!stateg12))": [],
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": [],
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": [],
+      "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": [],
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": [],
+      "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": [],
+      "GF(!stateg12)": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\lift.spectra": {
+    "spec_name": "Lift",
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "cancel"
+    ],
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "assumptions": {
+      "!b1 & !b2 & !b3": [],
+      "G(b1 & f1 -> next(!b1))": [],
+      "G(b2 & f2 -> next(!b2))": [],
+      "G(b3 & f3 -> next(!b3))": [],
+      "G(b1 & !f1 -> next(b1))": [],
+      "G(b2 & !f2 -> next(b2))": [],
+      "G(b3 & !f3 -> next(b3))": []
+    },
+    "guarantees": {
+      "f1 & !f2 & !f3": [],
+      "G(f1 -> !f2 & !f3)": [],
+      "G(f2 -> !f1 & !f3)": [],
+      "G(f3 -> !f1 & !f2)": [],
+      "G(f1 -> (next(f1) & !b2 & !b3) | (next(f2) & b2) | (next(f2) & b3))": [],
+      "G(f2 -> (next(f1) & b1) | (next(f2) & !b1 & !b3) | (next(f3) & b3))": [],
+      "G(f3 -> (next(f3) & !b1 & !b2) | (next(f2) & b1) | (next(f2) & b2))": [],
+      "G(b1 -> F(f1))": [],
+      "G(b2 -> F(f2))": [],
+      "G(b3 -> F(f3))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\lift_FINAL_NEW_normalised_dropped.spectra": {
+    "spec_name": "Lift",
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": [],
+      "G(!b1 | next(!b1) | !f1)": [],
+      "G(!b2 | next(!b2) | !f2)": [],
+      "G( next(!b3) )": [],
+      "G(next(b1) | c | f1 | !b1)": [],
+      "G(next(b2) | c )": [],
+      "G(next(b3) | c | f3 | !b3)": [],
+      "G(f1 | f3)": [],
+      "G(!f1 | (!f2 & !f3))": [],
+      "G(!f2 | (!f1 & !f3))": [],
+      "G(!f3 | (!f1 & !f2))": []
+    },
+    "guarantees": {
+      "(f1 & !f2 & !f3)": [],
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": [],
+      "G( (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": [],
+      "G( (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": [],
+      "G(b2->F(f2|c))": [],
+      "G(b3->F(f3|c))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\lift_FINAL_NEW_strong.spectra": {
+    "spec_name": "Lift",
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "assumptions": {
+      "!b1 & !b2 & !b3": [],
+      "G(b1 & f1 -> next(!b1))": [],
+      "G(b2 & f2 -> next(!b2))": [],
+      "G(b3 & f3 -> next(!b3))": [],
+      "G(b1 & !f1 & !c -> next(b1))": [],
+      "G(b2 & !f2 & !c -> next(b2))": [],
+      "G(b3 & !f3 & !c -> next(b3))": [],
+      "G(f1 | f2 | f3)": [],
+      "G(f1 -> !f2 & !f3)": [],
+      "G(f2 -> !f1 & !f3)": [],
+      "G(f3 -> !f1 & !f2)": [],
+      "G(!b1 | !b2 | !b3)": []
+    },
+    "guarantees": {
+      "f1 & !f2 & !f3": [],
+      "G(f1 -> (next(f1) & !b2 & !b3) | (next(f2) & b2) | (next(f2) & b3) | next(f1) & c)": [],
+      "G(f2 -> (next(f1) & b1) | (next(f2) & !b1 & !b3) | (next(f3) & b3) | next(f2) & c)": [],
+      "G(f3 -> (next(f3) & !b1 & !b2) | (next(f2) & b1) | (next(f2) & b2) | next(f3) & c)": [],
+      "G(b1 -> F(f1 | c))": [],
+      "G(b2 -> F(f2 | c))": [],
+      "G(b3 -> F(f3 | c))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\lift_FINAL_normalised_dropped.spectra": {
+    "spec_name": "Lift",
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": [],
+      "G(!b1 | next(!b1) | !f1)": [],
+      "G( next(!b2) | !f2)": [],
+      "G(!b3 | next(!b3) | !f3)": [],
+      "G(next(b1) | c | f1 | !b1)": [],
+      "G(next(b2) | c | f2 | !b2)": [],
+      "G(next(b3) | c | f3 | !b3)": []
+    },
+    "guarantees": {
+      "(f1 & !f2 & !f3)": [],
+      "G(f1 | f2 | f3)": [],
+      "G(!f1 | (!f2 & !f3))": [],
+      "G(!f2 | (!f1 & !f3))": [],
+      "G(!f3 | (!f1 & !f2))": [],
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": [],
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": [],
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": [],
+      "G(b1->F(f1|c))": [],
+      "G(b2->F(f2|c))": [],
+      "G(b3->F(f3|c))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\lift_well_sep_strong.spectra": {
+    "spec_name": "Lift",
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "assumptions": {
+      "!b1 & !b2 & !b3": [],
+      "G(b1 & f1 -> next(!b1))": [],
+      "G(b2 & f2 -> next(!b2))": [],
+      "G(b3 & f3 -> next(!b3))": [],
+      "G(b1 & !f1 & !c -> next(b1))": [],
+      "G(b2 & !f2 & !c -> next(b2))": [],
+      "G(b3 & !f3 & !c -> next(b3))": [],
+      "G(!b1 | !b2 | !b3)": []
+    },
+    "guarantees": {
+      "f1 & !f2 & !f3": [],
+      "G(f1 | f2 | f3)": [],
+      "G(f1 -> !f2 & !f3)": [],
+      "G(f2 -> !f1 & !f3)": [],
+      "G(f3 -> !f1 & !f2)": [],
+      "G(f1 -> (next(f1) & !b2 & !b3) | (next(f2) & b2) | (next(f2) & b3) | next(f1) & c)": [],
+      "G(f2 -> (next(f1) & b1) | (next(f2) & !b1 & !b3) | (next(f3) & b3) | next(f2) & c)": [],
+      "G(f3 -> (next(f3) & !b1 & !b2) | (next(f2) & b1) | (next(f2) & b2) | next(f3) & c)": [],
+      "G(b1 -> F(f1 | c))": [],
+      "G(b2 -> F(f2 | c))": [],
+      "G(b3 -> F(f3 | c))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\minepump_strong.spectra": {
+    "spec_name": "Minepump",
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "sys": [
+      "pump"
+    ],
+    "assumptions": {
+      "!highwater & !methane": [],
+      "G(!highwater|!methane)": []
+    },
+    "guarantees": {
+      "!pump": [],
+      "G(highwater->next(pump))": [],
+      "G(methane->next(!pump))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\Rg2_BC6_test.spectra": {
+    "spec_name": "Rg2",
+    "env": [
+      "req",
+      "cancel"
+    ],
+    "sys": [
+      "grant"
+    ],
+    "assumptions": {
+      "G(req->F(grant))": [],
+      "G((cancel|grant)&req->next(!grant))": []
+    },
+    "guarantees": {
+      "G((cancel|grant)->next(!grant))": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\traffic.spectra": {
+    "spec_name": "TrafficE2",
+    "env": [
+      "carA",
+      "carB",
+      "emergency"
+    ],
+    "sys": [
+      "greenA",
+      "greenB"
+    ],
+    "assumptions": {
+      "ini !carA & !carB & !emergency": [],
+      "alwEv carA": [],
+      "alwEv carB": [],
+      "alwEv !emergency": [],
+      "alw carA & !greenA -> next(carA)": [],
+      "alw carB & !greenB -> next(carB)": [],
+      "alw carA & greenA -> next(!carA)": [],
+      "alw carB & greenB -> next(!carB)": []
+    },
+    "guarantees": {
+      "ini !greenA &!greenB": [],
+      "alw greenA -> !greenB": [],
+      "alw greenB -> !greenA": [],
+      "alwEv greenA": [],
+      "alwEv greenB": [],
+      "alw emergency -> !greenA & !greenB": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\traffic_single.spectra": {
+    "spec_name": "TrafficE2",
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "sys": [
+      "green"
+    ],
+    "assumptions": {
+      "GF(!police)": [],
+      "G(car & !green -> next(car))": [],
+      "G(car & green -> next(!car))": []
+    },
+    "guarantees": {
+      "G(car -> F(green))": [],
+      "GF(!car)": []
+    }
+  },
+  ".\\input-files\\tiberiu\\specifications\\traffic_updated_FINAL_strong.spectra": {
+    "spec_name": "TrafficE2",
+    "env": [
+      "carA",
+      "carB",
+      "emergency"
+    ],
+    "sys": [
+      "greenA",
+      "greenB"
+    ],
+    "assumptions": {
+      "GF(!emergency)": [],
+      "G(carA & !greenA -> next(carA))": [],
+      "G(carB & !greenB -> next(carB))": [],
+      "G(carA & greenA -> next(!carA))": [],
+      "G(carB & greenB -> next(!carB))": []
+    },
+    "guarantees": {
+      "G(!greenA | !greenB)": [],
+      "G(carA -> F(greenA))": [],
+      "G(carB -> F(greenB))": [],
+      "G(emergency -> !greenA & !greenB)": []
+    }
+  }
+}

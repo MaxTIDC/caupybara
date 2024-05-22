@@ -1,80 +1,47 @@
 {
-  "single-trace/Arbiter/Arbiter_edited_violation.txt": {
-    "spec_name": "Arbiter",
+  "input-files/single-trace/Rg2_BC6_test_violation.txt": {
+    "spec_name": "Rg2",
     "env": [
-      "a",
-      "r1",
-      "r2"
+      "req",
+      "cancel"
     ],
     "sys": [
-      "g1",
-      "g2"
+      "grant"
     ],
     "assumptions": {
-      "G(!a -> next(a))": [
+      "G(req->F(grant))": [],
+      "G((cancel|grant)&req->next(!grant))": [
         [
-          1,
-          "a"
+          0,
+          "cancel"
         ],
         [
-          2,
-          "a"
+          0,
+          "grant"
+        ],
+        [
+          0,
+          "req"
+        ],
+        [
+          1,
+          "grant"
         ]
       ]
     },
     "guarantees": {
-      "G(r1->F(g1))": [],
-      "G(r2->F(g2))": [],
-      "G(!a->!g1&!g2)": []
-    }
-  },
-  "single-trace/Traffic/traffic_single_violation.txt": {
-    "spec_name": "TrafficE2",
-    "env": [
-      "car",
-      "emergency",
-      "police"
-    ],
-    "sys": [
-      "green"
-    ],
-    "assumptions": {
-      "GF(!police)": [],
-      "G(car & !green -> next(car))": [],
-      "G(car & green -> next(!car))": [
+      "G((cancel|grant)->next(!grant))": [
         [
-          1,
-          "car"
+          0,
+          "cancel"
+        ],
+        [
+          0,
+          "grant"
         ],
         [
           1,
-          "green"
-        ],
-        [
-          2,
-          "car"
-        ]
-      ]
-    },
-    "guarantees": {
-      "G(car -> F(green))": [
-        [
-          2,
-          "car"
-        ],
-        [
-          2,
-          "green"
-        ]
-      ],
-      "GF(!car)": [
-        [
-          1,
-          "car"
-        ],
-        [
-          2,
-          "car"
+          "grant"
         ]
       ]
     }

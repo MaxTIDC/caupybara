@@ -26,7 +26,7 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
     jar_path = os.path.join(project_dir, "bin", "fyp-causality.jar")
     bin_path = os.path.join(project_dir, "bin", 
                             "fyp-causality" + (".exe" if sys.platform.startswith("win") else ""))
-    trace_dir = os.path.join(project_dir, "input-files/")
+#     trace_dir = os.path.join(project_dir, "input-files/")
 
     if sys.platform.startswith("win") or sys.platform.startswith("linux"):
         print(f"Running binary ({sys.platform}): {bin_path}")
@@ -37,11 +37,11 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
 
     for trace in data.keys():  # For each trace file
         for ltl in data.get(trace).get("assumptions").keys():  # For each LTL assumption
-            args_tail = ["-c", causality, "-l", ltl, "-t", trace_dir + trace]
+            args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
             output.get(trace).get("assumptions").update({ltl : run_subprocess(args_head + args_tail)})
 
         for ltl in data.get(trace).get("guarantees").keys():  # For each LTL assumption
-            args_tail = ["-c", causality, "-l", ltl, "-t", trace_dir + trace]
+            args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
             output.get(trace).get("guarantees").update({ltl : run_subprocess(args_head + args_tail)})
 
     return output

@@ -4,7 +4,7 @@ import os
 import sys
 
 USAGE = """
-Usage: python process_spectra.py [Spectra file]
+Usage: python process_spectra.py [Input file path / directory] ([Output file path])
 """
 
 def process_spectra(file_path):
@@ -19,6 +19,12 @@ def process_spectra(file_path):
     
     for i in range(len(lines)):
         line = lines[i].strip()
+
+        # Skip over commented lines / PREV operators
+        if line.startswith("//"):
+            continue
+        elif i + 1 < len(lines) and "PREV" in lines[i + 1]:
+            continue
         
         # Specification name
         if "module" in line or "spec" in line:
@@ -52,18 +58,30 @@ def process_spectra(file_path):
     }
 
 if __name__ == "__main__":
-    # Read file directory
-    if len(sys.argv) <= 1:
+    if len(sys.argv) < 2 or len(sys.argv) > 3:
         print(USAGE)
-    else:
-        input_path = sys.argv[1]
-        processed_dict = process_spectra(input_path)
+        exit()
 
+    # Read file path / directory
+    input_path = sys.argv[1]
+    if len(sys.argv) <= 2:  # If output path not specified
         output_path = f"{os.path.splitext(input_path)[0]}.json"
-        # Print processed data
-        try:
-            with open(output_path, 'w') as f:
-                json.dump(processed_dict, f, indent=2)
-        except Exception as e:
-            print(str(e))
-#         print(json.dumps(processed_dict, indent=2))
+    else:
+        output_path = sys.argv[2]
+
+    # Process inputs
+    processed_dict = dict()
+    if os.path.isfile(input_path):  # If input is a single file
+        processed_dict = process_spectra(input_path)
+    elif os.path.isdir(input_path):  # Otherwise, if input is a directory
+        # Batch process all Spectra files
+        for filename in os.listdir(input_path):
+            input_file_path = os.path.join(input_path, filename)
+            processed_dict[input_file_path] = process_spectra(input_file_path)
+
+    # Write processed data to a single JSON file
+    try:
+        with open(output_path, 'w') as f:
+            json.dump(processed_dict, f, indent=2)
+    except Exception as e:
+        print(str(e))
