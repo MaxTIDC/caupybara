@@ -10,6 +10,9 @@ val emptySet = Set()
 /**
  * The "C(pi^i^, psi)" heuristic (Beer et al. 2011).
  * To compute cause on entire path, use i = 0.
+ *
+ * Pre:
+ * - NNF LTL formula must be in NNF.
  */
 def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
   case True => Set()

@@ -108,6 +108,12 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
     assert(getNegativeLiteralsAtoms(trace, 0, 11, literals) == expectedCSFull)
   }
 
+  test("SubsetsOfSizeTest") { // Sanity check
+    assert(Set(1, 2, 3, 4).subsets(2) sameElements
+      Iterator(Set(1, 2), Set(1, 3), Set(1, 4), Set(2, 3), Set(2, 4), Set(3, 4))
+    )
+  }
+
   // Tests for cause computation
   test("ReqAckCausalityTest01") {
     val psi = toNNF(
@@ -233,8 +239,6 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
       Set((9, "status_valid", false))
     )
 
-//    assert(findViolationCauses(trace, 6, 9, psi) == expectedCauses)
-//    Cause.reset()
     assert(findViolationCauses(trace, 0, 11, psi) == expectedCauses) // led to blowup
 //    Cause.reset()
   }

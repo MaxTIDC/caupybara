@@ -1,5 +1,5 @@
 {
-  "input-files/single-trace/Rg2_BC6_test_violation.txt": {
+  "input-files/tiberiu/violation_files/Rg2_BC6_test_violation.txt": {
     "spec_name": "Rg2",
     "env": [
       "req",
