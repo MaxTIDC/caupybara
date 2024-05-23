@@ -9,41 +9,47 @@
       "grant"
     ],
     "assumptions": {
-      "G(req->F(grant))": [],
-      "G((cancel|grant)&req->next(!grant))": [
-        [
-          0,
-          "cancel"
-        ],
-        [
-          0,
-          "grant"
-        ],
-        [
-          0,
-          "req"
-        ],
-        [
-          1,
-          "grant"
+      "G(req->F(grant))": {
+        "forced_violation_BC6": []
+      },
+      "G((cancel|grant)&req->next(!grant))": {
+        "forced_violation_BC6": [
+          [
+            0,
+            "cancel"
+          ],
+          [
+            0,
+            "grant"
+          ],
+          [
+            0,
+            "req"
+          ],
+          [
+            1,
+            "grant"
+          ]
         ]
-      ]
+      }
     },
     "guarantees": {
-      "G((cancel|grant)->next(!grant))": [
-        [
-          0,
-          "cancel"
-        ],
-        [
-          0,
-          "grant"
-        ],
-        [
-          1,
-          "grant"
+      "G((cancel|grant)->next(!grant))": {
+        "forced_violation_BC6": [
+          [
+            0,
+            "cancel"
+          ],
+          [
+            0,
+            "grant"
+          ],
+          [
+            1,
+            "grant"
+          ]
         ]
-      ]
+      }
     }
   }
 }

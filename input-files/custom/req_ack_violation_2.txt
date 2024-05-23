@@ -1,15 +1,15 @@
-    holds_at(req1,0,).
-not_holds_at(req2,0,).
-not_holds_at(ack,0,).
+    holds_at(req1,0,trace_name_0).
+not_holds_at(req2,0,trace_name_0).
+not_holds_at(ack,0,trace_name_0).
 
-    holds_at(req1,1,).
-not_holds_at(req2,1,).
-    holds_at(ack,1,).
+    holds_at(req1,1,trace_name_0).
+not_holds_at(req2,1,trace_name_0).
+    holds_at(ack,1,trace_name_0).
 
-not_holds_at(req1,2,).
-not_holds_at(req2,2,).
-not_holds_at(ack,2,).
+not_holds_at(req1,2,trace_name_0).
+not_holds_at(req2,2,trace_name_0).
+not_holds_at(ack,2,trace_name_0).
 
-not_holds_at(req1,3,).
-not_holds_at(req2,3,).
-not_holds_at(ack,3,).
+not_holds_at(req1,3,trace_name_0).
+not_holds_at(req2,3,trace_name_0).
+not_holds_at(ack,3,trace_name_0).

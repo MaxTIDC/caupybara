@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 
-def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
+def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: bool) -> dict:
     """
     Run causality check executable file, with provided input arguments.
     """
@@ -28,7 +28,7 @@ def run_causality_checks(data: dict, project_dir: str, causality: str) -> dict:
                             "fyp-causality" + (".exe" if sys.platform.startswith("win") else ""))
 #     trace_dir = os.path.join(project_dir, "input-files/")
 
-    if sys.platform.startswith("win") or sys.platform.startswith("linux"):
+    if not use_jar and (sys.platform.startswith("win") or sys.platform.startswith("linux")):
         print(f"Running binary ({sys.platform}): {bin_path}")
         args_head = [ bin_path ]  
     else:
@@ -58,10 +58,12 @@ def write_to_file(json_file: str, output: dict) -> None:
 
 if __name__ == "__main__":
     # Set up project directory
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 1 and sys.argv[1] != "jar":
         project_dir = sys.argv[1]
     else:
-        project_dir = os.path.abspath(os.path.join(os.getcwd(), ".."))
+        project_dir = os.path.abspath(os.path.join(os.getcwd(), "."))  # Assume script ran from project root
+
+    use_jar = ("jar" in sys.argv) if len(sys.argv) > 1 else False
 
     if not os.path.isdir(project_dir):
         print(f"'{project_dir}' is not a valid directiory!")
@@ -76,11 +78,11 @@ if __name__ == "__main__":
 
         # Run checks on both definitions
         print("Running checks (Beer2011)...")
-        output_beer = run_causality_checks(data, project_dir, causality="beer2011")
+        output_beer = run_causality_checks(data, project_dir, "beer2011", use_jar)
         print("Writing outputs to files.")
         write_to_file(output_json_beer, output_beer)
 
         print("Running checks (Meng2024)...")
-        output_meng = run_causality_checks(data, project_dir, causality="meng2024")
+        output_meng = run_causality_checks(data, project_dir, "meng2024", use_jar)
         print("Writing outputs to files.")
         write_to_file(output_json_meng, output_meng)

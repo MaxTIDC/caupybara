@@ -1,47 +1,47 @@
-not_holds_at(start,0,).
-not_holds_at(end,0,).
-not_holds_at(status_valid,0,).
+not_holds_at(start,0,trace_name_0).
+not_holds_at(end,0,trace_name_0).
+not_holds_at(status_valid,0,trace_name_0).
 
-    holds_at(start,1,).
-not_holds_at(end,1,).
-not_holds_at(status_valid,1,).
+    holds_at(start,1,trace_name_0).
+not_holds_at(end,1,trace_name_0).
+not_holds_at(status_valid,1,trace_name_0).
 
-not_holds_at(start,2,).
-not_holds_at(end,2,).
-not_holds_at(status_valid,2,).
+not_holds_at(start,2,trace_name_0).
+not_holds_at(end,2,trace_name_0).
+not_holds_at(status_valid,2,trace_name_0).
 
-not_holds_at(start,3,).
-    holds_at(end,3,).
-not_holds_at(status_valid,3,).
+not_holds_at(start,3,trace_name_0).
+    holds_at(end,3,trace_name_0).
+not_holds_at(status_valid,3,trace_name_0).
 
-    holds_at(start,4,).
-not_holds_at(end,4,).
-    holds_at(status_valid,4,).
+    holds_at(start,4,trace_name_0).
+not_holds_at(end,4,trace_name_0).
+    holds_at(status_valid,4,trace_name_0).
 
-not_holds_at(start,5,).
-not_holds_at(end,5,).
-not_holds_at(status_valid,5,).
+not_holds_at(start,5,trace_name_0).
+not_holds_at(end,5,trace_name_0).
+not_holds_at(status_valid,5,trace_name_0).
 
-not_holds_at(start,6,).
-    holds_at(end,6,).
-not_holds_at(status_valid,6,).
+not_holds_at(start,6,trace_name_0).
+    holds_at(end,6,trace_name_0).
+not_holds_at(status_valid,6,trace_name_0).
 
-not_holds_at(start,7,).
-not_holds_at(end,7,).
-not_holds_at(status_valid,7,).
+not_holds_at(start,7,trace_name_0).
+not_holds_at(end,7,trace_name_0).
+not_holds_at(status_valid,7,trace_name_0).
 
-not_holds_at(start,8,).
-not_holds_at(end,8,).
-not_holds_at(status_valid,8,).
+not_holds_at(start,8,trace_name_0).
+not_holds_at(end,8,trace_name_0).
+not_holds_at(status_valid,8,trace_name_0).
 
-    holds_at(start,9,).
-not_holds_at(end,9,).
-not_holds_at(status_valid,9,).
+    holds_at(start,9,trace_name_0).
+not_holds_at(end,9,trace_name_0).
+not_holds_at(status_valid,9,trace_name_0).
 
-not_holds_at(start,10,).
-not_holds_at(end,10,).
-    holds_at(status_valid,10,).
+not_holds_at(start,10,trace_name_0).
+not_holds_at(end,10,trace_name_0).
+    holds_at(status_valid,10,trace_name_0).
 
-not_holds_at(start,11,).
-not_holds_at(end,11,).
-not_holds_at(status_valid,11,).
+not_holds_at(start,11,trace_name_0).
+not_holds_at(end,11,trace_name_0).
+not_holds_at(status_valid,11,trace_name_0).

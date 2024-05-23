@@ -4,8 +4,6 @@ package CauseMeng2024
 
 import Lib.*
 
-import scala.collection.mutable
-
 type CausalSet = Set[(State, String, Boolean)]
 
 object Cause {
@@ -42,16 +40,15 @@ object Cause {
    * Return a counterfactual trace where atoms in the CausalSet have their values flipped.
    */
   def flipAtomsInTrace(pi: Trace, causeSet: CausalSet): Trace = {
-    val newTrace = mutable.Map[Int, Set[String]](pi.toSeq: _*)
+    var newTrace = pi
 
-    for (state, name, _) <- causeSet do {
+    for (state, name, _) <- causeSet do
       if pi(state) contains name then
-        newTrace.update(state, newTrace(state) - name)
+        newTrace += (state -> (newTrace(state) - name))
       else
-        newTrace.update(state, newTrace(state) + name)
-    }
+        newTrace += (state -> (newTrace(state) + name))
 
-    newTrace.toMap
+    newTrace
   }
 
   /**
