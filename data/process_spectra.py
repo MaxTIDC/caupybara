@@ -15,6 +15,7 @@ def process_spectra(file_path):
     env_vars = []
     sys_vars = []
     assumptions = dict()
+    assumptions_conjunct = dict()
     guarantees = dict()
     
     for i in range(len(lines)):
@@ -40,20 +41,23 @@ def process_spectra(file_path):
         
         # Process assumptions
         elif "assumption" in line or "asm" in line:
-            assumption_formula = lines[i + 1].strip().strip(';')
+            assumption_formula = lines[i+1].strip().strip(';')
             assumptions[assumption_formula] = []
         
         # Process guarantees
         elif "guarantee" in line or "gar" in line:
-            guarantee_formula = lines[i + 1].strip().strip(';')
+            guarantee_formula = lines[i+1].strip().strip(';')
             guarantees[guarantee_formula] = []
-    
+
+    assumptions_conjunct[" & ".join(assumptions.keys())] = []
+
     # Return processed file as a dictionary
     return {
         "spec_name": spec_name,
         "env": env_vars,
         "sys": sys_vars,
         "assumptions": assumptions,
+        "assumptions_conjunct": assumptions_conjunct,
         "guarantees": guarantees
     }
 
@@ -74,10 +78,17 @@ if __name__ == "__main__":
     if os.path.isfile(input_path):  # If input is a single file
         processed_dict = process_spectra(input_path)
     elif os.path.isdir(input_path):  # Otherwise, if input is a directory
-        # Batch process all Spectra files
-        for filename in os.listdir(input_path):
-            input_file_path = os.path.join(input_path, filename)
-            processed_dict[input_file_path] = process_spectra(input_file_path)
+        # Batch process all Spectra files + corresponding trace files
+        spectra_path = os.path.join(input_path, "mutated_specifications")  # TODO: more adaptive
+        traces_path = os.path.join(input_path, "violation_files")
+        
+        for filename in os.listdir(spectra_path):
+            spectra_file = os.path.join(spectra_path, filename)
+            traces_file = os.path.join(traces_path, f"{os.path.splitext(filename)[0]}_auto_violation.txt" )
+
+            processed = process_spectra(spectra_file)
+            processed["spectra_file"] = spectra_file
+            processed_dict[traces_file] = processed
 
     # Write processed data to a single JSON file
     try:

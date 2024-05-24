@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 
 def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: bool) -> dict:
     """
@@ -36,13 +37,10 @@ def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: 
         args_head = [ 'java', '-jar', jar_path ]
 
     for trace in data.keys():  # For each trace file
-        for ltl in data.get(trace).get("assumptions").keys():  # For each LTL assumption
-            args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
-            output.get(trace).get("assumptions").update({ltl : run_subprocess(args_head + args_tail)})
-
-        for ltl in data.get(trace).get("guarantees").keys():  # For each LTL assumption
-            args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
-            output.get(trace).get("guarantees").update({ltl : run_subprocess(args_head + args_tail)})
+        for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
+            for ltl in data.get(trace).get(key).keys():  # For each LTL assumption
+                args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
+                output.get(trace).get(key).update({ltl : run_subprocess(args_head + args_tail)})
 
     return output
 
@@ -52,7 +50,7 @@ def write_to_file(json_file: str, output: dict) -> None:
     """
     try:
         with open(json_file, 'w') as f:
-            json.dump(output, f, indent=2)
+            json.dump(output, f, indent=2, sort_keys=True)
     except Exception as e:
         print(str(e))
 
@@ -78,11 +76,19 @@ if __name__ == "__main__":
 
         # Run checks on both definitions
         print("Running checks (Beer2011)...")
+        timer = time.perf_counter()
         output_beer = run_causality_checks(data, project_dir, "beer2011", use_jar)
+        elapsed_time = time.perf_counter() - timer
+        print(f"Checks (Beer2011) complete, took {elapsed_time} seconds")
+
         print("Writing outputs to files.")
         write_to_file(output_json_beer, output_beer)
 
         print("Running checks (Meng2024)...")
+        timer = time.perf_counter()
         output_meng = run_causality_checks(data, project_dir, "meng2024", use_jar)
+        elapsed_time = time.perf_counter() - timer
+        print(f"Checks (Meng2024) complete, took {elapsed_time} seconds")
+
         print("Writing outputs to files.")
         write_to_file(output_json_meng, output_meng)

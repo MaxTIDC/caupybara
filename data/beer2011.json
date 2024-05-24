@@ -1,55 +1,6621 @@
 {
-  "input-files/tiberiu/violation_files/Rg2_BC6_test_violation.txt": {
-    "spec_name": "Rg2",
-    "env": [
-      "req",
-      "cancel"
-    ],
-    "sys": [
-      "grant"
-    ],
+  ".\\input-files\\buckworth2023\\violation_files\\Arbiter_FINAL_dropped0_auto_violation.txt": {
     "assumptions": {
-      "G(req->F(grant))": {
-        "forced_violation_BC6": []
-      },
-      "G((cancel|grant)&req->next(!grant))": {
-        "forced_violation_BC6": [
+      "G(a)": {
+        "trace_name_0": [
           [
             0,
-            "cancel"
-          ],
+            "a"
+          ]
+        ],
+        "trace_name_1": [
           [
             0,
-            "grant"
-          ],
+            "a"
+          ]
+        ],
+        "trace_name_2": [
           [
             0,
-            "req"
-          ],
+            "a"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "trace_name_4": [
           [
             1,
-            "grant"
+            "a"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "a"
           ]
         ]
       }
     },
-    "guarantees": {
-      "G((cancel|grant)->next(!grant))": {
-        "forced_violation_BC6": [
+    "assumptions_conjunct": {
+      "G(a)": {
+        "trace_name_0": [
           [
             0,
-            "cancel"
-          ],
+            "a"
+          ]
+        ],
+        "trace_name_1": [
           [
             0,
-            "grant"
-          ],
+            "a"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "a"
+          ]
+        ],
+        "trace_name_4": [
           [
             1,
-            "grant"
+            "a"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "a"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "a"
           ]
         ]
       }
-    }
+    },
+    "env": [
+      "a",
+      "r1",
+      "r2"
+    ],
+    "guarantees": {
+      "G(!a->!g1&!g2)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(!g1 | !g2)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(r1->F(g1))": {
+        "trace_name_0": [],
+        "trace_name_1": [
+          [
+            0,
+            "r1"
+          ],
+          [
+            0,
+            "g1"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [
+          [
+            0,
+            "r1"
+          ],
+          [
+            0,
+            "g1"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "r1"
+          ],
+          [
+            0,
+            "g1"
+          ],
+          [
+            1,
+            "g1"
+          ]
+        ],
+        "trace_name_5": [],
+        "trace_name_6": [
+          [
+            0,
+            "r1"
+          ],
+          [
+            0,
+            "g1"
+          ],
+          [
+            1,
+            "g1"
+          ]
+        ],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(r2->F(g2))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [
+          [
+            0,
+            "r2"
+          ],
+          [
+            0,
+            "g2"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "r2"
+          ],
+          [
+            0,
+            "g2"
+          ]
+        ],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [
+          [
+            0,
+            "r2"
+          ],
+          [
+            0,
+            "g2"
+          ],
+          [
+            1,
+            "g2"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "r2"
+          ],
+          [
+            0,
+            "g2"
+          ],
+          [
+            1,
+            "g2"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "r2"
+          ],
+          [
+            0,
+            "g2"
+          ],
+          [
+            1,
+            "g2"
+          ]
+        ],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "Arbiter",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\Arbiter_FINAL_dropped0.spectra",
+    "sys": [
+      "g1",
+      "g2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped107_auto_violation.txt": {
+    "assumptions": {
+      "(!full)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req0)": {
+        "trace_name_0": []
+      },
+      "(!stob_req1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req2)": {
+        "trace_name_0": []
+      },
+      "(!stob_req3)": {
+        "trace_name_0": []
+      },
+      "(!stob_req4)": {
+        "trace_name_0": []
+      },
+      "(empty)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack4 | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | next(!rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(stob_req0) | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(stob_req2) | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 )": {
+        "trace_name_0": [
+          [
+            0,
+            "btos_ack3"
+          ]
+        ]
+      },
+      "G(btos_ack4 | next(stob_req4) | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq)": {
+        "trace_name_0": []
+      },
+      "G(enq )": {
+        "trace_name_0": [
+          [
+            0,
+            "enq"
+          ]
+        ]
+      },
+      "G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "GF((btor_req0 & rtob_ack0) )": {
+        "trace_name_0": [
+          [
+            0,
+            "btor_req0"
+          ],
+          [
+            0,
+            "rtob_ack0"
+          ]
+        ]
+      },
+      "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": {
+        "trace_name_0": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.775] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "guarantees": {
+      "(!btor_req0)": {
+        "trace_name_0": []
+      },
+      "(!btor_req1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack0)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack2)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack3)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack4)": {
+        "trace_name_0": []
+      },
+      "(!deq)": {
+        "trace_name_0": []
+      },
+      "(!enq)": {
+        "trace_name_0": []
+      },
+      "(!slc0)": {
+        "trace_name_0": []
+      },
+      "(!slc1)": {
+        "trace_name_0": []
+      },
+      "(!slc2)": {
+        "trace_name_0": []
+      },
+      "(!stateg12)": {
+        "trace_name_0": []
+      },
+      "(!stateg7_0)": {
+        "trace_name_0": []
+      },
+      "(stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G( !btor_req0)": {
+        "trace_name_0": []
+      },
+      "G( !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack2 )": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G( !deq | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G( !stateg12 )": {
+        "trace_name_0": []
+      },
+      "G( next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G( next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G( stob_req2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(!btor_req1 | !stateg7_0 )": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 )": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 )": {
+        "trace_name_0": []
+      },
+      "G(!deq | !empty)": {
+        "trace_name_0": []
+      },
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(slc2) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) )": {
+        "trace_name_0": []
+      },
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc0)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack4 & next(slc0)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_0 | !btor_req1 | !stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_1 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | stateg7_0 | stateg7_1 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(!btos_ack0) | (next(!slc0) & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(enq) | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(enq) | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | stob_req4 | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq | !full)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12) | !stateg12)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12))": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req1) )": {
+        "trace_name_0": []
+      },
+      "G(next(!deq) | (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": {
+        "trace_name_0": []
+      },
+      "G(next(!enq) | (next(btos_ack0) & !btos_ack0) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack4) & !btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack0) | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack1) )": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack4) | !btos_ack4 | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) )": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !empty | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg7_1 | !stateg7_0)": {
+        "trace_name_0": []
+      },
+      "G(stob_req0 | next(!btos_ack0) | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(stob_req1 | next(!btos_ack1) )": {
+        "trace_name_0": []
+      },
+      "G(stob_req2 | next(!btos_ack2) | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(stob_req3 | next(!btos_ack3) | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(stob_req4 | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": {
+        "trace_name_0": []
+      }
+    },
+    "spec_name": "genbuf_05",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped107.spectra",
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped10_auto_violation.txt": {
+    "assumptions": {
+      "(!full)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req0)": {
+        "trace_name_0": []
+      },
+      "(!stob_req1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req2)": {
+        "trace_name_0": []
+      },
+      "(!stob_req3)": {
+        "trace_name_0": []
+      },
+      "(!stob_req4)": {
+        "trace_name_0": []
+      },
+      "(empty)": {
+        "trace_name_0": []
+      },
+      "G( next(!rtob_ack1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack4 | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 )": {
+        "trace_name_0": [
+          [
+            0,
+            "btor_req0"
+          ]
+        ]
+      },
+      "G(btos_ack0 | next(stob_req0) | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(stob_req2) | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(stob_req3) | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(stob_req4) | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(!empty) | !enq)": {
+        "trace_name_0": []
+      },
+      "G(enq | !deq | next(!full))": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": {
+        "trace_name_0": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.974] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "guarantees": {
+      "(!btor_req0)": {
+        "trace_name_0": []
+      },
+      "(!btor_req1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack0)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack2)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack3)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack4)": {
+        "trace_name_0": []
+      },
+      "(!deq)": {
+        "trace_name_0": []
+      },
+      "(!enq)": {
+        "trace_name_0": []
+      },
+      "(!slc0)": {
+        "trace_name_0": []
+      },
+      "(!slc1)": {
+        "trace_name_0": []
+      },
+      "(!slc2)": {
+        "trace_name_0": []
+      },
+      "(!stateg12)": {
+        "trace_name_0": []
+      },
+      "(!stateg7_0)": {
+        "trace_name_0": []
+      },
+      "(stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G( next(!btos_ack2) | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(!btor_req0 )": {
+        "trace_name_0": []
+      },
+      "G(!btor_req0 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(!btor_req1 | !stateg7_0 | !stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 )": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !empty)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !stateg12 | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) )": {
+        "trace_name_0": []
+      },
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(slc2) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc0)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc0)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack4 & next(slc0)) | (btos_ack4 & next(slc1)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(slc1) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_0 | !btor_req1 | !stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_1 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | !btor_req0 | !stateg7_1 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | stateg7_0 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(!btos_ack0) | (next(!slc0) & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(enq) | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(enq) | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | stob_req2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(enq) | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | stob_req3 | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(enq) | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | stob_req4 | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq | !full)": {
+        "trace_name_0": []
+      },
+      "G(deq | empty | stateg12 | next(stateg12))": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12) | !stateg12)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(next(!deq) | (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": {
+        "trace_name_0": []
+      },
+      "G(next(!enq) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack3) & !btos_ack3) | (next(btos_ack4) & !btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req0) | rtob_ack0 | !btor_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack0) | !btos_ack0 | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack1) | !btos_ack1 | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack2) | !btos_ack2 | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack3) | !btos_ack3 | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack4) | !btos_ack4 | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !deq | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !empty | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg7_1 | !btor_req0 | !stateg7_0)": {
+        "trace_name_0": []
+      },
+      "G(stob_req0 | next(!btos_ack0) | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(stob_req1 | next(!btos_ack1) | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(stob_req3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(stob_req4 | next(!btos_ack4) | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF(!stateg12)": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": {
+        "trace_name_0": []
+      }
+    },
+    "spec_name": "genbuf_05",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped10.spectra",
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped115_auto_violation.txt": {
+    "assumptions": {
+      "(!full)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req0)": {
+        "trace_name_0": []
+      },
+      "(!stob_req1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req2)": {
+        "trace_name_0": []
+      },
+      "(!stob_req3)": {
+        "trace_name_0": []
+      },
+      "(!stob_req4)": {
+        "trace_name_0": []
+      },
+      "(empty)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack4 )": {
+        "trace_name_0": [
+          [
+            2,
+            "btos_ack4"
+          ]
+        ]
+      },
+      "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | next(!rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | next(!rtob_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(stob_req0) | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(stob_req2) | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(stob_req3) | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(stob_req4) | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(!empty) | !enq)": {
+        "trace_name_0": []
+      },
+      "G(enq | !deq | next(!full))": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": {
+        "trace_name_0": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.985] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "guarantees": {
+      "(!btor_req0)": {
+        "trace_name_0": []
+      },
+      "(!btor_req1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack0)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack2)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack3)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack4)": {
+        "trace_name_0": []
+      },
+      "(!deq)": {
+        "trace_name_0": []
+      },
+      "(!enq)": {
+        "trace_name_0": []
+      },
+      "(!slc0)": {
+        "trace_name_0": []
+      },
+      "(!slc1)": {
+        "trace_name_0": []
+      },
+      "(!slc2)": {
+        "trace_name_0": []
+      },
+      "(!stateg12)": {
+        "trace_name_0": []
+      },
+      "(!stateg7_0)": {
+        "trace_name_0": []
+      },
+      "(stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G(!btor_req0 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(!btor_req1 | !stateg7_0 | !stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !empty)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !stateg12 | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(slc2) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) | (next(btos_ack1) & next(slc0) & !btos_ack1 & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(slc2) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc0)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc0)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack4 & next(slc0)) | (btos_ack4 & next(slc1)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(slc1) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_0 | !btor_req1 | !stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_1 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | !btor_req0 | !stateg7_1 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | stateg7_0 | stateg7_1 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(!btos_ack0) | (next(!slc0) & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(enq) | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(enq) | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | stob_req2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(enq) | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | stob_req3 | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(enq) | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | stob_req4 | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq | !full)": {
+        "trace_name_0": []
+      },
+      "G(deq | empty | stateg12 | next(stateg12))": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12) | !stateg12)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(next(!deq) | (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": {
+        "trace_name_0": []
+      },
+      "G(next(!enq) | (next(btos_ack0) & !btos_ack0) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack3) & !btos_ack3) | (next(btos_ack4) & !btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req0) | rtob_ack0 | !btor_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack0) | !btos_ack0 | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack1) | !btos_ack1 | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack2) | !btos_ack2 | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack3) | !btos_ack3 | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack4) | !btos_ack4 | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !deq | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !empty | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg7_1 | !btor_req0 | !stateg7_0)": {
+        "trace_name_0": []
+      },
+      "G(stob_req0 | next(!btos_ack0) | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(stob_req1 | next(!btos_ack1) | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(stob_req2 | next(!btos_ack2) | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(stob_req3 | next(!btos_ack3) | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(stob_req4 | next(!btos_ack4) | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF(!stateg12)": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": {
+        "trace_name_0": [
+          [
+            1,
+            "btos_ack0"
+          ],
+          [
+            1,
+            "stob_req0"
+          ],
+          [
+            2,
+            "btos_ack0"
+          ],
+          [
+            2,
+            "stob_req0"
+          ]
+        ]
+      },
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": {
+        "trace_name_0": [
+          [
+            1,
+            "btos_ack1"
+          ],
+          [
+            1,
+            "stob_req1"
+          ],
+          [
+            2,
+            "btos_ack1"
+          ],
+          [
+            2,
+            "stob_req1"
+          ]
+        ]
+      },
+      "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": {
+        "trace_name_0": [
+          [
+            1,
+            "btos_ack2"
+          ],
+          [
+            1,
+            "stob_req2"
+          ],
+          [
+            2,
+            "btos_ack2"
+          ],
+          [
+            2,
+            "stob_req2"
+          ]
+        ]
+      },
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": {
+        "trace_name_0": [
+          [
+            1,
+            "btos_ack3"
+          ],
+          [
+            1,
+            "stob_req3"
+          ],
+          [
+            2,
+            "btos_ack3"
+          ],
+          [
+            2,
+            "stob_req3"
+          ]
+        ]
+      },
+      "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": {
+        "trace_name_0": []
+      }
+    },
+    "spec_name": "genbuf_05",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped115.spectra",
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped118_auto_violation.txt": {
+    "assumptions": {
+      "(!full)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req0)": {
+        "trace_name_0": []
+      },
+      "(!stob_req1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req2)": {
+        "trace_name_0": []
+      },
+      "(!stob_req3)": {
+        "trace_name_0": []
+      },
+      "(!stob_req4)": {
+        "trace_name_0": []
+      },
+      "(empty)": {
+        "trace_name_0": []
+      },
+      "G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full)))": {
+        "trace_name_0": []
+      },
+      "G( next(!rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "G( next(stob_req4) | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack4 | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | next(!rtob_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(stob_req2) | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(stob_req3) | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(deq )": {
+        "trace_name_0": [
+          [
+            0,
+            "deq"
+          ]
+        ]
+      },
+      "G(enq | !deq | next(!full))": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack0) | !btor_req0 )": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "GF( (!btor_req1 & !rtob_ack1))": {
+        "trace_name_0": []
+      },
+      "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": {
+        "trace_name_0": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))\n[1.855] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "guarantees": {
+      "(!btor_req0)": {
+        "trace_name_0": []
+      },
+      "(!btor_req1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack0)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack2)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack3)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack4)": {
+        "trace_name_0": []
+      },
+      "(!deq)": {
+        "trace_name_0": []
+      },
+      "(!enq)": {
+        "trace_name_0": []
+      },
+      "(!slc0)": {
+        "trace_name_0": []
+      },
+      "(!slc1)": {
+        "trace_name_0": []
+      },
+      "(!slc2)": {
+        "trace_name_0": []
+      },
+      "(!stateg12)": {
+        "trace_name_0": []
+      },
+      "(!stateg7_0)": {
+        "trace_name_0": []
+      },
+      "(stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack1)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack4 | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G( (btos_ack4 & next(slc1)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(slc1) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": {
+        "trace_name_0": []
+      },
+      "G( (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            0,
+            "rtob_ack0"
+          ],
+          [
+            0,
+            "rtob_ack1"
+          ]
+        ]
+      },
+      "G( empty | stateg12 | next(stateg12))": {
+        "trace_name_0": []
+      },
+      "G( next(!btos_ack0) | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G( next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G( next(enq) | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G( stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(!btor_req0 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(!btor_req1 | !stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 )": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !empty)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !stateg12 | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(slc2) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) )": {
+        "trace_name_0": []
+      },
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(slc2) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc0)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc0)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_0 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | !btor_req0 | !stateg7_1 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | stateg7_0 | stateg7_1 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(!btos_ack0) )": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(enq) | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | stob_req2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(enq) )": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | stob_req3 | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq | !full)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12) | !stateg12)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req1) )": {
+        "trace_name_0": []
+      },
+      "G(next(!enq) | (next(btos_ack0) & !btos_ack0) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack3) & !btos_ack3) | (next(btos_ack4) & !btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req0) )": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack0) | !btos_ack0 | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack1) | !btos_ack1 )": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack2) | !btos_ack2 | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack3) | !btos_ack3 | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg7_1 | !btor_req0 | !stateg7_0)": {
+        "trace_name_0": []
+      },
+      "G(stob_req1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(stob_req2 | next(!btos_ack2) | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(stob_req3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(stob_req4 | next(!btos_ack4) | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF( (!btos_ack4 & !stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF(!stateg12)": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": {
+        "trace_name_0": []
+      }
+    },
+    "spec_name": "genbuf_05",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped118.spectra",
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped122_auto_violation.txt": {
+    "assumptions": {
+      "(!full)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "(!rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req0)": {
+        "trace_name_0": []
+      },
+      "(!stob_req1)": {
+        "trace_name_0": []
+      },
+      "(!stob_req2)": {
+        "trace_name_0": []
+      },
+      "(!stob_req3)": {
+        "trace_name_0": []
+      },
+      "(!stob_req4)": {
+        "trace_name_0": []
+      },
+      "(empty)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 )": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": {
+        "trace_name_0": [
+          [
+            0,
+            "deq"
+          ],
+          [
+            0,
+            "enq"
+          ],
+          [
+            0,
+            "full"
+          ],
+          [
+            0,
+            "empty"
+          ]
+        ]
+      },
+      "G(btor_req0 | next(!rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 )": {
+        "trace_name_0": [
+          [
+            0,
+            "btor_req1"
+          ]
+        ]
+      },
+      "G(btos_ack0 | next(stob_req0) | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(stob_req1) | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(stob_req2) | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(stob_req3) | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(stob_req4) | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(deq | next(!empty) | !enq)": {
+        "trace_name_0": []
+      },
+      "G(enq | !deq | next(!full))": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": {
+        "trace_name_0": []
+      },
+      "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": {
+        "trace_name_0": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.886] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "stob_req0",
+      "stob_req1",
+      "stob_req2",
+      "stob_req3",
+      "stob_req4",
+      "rtob_ack0",
+      "rtob_ack1",
+      "full",
+      "empty"
+    ],
+    "guarantees": {
+      "(!btor_req0)": {
+        "trace_name_0": []
+      },
+      "(!btor_req1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack0)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack1)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack2)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack3)": {
+        "trace_name_0": []
+      },
+      "(!btos_ack4)": {
+        "trace_name_0": []
+      },
+      "(!deq)": {
+        "trace_name_0": []
+      },
+      "(!enq)": {
+        "trace_name_0": []
+      },
+      "(!slc0)": {
+        "trace_name_0": []
+      },
+      "(!slc1)": {
+        "trace_name_0": []
+      },
+      "(!slc2)": {
+        "trace_name_0": []
+      },
+      "(!stateg12)": {
+        "trace_name_0": []
+      },
+      "(!stateg7_0)": {
+        "trace_name_0": []
+      },
+      "(stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G( !btos_ack1 | !stob_req1)": {
+        "trace_name_0": []
+      },
+      "G( next(!btos_ack2) | next(!stob_req2))": {
+        "trace_name_0": []
+      },
+      "G(!btor_req0 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(!btor_req1 | !stateg7_0 | !stateg7_1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack1)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack0 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack2)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack1 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack3)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack2 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!btos_ack3 | !btos_ack4)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !empty)": {
+        "trace_name_0": []
+      },
+      "G(!deq | !stateg12 | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack1 & next(slc1)) | (btos_ack1 & next(slc2)) | (btos_ack1 & next(!slc0)) | (next(slc1) & next(!btos_ack1)) | (next(slc2) & next(!btos_ack1)) | (next(!btos_ack1) & next(!slc0)) | (next(btos_ack1) & next(slc0) & !btos_ack1 & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack2 & next(slc0)) | (btos_ack2 & next(slc2)) | (btos_ack2 & next(!slc1)) | (next(slc0) & next(!btos_ack2)) | (next(slc2) & next(!btos_ack2)) | (next(!btos_ack2) & next(!slc1)) | (next(btos_ack2) & next(slc1) & !btos_ack2 & next(!slc0) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack3 & next(slc2)) | (btos_ack3 & next(!slc0)) | (btos_ack3 & next(!slc1)) | (next(slc2) & next(!btos_ack3)) | (next(!btos_ack3) & next(!slc1)) | (next(btos_ack3) & next(slc0) & next(slc1) & !btos_ack3 & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G((btos_ack4 & next(slc0)) | (btos_ack4 & next(slc1)) | (btos_ack4 & next(!slc2)) | (next(slc0) & next(!btos_ack4)) | (next(slc1) & next(!btos_ack4)) | (next(!btos_ack4) & next(!slc2)) | (next(btos_ack4) & next(slc2) & !btos_ack4 & next(!slc0) & next(!slc1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | !stateg7_1 | (next(stateg7_0) & next(stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | btor_req1 | stateg7_1 | (next(stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_0 | !btor_req1 | !stateg7_1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req0 | stateg7_1 | !btor_req1 | (next(stateg7_1) & next(!stateg7_0)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | !btor_req0 | !stateg7_1 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btor_req1 | stateg7_0 | stateg7_1 | !btor_req0 | (next(!stateg7_0) & next(!stateg7_1)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(!btos_ack0) | (next(!slc0) & next(!slc1) & next(!slc2)))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | next(enq) | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack0 | stob_req0 | next(!btos_ack0))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | next(enq) | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack1 | stob_req1 | next(!btos_ack1))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack2 | stob_req2 | next(!btos_ack2))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | next(enq) | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack3 | stob_req3 | next(!btos_ack3))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | next(enq) | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(btos_ack4 | stob_req4 | next(!btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(deq | !enq | !full)": {
+        "trace_name_0": []
+      },
+      "G(deq | empty | stateg12 | next(stateg12))": {
+        "trace_name_0": []
+      },
+      "G(deq | next(stateg12) | !stateg12)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(!btor_req1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(next(!deq) | (rtob_ack0 & next(!rtob_ack0)) | (rtob_ack1 & next(!rtob_ack1)))": {
+        "trace_name_0": []
+      },
+      "G(next(!enq) | (next(btos_ack0) & !btos_ack0) | (next(btos_ack1) & !btos_ack1) | (next(btos_ack2) & !btos_ack2) | (next(btos_ack3) & !btos_ack3) | (next(btos_ack4) & !btos_ack4))": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req0) | rtob_ack0 | !btor_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btor_req1) | rtob_ack1 | !btor_req1)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack0) | !btos_ack0 | !stob_req0)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack2) | !btos_ack2 | !stob_req2)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack3) | !btos_ack3 | !stob_req3)": {
+        "trace_name_0": []
+      },
+      "G(next(btos_ack4) | !btos_ack4 | !stob_req4)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack0) | !rtob_ack0)": {
+        "trace_name_0": []
+      },
+      "G(next(deq) | next(rtob_ack1) | !rtob_ack1)": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !deq | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg12 | !empty | next(!stateg12))": {
+        "trace_name_0": []
+      },
+      "G(stateg7_1 | !btor_req0 | !stateg7_0)": {
+        "trace_name_0": []
+      },
+      "G(stob_req0 | next(!btos_ack0) | next(!stob_req0))": {
+        "trace_name_0": []
+      },
+      "G(stob_req1 | next(!btos_ack1) | next(!stob_req1))": {
+        "trace_name_0": []
+      },
+      "G(stob_req3 | next(!btos_ack3) | next(!stob_req3))": {
+        "trace_name_0": []
+      },
+      "G(stob_req4 | next(!btos_ack4) | next(!stob_req4))": {
+        "trace_name_0": []
+      },
+      "GF(!stateg12)": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack0 & stob_req0) | (!btos_ack0 & !stob_req0))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack2 & stob_req2) )": {
+        "trace_name_0": [
+          [
+            0,
+            "btos_ack2"
+          ],
+          [
+            0,
+            "stob_req2"
+          ]
+        ]
+      },
+      "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": {
+        "trace_name_0": []
+      },
+      "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": {
+        "trace_name_0": []
+      }
+    },
+    "spec_name": "genbuf_05",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped122.spectra",
+    "sys": [
+      "btos_ack0",
+      "btos_ack1",
+      "btos_ack2",
+      "btos_ack3",
+      "btos_ack4",
+      "btor_req0",
+      "btor_req1",
+      "stateg7_0",
+      "stateg7_1",
+      "enq",
+      "deq",
+      "stateg12",
+      "slc0",
+      "slc1",
+      "slc2"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped0_auto_violation.txt": {
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G( c | f1 | !b1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G( next(!b1) | !f1)": {
+        "trace_name_0": [
+          [
+            1,
+            "b1"
+          ],
+          [
+            0,
+            "f1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "b1"
+          ],
+          [
+            0,
+            "f1"
+          ]
+        ]
+      },
+      "G(!b2 | next(!b2) | !f2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b3 | next(!b3) | !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b2) | f2 | !b2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G( next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [
+          [
+            1,
+            "b1"
+          ],
+          [
+            0,
+            "f1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "b1"
+          ],
+          [
+            0,
+            "f1"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "guarantees": {
+      "(f1 & !f2 & !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (!f2 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (!f1 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (next(f2) & !b1 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (!f1 & !f2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b1->F(f1|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b2->F(f2|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b3->F(f3|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(f1 | f2 | f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "spec_name": "Lift",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped0.spectra",
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped10_auto_violation.txt": {
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G( c | f1 | !b1)": {
+        "trace_name_0": [
+          [
+            2,
+            "c"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "b1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "c"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "b1"
+          ]
+        ]
+      },
+      "G(!b1 | next(!b1) | !f1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b2 | next(!b2) | !f2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b3 | next(!b3) | !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b2) | c | !b2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [
+          [
+            2,
+            "c"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "b1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "c"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "b1"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "guarantees": {
+      "(f1 & !f2 & !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (!f2 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (!f1 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (!f1 & !f2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b1->F(f1|c))": {
+        "trace_name_0": [
+          [
+            2,
+            "b1"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "c"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "b1"
+          ],
+          [
+            2,
+            "f1"
+          ],
+          [
+            2,
+            "c"
+          ]
+        ]
+      },
+      "G(b2->F(f2|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b3->F(f3|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(f1 | f2 | f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "spec_name": "Lift",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped10.spectra",
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped11_auto_violation.txt": {
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G( c | f2 )": {
+        "trace_name_0": [
+          [
+            0,
+            "c"
+          ],
+          [
+            0,
+            "f2"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "c"
+          ],
+          [
+            1,
+            "f2"
+          ]
+        ]
+      },
+      "G( next(!b3) )": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b1 | next(!b1) | !f1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b2 | !f2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b1) | c | f1 | !b1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | !f2) & G( next(!b3) ) & G(next(b1) | c | f1 | !b1) & G( c | f2 ) & G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [
+          [
+            0,
+            "c"
+          ],
+          [
+            0,
+            "f2"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "c"
+          ],
+          [
+            1,
+            "f2"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "guarantees": {
+      "(f1 & !f2 & !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (!f1 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (!f1 & !f2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b2->F(f2|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b3->F(f3|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(f1 | f2 )": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "spec_name": "Lift",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped11.spectra",
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped13_auto_violation.txt": {
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G( !f1)": {
+        "trace_name_0": [
+          [
+            0,
+            "f1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "f1"
+          ]
+        ]
+      },
+      "G(!b2 | next(!b2) | !f2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b3 | next(!b3) | !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b1) | c | f1 | !b1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b2) | c | !b2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b3) | f3 | !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G( !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | f3 | !b3)": {
+        "trace_name_0": [
+          [
+            0,
+            "f1"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "f1"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "guarantees": {
+      "(f1 & !f2 & !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (!f2 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (b2 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (!f1 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) )": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b2->F(f2|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(f1 )": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "spec_name": "Lift",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped13.spectra",
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped1_auto_violation.txt": {
+    "assumptions": {
+      "(!b1 & !b2 & !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b1 | next(!b1) | !f1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b2 | next(!b2) | !f2)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!b3 | next(!b3) | !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b1) | c | f1 | !b1)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(next(b2) | f2 | !b2)": {
+        "trace_name_0": [
+          [
+            2,
+            "b2"
+          ],
+          [
+            1,
+            "f2"
+          ],
+          [
+            1,
+            "b2"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "b2"
+          ],
+          [
+            1,
+            "f2"
+          ],
+          [
+            1,
+            "b2"
+          ]
+        ]
+      },
+      "G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": {
+        "trace_name_0": [
+          [
+            2,
+            "b2"
+          ],
+          [
+            1,
+            "f2"
+          ],
+          [
+            1,
+            "b2"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "b2"
+          ],
+          [
+            1,
+            "f2"
+          ],
+          [
+            1,
+            "b2"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "b1",
+      "b2",
+      "b3",
+      "c"
+    ],
+    "guarantees": {
+      "(f1 & !f2 & !f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (!f2 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f1 | (b2 & next(f2)) | (b3 & next(f2)) | (c & next(f1)) | (next(f1) & !b2 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (!f1 & !f3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (!f1 & !f2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b1->F(f1|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b2->F(f2|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(b3->F(f3|c))": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      },
+      "G(f1 | f2 | f3)": {
+        "trace_name_0": [],
+        "trace_name_1": []
+      }
+    },
+    "spec_name": "Lift",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped1.spectra",
+    "sys": [
+      "f1",
+      "f2",
+      "f3"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped0_auto_violation.txt": {
+    "assumptions": {},
+    "assumptions_conjunct": {
+      "": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: \n[1.1] failure: '(' expected but end of source found\n\n\n^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "guarantees": {
+      "G(!methane | next(!pump))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": []
+      },
+      "G(methane | next(pump) | !highwater)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": []
+      }
+    },
+    "spec_name": "Minepump",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped0.spectra",
+    "sys": [
+      "pump"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped10_auto_violation.txt": {
+    "assumptions": {
+      "G( !pump )": {
+        "trace_name_0": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "pump"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "G( !pump )": {
+        "trace_name_0": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "pump"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "guarantees": {
+      "G(!methane | next(!pump))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": []
+      },
+      "G(methane | next(pump) )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": []
+      }
+    },
+    "spec_name": "Minepump",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped10.spectra",
+    "sys": [
+      "pump"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped1_auto_violation.txt": {
+    "assumptions": {
+      "G(next(!highwater) | !pump )": {
+        "trace_name_0": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "G(next(!highwater) | !pump )": {
+        "trace_name_0": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "guarantees": {
+      "G(!methane | next(!pump))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": []
+      },
+      "G(methane | next(pump) | !highwater)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": []
+      }
+    },
+    "spec_name": "Minepump",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped1.spectra",
+    "sys": [
+      "pump"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped2_auto_violation.txt": {
+    "assumptions": {},
+    "assumptions_conjunct": {
+      "": [
+        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: \n[1.1] failure: '(' expected but end of source found\n\n\n^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
+      ]
+    },
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "guarantees": {
+      "G(!methane | next(!pump))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": []
+      },
+      "G(methane | next(pump) | !highwater)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": []
+      }
+    },
+    "spec_name": "Minepump",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped2.spectra",
+    "sys": [
+      "pump"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped4_auto_violation.txt": {
+    "assumptions": {
+      "G( !pump )": {
+        "trace_name_0": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "G( !pump )": {
+        "trace_name_0": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "highwater",
+      "methane"
+    ],
+    "guarantees": {
+      "G(!methane )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": []
+      },
+      "G(methane | next(pump) | !highwater)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": []
+      }
+    },
+    "spec_name": "Minepump",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped4.spectra",
+    "sys": [
+      "pump"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped0_auto_violation.txt": {
+    "assumptions": {
+      "G( !car | next(!car) | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ]
+      },
+      "G(next(car) | emergency | green | !car)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "GF(!police)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | green | !car) & G( !car | next(!car) | !green)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "guarantees": {
+      "G(car->F(green))": {
+        "trace_name_0": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            2,
+            "car"
+          ],
+          [
+            2,
+            "green"
+          ]
+        ]
+      },
+      "GF(!car)": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "car"
+          ],
+          [
+            2,
+            "car"
+          ]
+        ]
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped0.spectra",
+    "sys": [
+      "green"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped10_auto_violation.txt": {
+    "assumptions": {
+      "G(next(car) | emergency | !car)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ]
+      },
+      "G(police | !car | next(!car) )": {
+        "trace_name_0": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "GF(!police)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | !car) & G(police | !car | next(!car) )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "guarantees": {
+      "G(car->F(green))": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "GF(!car)": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped10.spectra",
+    "sys": [
+      "green"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped11_auto_violation.txt": {
+    "assumptions": {
+      "G(next(car) | emergency | green | !car)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(police | !car | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ]
+      },
+      "GF(!police)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | green | !car) & G(police | !car | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "guarantees": {
+      "G(car->F(green))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped11.spectra",
+    "sys": [
+      "green"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped1_auto_violation.txt": {
+    "assumptions": {
+      "G( green | !car)": {
+        "trace_name_0": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ]
+      },
+      "G(police | next(!car) | !green)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ]
+      },
+      "GF(!police)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [
+          [
+            0,
+            "police"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "police"
+          ]
+        ],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!police) & G( green | !car) & G(police | next(!car) | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "green"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "police"
+          ],
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "green"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "police"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "guarantees": {
+      "G(car->F(green))": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ]
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped1.spectra",
+    "sys": [
+      "green"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped2_auto_violation.txt": {
+    "assumptions": {
+      "G( !car | next(!car) | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(car) | emergency | !car)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "G(next(car) | emergency | !car) & G( !car | next(!car) | !green)": {
+        "trace_name_0": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "car"
+          ],
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "green"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "car"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "car"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            2,
+            "car"
+          ],
+          [
+            1,
+            "emergency"
+          ],
+          [
+            1,
+            "car"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "car",
+      "emergency",
+      "police"
+    ],
+    "guarantees": {
+      "G(car->F(green))": {
+        "trace_name_0": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "car"
+          ],
+          [
+            1,
+            "green"
+          ]
+        ],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped2.spectra",
+    "sys": [
+      "green"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped11_auto_violation.txt": {
+    "assumptions": {
+      "G(emergency | !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(emergency | next(!cara) | !greena)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(cara) | emergency | greena | !cara)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(carb) | emergency | greenb )": {
+        "trace_name_0": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "carb"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ]
+      },
+      "GF(!emergency)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!emergency) & G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb ) & G(emergency | next(!cara) | !greena) & G(emergency | !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "env": [
+      "cara",
+      "carb",
+      "emergency"
+    ],
+    "guarantees": {
+      "G(!emergency | (!greena & !greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(!greena | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(cara->F(greena))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(carb->F(greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped11.spectra",
+    "sys": [
+      "greena",
+      "greenb"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped12_auto_violation.txt": {
+    "assumptions": {
+      "G( !cara | next(!cara) )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G( emergency | greenb )": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ]
+      },
+      "G(emergency | !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(cara) | emergency | !cara)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "GF(!emergency)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "GF(!emergency) & G(next(cara) | emergency | !cara) & G( emergency | greenb ) & G( !cara | next(!cara) ) & G(emergency | !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "cara",
+      "carb",
+      "emergency"
+    ],
+    "guarantees": {
+      "G( !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(!emergency | (!greena & !greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(cara->F(greena))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(carb->F(greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped12.spectra",
+    "sys": [
+      "greena",
+      "greenb"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped3_auto_violation.txt": {
+    "assumptions": {
+      "G( emergency | greenb )": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ]
+      },
+      "G( greena | !cara)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(emergency | !cara | next(!cara) | !greena)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(emergency | !carb | next(!carb) )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "G( greena | !cara) & G( emergency | greenb ) & G(emergency | !cara | next(!cara) | !greena) & G(emergency | !carb | next(!carb) )": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greenb"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "cara",
+      "carb",
+      "emergency"
+    ],
+    "guarantees": {
+      "G(!greena | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(cara->F(greena))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(carb->F(greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped3.spectra",
+    "sys": [
+      "greena",
+      "greenb"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped7_auto_violation.txt": {
+    "assumptions": {
+      "G( !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(emergency | next(!cara) | !greena)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(cara) | emergency | greena )": {
+        "trace_name_0": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ]
+      },
+      "G(next(carb) | emergency | greenb | !carb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "G(next(cara) | emergency | greena ) & G(next(carb) | emergency | greenb | !carb) & G(emergency | next(!cara) | !greena) & G( !greenb)": {
+        "trace_name_0": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            1,
+            "cara"
+          ],
+          [
+            0,
+            "emergency"
+          ],
+          [
+            0,
+            "greena"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "cara",
+      "carb",
+      "emergency"
+    ],
+    "guarantees": {
+      "G(!emergency )": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(!greena | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(cara->F(greena))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(carb->F(greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped7.spectra",
+    "sys": [
+      "greena",
+      "greenb"
+    ]
+  },
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped9_auto_violation.txt": {
+    "assumptions": {
+      "G( !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(emergency )": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ]
+        ]
+      },
+      "G(next(cara) | emergency | greena | !cara)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(next(carb) | emergency | greenb | !carb)": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "assumptions_conjunct": {
+      "G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb | !carb) & G(emergency ) & G( !carb | next(!carb) | !greenb)": {
+        "trace_name_0": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_4": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_5": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_6": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_7": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_8": [
+          [
+            0,
+            "emergency"
+          ]
+        ],
+        "trace_name_9": [
+          [
+            0,
+            "emergency"
+          ]
+        ]
+      }
+    },
+    "env": [
+      "cara",
+      "carb",
+      "emergency"
+    ],
+    "guarantees": {
+      "G(cara->F(greena))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      },
+      "G(carb->F(greenb))": {
+        "trace_name_0": [],
+        "trace_name_1": [],
+        "trace_name_2": [],
+        "trace_name_3": [],
+        "trace_name_4": [],
+        "trace_name_5": [],
+        "trace_name_6": [],
+        "trace_name_7": [],
+        "trace_name_8": [],
+        "trace_name_9": []
+      }
+    },
+    "spec_name": "TrafficE2",
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped9.spectra",
+    "sys": [
+      "greena",
+      "greenb"
+    ]
   }
 }

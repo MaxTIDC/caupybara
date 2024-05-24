@@ -1,5 +1,5 @@
 {
-  ".\\input-files\\buckworth2023\\mutated_specifications\\Arbiter_FINAL_dropped0.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\Arbiter_FINAL_dropped0_auto_violation.txt": {
     "spec_name": "Arbiter",
     "env": [
       "a",
@@ -13,14 +13,18 @@
     "assumptions": {
       "G(a)": []
     },
+    "assumptions_conjunct": {
+      "G(a)": []
+    },
     "guarantees": {
       "G(r1->F(g1))": [],
       "G(r2->F(g2))": [],
       "G(!a->!g1&!g2)": [],
       "G(!g1 | !g2)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\Arbiter_FINAL_dropped0.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped10.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped10_auto_violation.txt": {
     "spec_name": "genbuf_05",
     "env": [
       "stob_req0",
@@ -79,6 +83,9 @@
       "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": [],
       "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": [],
       "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
     },
     "guarantees": {
       "(!btos_ack0)": [],
@@ -162,9 +169,10 @@
       "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": [],
       "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": [],
       "GF(!stateg12)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped10.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped107.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped107_auto_violation.txt": {
     "spec_name": "genbuf_05",
     "env": [
       "stob_req0",
@@ -220,6 +228,9 @@
       "G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": [],
       "GF((btor_req0 & rtob_ack0) )": [],
       "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
     },
     "guarantees": {
       "(!btos_ack0)": [],
@@ -297,9 +308,10 @@
       "GF((btos_ack1 & stob_req1) | (!btos_ack1 & !stob_req1))": [],
       "GF((btos_ack2 & stob_req2) | (!btos_ack2 & !stob_req2))": [],
       "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped107.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped115.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped115_auto_violation.txt": {
     "spec_name": "genbuf_05",
     "env": [
       "stob_req0",
@@ -358,6 +370,9 @@
       "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": [],
       "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": [],
       "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
     },
     "guarantees": {
       "(!btos_ack0)": [],
@@ -440,9 +455,10 @@
       "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": [],
       "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": [],
       "GF(!stateg12)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped115.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped118.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped118_auto_violation.txt": {
     "spec_name": "genbuf_05",
     "env": [
       "stob_req0",
@@ -501,6 +517,9 @@
       "G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full)))": [],
       "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": [],
       "GF( (!btor_req1 & !rtob_ack1))": []
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))": []
     },
     "guarantees": {
       "(!btos_ack0)": [],
@@ -580,9 +599,10 @@
       "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": [],
       "GF( (!btos_ack4 & !stob_req4))": [],
       "GF(!stateg12)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped118.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped122.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped122_auto_violation.txt": {
     "spec_name": "genbuf_05",
     "env": [
       "stob_req0",
@@ -640,6 +660,9 @@
       "G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))": [],
       "GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))": [],
       "GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
+    },
+    "assumptions_conjunct": {
+      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": []
     },
     "guarantees": {
       "(!btos_ack0)": [],
@@ -722,9 +745,10 @@
       "GF((btos_ack3 & stob_req3) | (!btos_ack3 & !stob_req3))": [],
       "GF((btos_ack4 & stob_req4) | (!btos_ack4 & !stob_req4))": [],
       "GF(!stateg12)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped122.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped0.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped0_auto_violation.txt": {
     "spec_name": "Lift",
     "env": [
       "b1",
@@ -746,6 +770,9 @@
       "G(next(b2) | f2 | !b2)": [],
       "G(next(b3) | c | f3 | !b3)": []
     },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G( next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": []
+    },
     "guarantees": {
       "(f1 & !f2 & !f3)": [],
       "G(f1 | f2 | f3)": [],
@@ -758,9 +785,10 @@
       "G(b1->F(f1|c))": [],
       "G(b2->F(f2|c))": [],
       "G(b3->F(f3|c))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped0.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped1.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped1_auto_violation.txt": {
     "spec_name": "Lift",
     "env": [
       "b1",
@@ -782,6 +810,9 @@
       "G(next(b2) | f2 | !b2)": [],
       "G(next(b3) | c | f3 | !b3)": []
     },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": []
+    },
     "guarantees": {
       "(f1 & !f2 & !f3)": [],
       "G(f1 | f2 | f3)": [],
@@ -794,9 +825,10 @@
       "G(b1->F(f1|c))": [],
       "G(b2->F(f2|c))": [],
       "G(b3->F(f3|c))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped1.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped10.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped10_auto_violation.txt": {
     "spec_name": "Lift",
     "env": [
       "b1",
@@ -818,6 +850,9 @@
       "G(next(b2) | c | !b2)": [],
       "G(next(b3) | c | f3 | !b3)": []
     },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | c | f3 | !b3)": []
+    },
     "guarantees": {
       "(f1 & !f2 & !f3)": [],
       "G(f1 | f2 | f3)": [],
@@ -830,9 +865,10 @@
       "G(b1->F(f1|c))": [],
       "G(b2->F(f2|c))": [],
       "G(b3->F(f3|c))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped10.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped11.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped11_auto_violation.txt": {
     "spec_name": "Lift",
     "env": [
       "b1",
@@ -854,6 +890,9 @@
       "G( c | f2 )": [],
       "G(next(b3) | c | f3 | !b3)": []
     },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | !f2) & G( next(!b3) ) & G(next(b1) | c | f1 | !b1) & G( c | f2 ) & G(next(b3) | c | f3 | !b3)": []
+    },
     "guarantees": {
       "(f1 & !f2 & !f3)": [],
       "G(f1 | f2 )": [],
@@ -864,9 +903,10 @@
       "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) | (next(f3) & !b1 & !b2))": [],
       "G(b2->F(f2|c))": [],
       "G(b3->F(f3|c))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped11.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped13.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped13_auto_violation.txt": {
     "spec_name": "Lift",
     "env": [
       "b1",
@@ -888,6 +928,9 @@
       "G(next(b2) | c | !b2)": [],
       "G(next(b3) | f3 | !b3)": []
     },
+    "assumptions_conjunct": {
+      "(!b1 & !b2 & !b3) & G( !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | f3 | !b3)": []
+    },
     "guarantees": {
       "(f1 & !f2 & !f3)": [],
       "G(f1 )": [],
@@ -897,9 +940,10 @@
       "G(!f2 | (b1 & next(f1)) | (b3 & next(f3)) | (c & next(f2)) | (next(f2) & !b1 & !b3))": [],
       "G(!f3 | (b1 & next(f2)) | (b2 & next(f2)) | (c & next(f3)) )": [],
       "G(b2->F(f2|c))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped13.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped0.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped0_auto_violation.txt": {
     "spec_name": "Minepump",
     "env": [
       "highwater",
@@ -909,12 +953,16 @@
       "pump"
     ],
     "assumptions": {},
+    "assumptions_conjunct": {
+      "": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane | next(!pump))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped0.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped1.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped1_auto_violation.txt": {
     "spec_name": "Minepump",
     "env": [
       "highwater",
@@ -926,12 +974,16 @@
     "assumptions": {
       "G(next(!highwater) | !pump )": []
     },
+    "assumptions_conjunct": {
+      "G(next(!highwater) | !pump )": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane | next(!pump))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped1.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped10.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped10_auto_violation.txt": {
     "spec_name": "Minepump",
     "env": [
       "highwater",
@@ -943,12 +995,16 @@
     "assumptions": {
       "G( !pump )": []
     },
+    "assumptions_conjunct": {
+      "G( !pump )": []
+    },
     "guarantees": {
       "G(methane | next(pump) )": [],
       "G(!methane | next(!pump))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped10.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped2.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped2_auto_violation.txt": {
     "spec_name": "Minepump",
     "env": [
       "highwater",
@@ -958,12 +1014,16 @@
       "pump"
     ],
     "assumptions": {},
+    "assumptions_conjunct": {
+      "": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane | next(!pump))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped2.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped4.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped4_auto_violation.txt": {
     "spec_name": "Minepump",
     "env": [
       "highwater",
@@ -975,12 +1035,16 @@
     "assumptions": {
       "G( !pump )": []
     },
+    "assumptions_conjunct": {
+      "G( !pump )": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane )": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped4.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped0.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped0_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "car",
@@ -995,12 +1059,16 @@
       "G(next(car) | emergency | green | !car)": [],
       "G( !car | next(!car) | !green)": []
     },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | green | !car) & G( !car | next(!car) | !green)": []
+    },
     "guarantees": {
       "G(car->F(green))": [],
       "GF(!car)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped0.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped1.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped1_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "car",
@@ -1015,11 +1083,15 @@
       "G( green | !car)": [],
       "G(police | next(!car) | !green)": []
     },
+    "assumptions_conjunct": {
+      "GF(!police) & G( green | !car) & G(police | next(!car) | !green)": []
+    },
     "guarantees": {
       "G(car->F(green))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped1.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped10.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped10_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "car",
@@ -1034,12 +1106,16 @@
       "G(next(car) | emergency | !car)": [],
       "G(police | !car | next(!car) )": []
     },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | !car) & G(police | !car | next(!car) )": []
+    },
     "guarantees": {
       "G(car->F(green))": [],
       "GF(!car)": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped10.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped11.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped11_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "car",
@@ -1054,11 +1130,15 @@
       "G(next(car) | emergency | green | !car)": [],
       "G(police | !car | !green)": []
     },
+    "assumptions_conjunct": {
+      "GF(!police) & G(next(car) | emergency | green | !car) & G(police | !car | !green)": []
+    },
     "guarantees": {
       "G(car->F(green))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped11.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped2.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped2_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "car",
@@ -1072,11 +1152,15 @@
       "G(next(car) | emergency | !car)": [],
       "G( !car | next(!car) | !green)": []
     },
+    "assumptions_conjunct": {
+      "G(next(car) | emergency | !car) & G( !car | next(!car) | !green)": []
+    },
     "guarantees": {
       "G(car->F(green))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped2.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped11.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped11_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "cara",
@@ -1094,14 +1178,18 @@
       "G(emergency | next(!cara) | !greena)": [],
       "G(emergency | !carb | next(!carb) | !greenb)": []
     },
+    "assumptions_conjunct": {
+      "GF(!emergency) & G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb ) & G(emergency | next(!cara) | !greena) & G(emergency | !carb | next(!carb) | !greenb)": []
+    },
     "guarantees": {
       "G(!greena | !greenb)": [],
       "G(cara->F(greena))": [],
       "G(carb->F(greenb))": [],
       "G(!emergency | (!greena & !greenb))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped11.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped12.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped12_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "cara",
@@ -1119,14 +1207,18 @@
       "G( !cara | next(!cara) )": [],
       "G(emergency | !carb | next(!carb) | !greenb)": []
     },
+    "assumptions_conjunct": {
+      "GF(!emergency) & G(next(cara) | emergency | !cara) & G( emergency | greenb ) & G( !cara | next(!cara) ) & G(emergency | !carb | next(!carb) | !greenb)": []
+    },
     "guarantees": {
       "G( !greenb)": [],
       "G(cara->F(greena))": [],
       "G(carb->F(greenb))": [],
       "G(!emergency | (!greena & !greenb))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped12.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped3.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped3_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "cara",
@@ -1143,13 +1235,17 @@
       "G(emergency | !cara | next(!cara) | !greena)": [],
       "G(emergency | !carb | next(!carb) )": []
     },
+    "assumptions_conjunct": {
+      "G( greena | !cara) & G( emergency | greenb ) & G(emergency | !cara | next(!cara) | !greena) & G(emergency | !carb | next(!carb) )": []
+    },
     "guarantees": {
       "G(!greena | !greenb)": [],
       "G(cara->F(greena))": [],
       "G(carb->F(greenb))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped3.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped7.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped7_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "cara",
@@ -1166,14 +1262,18 @@
       "G(emergency | next(!cara) | !greena)": [],
       "G( !greenb)": []
     },
+    "assumptions_conjunct": {
+      "G(next(cara) | emergency | greena ) & G(next(carb) | emergency | greenb | !carb) & G(emergency | next(!cara) | !greena) & G( !greenb)": []
+    },
     "guarantees": {
       "G(!greena | !greenb)": [],
       "G(cara->F(greena))": [],
       "G(carb->F(greenb))": [],
       "G(!emergency )": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped7.spectra"
   },
-  ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped9.spectra": {
+  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped9_auto_violation.txt": {
     "spec_name": "TrafficE2",
     "env": [
       "cara",
@@ -1190,9 +1290,13 @@
       "G(emergency )": [],
       "G( !carb | next(!carb) | !greenb)": []
     },
+    "assumptions_conjunct": {
+      "G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb | !carb) & G(emergency ) & G( !carb | next(!carb) | !greenb)": []
+    },
     "guarantees": {
       "G(cara->F(greena))": [],
       "G(carb->F(greenb))": []
-    }
+    },
+    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped9.spectra"
   }
 }
