@@ -3,6 +3,8 @@ import json
 import os
 import sys
 
+from pathlib import PureWindowsPath
+
 USAGE = """
 Usage: python process_spectra.py [Input file path / directory] ([Output file path])
 """
@@ -84,10 +86,15 @@ if __name__ == "__main__":
         traces_path = os.path.join(input_path, "violation_files")
         
         for filename in os.listdir(spectra_path):
-            spectra_file = os.path.join(spectra_path, filename)
-            traces_file = os.path.join(traces_path, f"{os.path.splitext(filename)[0]}_auto_violation.txt" )
+            spectra_file = os.path.normpath(os.path.join(spectra_path, filename))
+            traces_file = os.path.normpath(os.path.join(traces_path, f"{os.path.splitext(filename)[0]}_auto_violation.txt"))
 
             processed = process_spectra(spectra_file)
+
+            if os.path.sep == '\\':
+                spectra_file = PureWindowsPath(spectra_file).as_posix()
+                traces_file = PureWindowsPath(traces_file).as_posix()
+
             processed["spectra_file"] = spectra_file
             processed_dict[traces_file] = processed
 

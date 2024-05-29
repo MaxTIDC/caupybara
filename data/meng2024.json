@@ -1,5 +1,5 @@
 {
-  ".\\input-files\\buckworth2023\\violation_files\\Arbiter_FINAL_dropped0_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/Arbiter_FINAL_dropped0_auto_violation.txt": {
     "assumptions": {
       "G(a)": {
         "trace_name_0": [
@@ -244,13 +244,13 @@
       }
     },
     "spec_name": "Arbiter",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\Arbiter_FINAL_dropped0.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/Arbiter_FINAL_dropped0.spectra",
     "sys": [
       "g1",
       "g2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped107_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/genbuf_05_normalised_dropped107_auto_violation.txt": {
     "assumptions": {
       "(!full)": {
         "trace_name_0": []
@@ -606,7 +606,7 @@
       }
     },
     "spec_name": "genbuf_05",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped107.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/genbuf_05_normalised_dropped107.spectra",
     "sys": [
       "btos_ack0",
       "btos_ack1",
@@ -625,7 +625,7 @@
       "slc2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped10_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/genbuf_05_normalised_dropped10_auto_violation.txt": {
     "assumptions": {
       "(!full)": {
         "trace_name_0": []
@@ -990,7 +990,7 @@
       }
     },
     "spec_name": "genbuf_05",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped10.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/genbuf_05_normalised_dropped10.spectra",
     "sys": [
       "btos_ack0",
       "btos_ack1",
@@ -1009,7 +1009,7 @@
       "slc2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped115_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/genbuf_05_normalised_dropped115_auto_violation.txt": {
     "assumptions": {
       "(!full)": {
         "trace_name_0": []
@@ -1371,7 +1371,7 @@
       }
     },
     "spec_name": "genbuf_05",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped115.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/genbuf_05_normalised_dropped115.spectra",
     "sys": [
       "btos_ack0",
       "btos_ack1",
@@ -1390,7 +1390,7 @@
       "slc2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped118_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/genbuf_05_normalised_dropped118_auto_violation.txt": {
     "assumptions": {
       "(!full)": {
         "trace_name_0": []
@@ -1758,7 +1758,7 @@
       }
     },
     "spec_name": "genbuf_05",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped118.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/genbuf_05_normalised_dropped118.spectra",
     "sys": [
       "btos_ack0",
       "btos_ack1",
@@ -1777,7 +1777,7 @@
       "slc2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\genbuf_05_normalised_dropped122_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/genbuf_05_normalised_dropped122_auto_violation.txt": {
     "assumptions": {
       "(!full)": {
         "trace_name_0": []
@@ -2182,7 +2182,7 @@
       }
     },
     "spec_name": "genbuf_05",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\genbuf_05_normalised_dropped122.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/genbuf_05_normalised_dropped122.spectra",
     "sys": [
       "btos_ack0",
       "btos_ack1",
@@ -2201,7 +2201,7 @@
       "slc2"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped0_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/lift_well_sep_dropped0_auto_violation.txt": {
     "assumptions": {
       "(!b1 & !b2 & !b3)": {
         "trace_name_0": [],
@@ -2351,14 +2351,14 @@
       }
     },
     "spec_name": "Lift",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped0.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/lift_well_sep_dropped0.spectra",
     "sys": [
       "f1",
       "f2",
       "f3"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped10_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/lift_well_sep_dropped10_auto_violation.txt": {
     "assumptions": {
       "(!b1 & !b2 & !b3)": {
         "trace_name_0": [],
@@ -2536,14 +2536,14 @@
       }
     },
     "spec_name": "Lift",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped10.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/lift_well_sep_dropped10.spectra",
     "sys": [
       "f1",
       "f2",
       "f3"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped11_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/lift_well_sep_dropped11_auto_violation.txt": {
     "assumptions": {
       "(!b1 & !b2 & !b3)": {
         "trace_name_0": [],
@@ -2685,14 +2685,14 @@
       }
     },
     "spec_name": "Lift",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped11.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/lift_well_sep_dropped11.spectra",
     "sys": [
       "f1",
       "f2",
       "f3"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped13_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/lift_well_sep_dropped13_auto_violation.txt": {
     "assumptions": {
       "(!b1 & !b2 & !b3)": {
         "trace_name_0": [],
@@ -2802,14 +2802,14 @@
       }
     },
     "spec_name": "Lift",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped13.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/lift_well_sep_dropped13.spectra",
     "sys": [
       "f1",
       "f2",
       "f3"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\lift_well_sep_dropped1_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/lift_well_sep_dropped1_auto_violation.txt": {
     "assumptions": {
       "(!b1 & !b2 & !b3)": {
         "trace_name_0": [],
@@ -2987,14 +2987,14 @@
       }
     },
     "spec_name": "Lift",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\lift_well_sep_dropped1.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/lift_well_sep_dropped1.spectra",
     "sys": [
       "f1",
       "f2",
       "f3"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped0_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/minepump_fixed1_dropped0_auto_violation.txt": {
     "assumptions": {},
     "assumptions_conjunct": {},
     "env": [
@@ -3014,12 +3014,12 @@
       }
     },
     "spec_name": "Minepump",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped0.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/minepump_fixed1_dropped0.spectra",
     "sys": [
       "pump"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped10_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/minepump_fixed1_dropped10_auto_violation.txt": {
     "assumptions": {
       "G( !pump )": {
         "trace_name_0": [
@@ -3199,12 +3199,12 @@
       }
     },
     "spec_name": "Minepump",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped10.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/minepump_fixed1_dropped10.spectra",
     "sys": [
       "pump"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped1_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/minepump_fixed1_dropped1_auto_violation.txt": {
     "assumptions": {
       "G(next(!highwater) | !pump )": {
         "trace_name_0": [
@@ -3428,12 +3428,12 @@
       }
     },
     "spec_name": "Minepump",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped1.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/minepump_fixed1_dropped1.spectra",
     "sys": [
       "pump"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped2_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/minepump_fixed1_dropped2_auto_violation.txt": {
     "assumptions": {},
     "assumptions_conjunct": {},
     "env": [
@@ -3455,12 +3455,12 @@
       }
     },
     "spec_name": "Minepump",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped2.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/minepump_fixed1_dropped2.spectra",
     "sys": [
       "pump"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped4_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/minepump_fixed1_dropped4_auto_violation.txt": {
     "assumptions": {
       "G( !pump )": {
         "trace_name_0": [
@@ -3560,12 +3560,12 @@
       }
     },
     "spec_name": "Minepump",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\minepump_fixed1_dropped4.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/minepump_fixed1_dropped4.spectra",
     "sys": [
       "pump"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped0_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_single_FINAL_dropped0_auto_violation.txt": {
     "assumptions": {
       "G( !car | next(!car) | !green)": {
         "trace_name_0": [
@@ -4148,12 +4148,12 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped0.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_single_FINAL_dropped0.spectra",
     "sys": [
       "green"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped10_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_single_FINAL_dropped10_auto_violation.txt": {
     "assumptions": {
       "G(next(car) | emergency | !car)": {
         "trace_name_0": [],
@@ -4718,12 +4718,12 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped10.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_single_FINAL_dropped10.spectra",
     "sys": [
       "green"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped11_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_single_FINAL_dropped11_auto_violation.txt": {
     "assumptions": {
       "G(next(car) | emergency | green | !car)": {
         "trace_name_0": [],
@@ -5265,12 +5265,12 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped11.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_single_FINAL_dropped11.spectra",
     "sys": [
       "green"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped1_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_single_FINAL_dropped1_auto_violation.txt": {
     "assumptions": {
       "G( green | !car)": {
         "trace_name_0": [
@@ -5721,12 +5721,12 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped1.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_single_FINAL_dropped1.spectra",
     "sys": [
       "green"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_single_FINAL_dropped2_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_single_FINAL_dropped2_auto_violation.txt": {
     "assumptions": {
       "G( !car | next(!car) | !green)": {
         "trace_name_0": [
@@ -6272,12 +6272,12 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_single_FINAL_dropped2.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_single_FINAL_dropped2.spectra",
     "sys": [
       "green"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped11_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_updated_FINAL_dropped11_auto_violation.txt": {
     "assumptions": {
       "G(emergency | !carb | next(!carb) | !greenb)": {
         "trace_name_0": [],
@@ -8590,13 +8590,13 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped11.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_updated_FINAL_dropped11.spectra",
     "sys": [
       "greena",
       "greenb"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped12_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_updated_FINAL_dropped12_auto_violation.txt": {
     "assumptions": {
       "G( !cara | next(!cara) )": {
         "trace_name_0": [],
@@ -9029,13 +9029,13 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped12.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_updated_FINAL_dropped12.spectra",
     "sys": [
       "greena",
       "greenb"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped3_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_updated_FINAL_dropped3_auto_violation.txt": {
     "assumptions": {
       "G( emergency | greenb )": {
         "trace_name_0": [
@@ -9444,13 +9444,13 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped3.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_updated_FINAL_dropped3.spectra",
     "sys": [
       "greena",
       "greenb"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped7_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_updated_FINAL_dropped7_auto_violation.txt": {
     "assumptions": {
       "G( !greenb)": {
         "trace_name_0": [],
@@ -11751,13 +11751,13 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped7.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_updated_FINAL_dropped7.spectra",
     "sys": [
       "greena",
       "greenb"
     ]
   },
-  ".\\input-files\\buckworth2023\\violation_files\\traffic_updated_FINAL_dropped9_auto_violation.txt": {
+  "input-files/buckworth2023/violation_files/traffic_updated_FINAL_dropped9_auto_violation.txt": {
     "assumptions": {
       "G( !carb | next(!carb) | !greenb)": {
         "trace_name_0": [],
@@ -12014,7 +12014,7 @@
       }
     },
     "spec_name": "TrafficE2",
-    "spectra_file": ".\\input-files\\buckworth2023\\mutated_specifications\\traffic_updated_FINAL_dropped9.spectra",
+    "spectra_file": "input-files/buckworth2023/mutated_specifications/traffic_updated_FINAL_dropped9.spectra",
     "sys": [
       "greena",
       "greenb"
