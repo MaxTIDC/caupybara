@@ -49,7 +49,8 @@ def process_spectra(file_path):
             guarantee_formula = lines[i+1].strip().strip(';')
             guarantees[guarantee_formula] = []
 
-    assumptions_conjunct[" & ".join(assumptions.keys())] = []
+    if assumptions:
+        assumptions_conjunct[" & ".join(map(lambda psi: f"({psi})", assumptions.keys()))] = []
 
     # Return processed file as a dictionary
     return {

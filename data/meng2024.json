@@ -95,7 +95,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G(a)": {
+      "(G(a))": {
         "trace_name_0": [
           [
             [
@@ -345,9 +345,27 @@
       }
     },
     "assumptions_conjunct": {
-      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.775] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(btos_ack3 ) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | !enq) & G(enq ) & G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) ) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
+      "((!stob_req0)) & ((!stob_req1)) & ((!stob_req2)) & ((!stob_req3)) & ((!stob_req4)) & ((!rtob_ack0)) & ((!rtob_ack1)) & ((!full)) & ((empty)) & (G(btos_ack0 | next(stob_req0) | !stob_req0)) & (G(btos_ack1 | next(stob_req1) | !stob_req1)) & (G(!btos_ack1 | next(!stob_req1))) & (G(btos_ack2 | next(stob_req2) | !stob_req2)) & (G(btos_ack3 )) & (G(!btos_ack3 | next(!stob_req3))) & (G(btos_ack4 | next(stob_req4) | !stob_req4)) & (G(!btos_ack4 | next(!stob_req4))) & (G(btor_req0 | next(!rtob_ack0))) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)) & (G(deq | !enq)) & (G(enq )) & (G((deq & !deq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))) & (GF((btor_req0 & rtob_ack0) )) & (GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "btos_ack3",
+              false
+            ],
+            [
+              0,
+              "enq",
+              false
+            ],
+            [
+              0,
+              "deq",
+              false
+            ]
+          ]
+        ]
+      }
     },
     "env": [
       "stob_req0",
@@ -703,9 +721,17 @@
       }
     },
     "assumptions_conjunct": {
-      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.974] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G(btor_req0 ) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G( next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
+      "((!stob_req0)) & ((!stob_req1)) & ((!stob_req2)) & ((!stob_req3)) & ((!stob_req4)) & ((!rtob_ack0)) & ((!rtob_ack1)) & ((!full)) & ((empty)) & (G(btos_ack0 | next(stob_req0) | !stob_req0)) & (G(!btos_ack0 | next(!stob_req0))) & (G(btos_ack1 | next(stob_req1) | !stob_req1)) & (G(!btos_ack1 | next(!stob_req1))) & (G(btos_ack2 | next(stob_req2) | !stob_req2)) & (G(!btos_ack2 | next(!stob_req2))) & (G(btos_ack3 | next(stob_req3) | !stob_req3)) & (G(!btos_ack3 | next(!stob_req3))) & (G(btos_ack4 | next(stob_req4) | !stob_req4)) & (G(!btos_ack4 | next(!stob_req4))) & (G(btor_req0 )) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (G( next(!rtob_ack1))) & (G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)) & (G(deq | next(!empty) | !enq)) & (G(enq | !deq | next(!full))) & (G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))) & (GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "btor_req0",
+              false
+            ]
+          ]
+        ]
+      }
     },
     "env": [
       "stob_req0",
@@ -1079,9 +1105,17 @@
       }
     },
     "assumptions_conjunct": {
-      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.985] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(!btos_ack4 ) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
+      "((!stob_req0)) & ((!stob_req1)) & ((!stob_req2)) & ((!stob_req3)) & ((!stob_req4)) & ((!rtob_ack0)) & ((!rtob_ack1)) & ((!full)) & ((empty)) & (G(btos_ack0 | next(stob_req0) | !stob_req0)) & (G(!btos_ack0 | next(!stob_req0))) & (G(btos_ack1 | next(stob_req1) | !stob_req1)) & (G(!btos_ack1 | next(!stob_req1))) & (G(btos_ack2 | next(stob_req2) | !stob_req2)) & (G(!btos_ack2 | next(!stob_req2))) & (G(btos_ack3 | next(stob_req3) | !stob_req3)) & (G(!btos_ack3 | next(!stob_req3))) & (G(btos_ack4 | next(stob_req4) | !stob_req4)) & (G(!btos_ack4 )) & (G(btor_req0 | next(!rtob_ack0))) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (G(btor_req1 | next(!rtob_ack1))) & (G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)) & (G(deq | next(!empty) | !enq)) & (G(enq | !deq | next(!full))) & (G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))) & (GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            [
+              2,
+              "btos_ack4",
+              true
+            ]
+          ]
+        ]
+      }
     },
     "env": [
       "stob_req0",
@@ -1452,9 +1486,17 @@
       }
     },
     "assumptions_conjunct": {
-      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))\n[1.855] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 | next(!stob_req2)) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G( next(stob_req4) | !stob_req4) & G(!btos_ack4 | next(!stob_req4)) & G( next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 ) & G(btor_req1 | next(!rtob_ack1)) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq ) & G(enq | !deq | next(!full)) & G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF( (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
+      "((!stob_req0)) & ((!stob_req1)) & ((!stob_req2)) & ((!stob_req3)) & ((!stob_req4)) & ((!rtob_ack0)) & ((!rtob_ack1)) & ((!full)) & ((empty)) & (G(btos_ack0 | !stob_req0)) & (G(!btos_ack0 | next(!stob_req0))) & (G(btos_ack1 | next(stob_req1) | !stob_req1)) & (G(!btos_ack1 | next(!stob_req1))) & (G(btos_ack2 | next(stob_req2) | !stob_req2)) & (G(!btos_ack2 | next(!stob_req2))) & (G(btos_ack3 | next(stob_req3) | !stob_req3)) & (G(!btos_ack3 | next(!stob_req3))) & (G( next(stob_req4) | !stob_req4)) & (G(!btos_ack4 | next(!stob_req4))) & (G( next(!rtob_ack0))) & (G(next(rtob_ack0) | !btor_req0 )) & (G(btor_req1 | next(!rtob_ack1))) & (G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)) & (G(deq )) & (G(enq | !deq | next(!full))) & (G( (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (empty & next(empty) & !full & next(!full)) | (!empty & next(!empty) & !full & next(!full)))) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))) & (GF( (!btor_req1 & !rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "deq",
+              false
+            ]
+          ]
+        ]
+      }
     },
     "env": [
       "stob_req0",
@@ -1857,9 +1899,34 @@
       }
     },
     "assumptions_conjunct": {
-      "(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: (!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n[1.886] failure: 'U' expected but '(' found\n\n(!stob_req0) & (!stob_req1) & (!stob_req2) & (!stob_req3) & (!stob_req4) & (!rtob_ack0) & (!rtob_ack1) & (!full) & (empty) & G(btos_ack0 | next(stob_req0) | !stob_req0) & G(!btos_ack0 | next(!stob_req0)) & G(btos_ack1 | next(stob_req1) | !stob_req1) & G(!btos_ack1 | next(!stob_req1)) & G(btos_ack2 | next(stob_req2) | !stob_req2) & G(!btos_ack2 ) & G(btos_ack3 | next(stob_req3) | !stob_req3) & G(!btos_ack3 | next(!stob_req3)) & G(btos_ack4 | next(stob_req4) | !stob_req4) & G(btor_req0 | next(!rtob_ack0)) & G(next(rtob_ack0) | !btor_req0 | !rtob_ack0) & G(btor_req1 ) & G(next(rtob_ack1) | !btor_req1 | !rtob_ack1) & G(deq | next(!empty) | !enq) & G(enq | !deq | next(!full)) & G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full))) & GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)) & GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1))\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
+      "((!stob_req0)) & ((!stob_req1)) & ((!stob_req2)) & ((!stob_req3)) & ((!stob_req4)) & ((!rtob_ack0)) & ((!rtob_ack1)) & ((!full)) & ((empty)) & (G(btos_ack0 | next(stob_req0) | !stob_req0)) & (G(!btos_ack0 | next(!stob_req0))) & (G(btos_ack1 | next(stob_req1) | !stob_req1)) & (G(!btos_ack1 | next(!stob_req1))) & (G(btos_ack2 | next(stob_req2) | !stob_req2)) & (G(!btos_ack2 )) & (G(btos_ack3 | next(stob_req3) | !stob_req3)) & (G(!btos_ack3 | next(!stob_req3))) & (G(btos_ack4 | next(stob_req4) | !stob_req4)) & (G(btor_req0 | next(!rtob_ack0))) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (G(btor_req1 )) & (G(next(rtob_ack1) | !btor_req1 | !rtob_ack1)) & (G(deq | next(!empty) | !enq)) & (G(enq | !deq | next(!full))) & (G((deq & !deq) | (deq & !enq) | (enq & !deq) | (enq & !enq) | (empty & next(empty) & full & next(full)) | (full & next(full) & !empty & next(!empty)) | (!empty & next(!empty) & !full & next(!full)))) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0))) & (GF((btor_req1 & rtob_ack1) | (!btor_req1 & !rtob_ack1)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "enq",
+              false
+            ],
+            [
+              0,
+              "btor_req1",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "deq",
+              false
+            ],
+            [
+              0,
+              "btor_req1",
+              false
+            ]
+          ]
+        ]
+      }
     },
     "env": [
       "stob_req0",
@@ -2196,7 +2263,7 @@
       }
     },
     "assumptions_conjunct": {
-      "(!b1 & !b2 & !b3) & G( next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": {
+      "((!b1 & !b2 & !b3)) & (G( next(!b1) | !f1)) & (G(!b2 | next(!b2) | !f2)) & (G(!b3 | next(!b3) | !f3)) & (G( c | f1 | !b1)) & (G(next(b2) | f2 | !b2)) & (G(next(b3) | c | f3 | !b3))": {
         "trace_name_0": [
           [
             [
@@ -2367,7 +2434,7 @@
       }
     },
     "assumptions_conjunct": {
-      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G( c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | c | f3 | !b3)": {
+      "((!b1 & !b2 & !b3)) & (G(!b1 | next(!b1) | !f1)) & (G(!b2 | next(!b2) | !f2)) & (G(!b3 | next(!b3) | !f3)) & (G( c | f1 | !b1)) & (G(next(b2) | c | !b2)) & (G(next(b3) | c | f3 | !b3))": {
         "trace_name_0": [
           [
             [
@@ -2538,7 +2605,7 @@
       }
     },
     "assumptions_conjunct": {
-      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | !f2) & G( next(!b3) ) & G(next(b1) | c | f1 | !b1) & G( c | f2 ) & G(next(b3) | c | f3 | !b3)": {
+      "((!b1 & !b2 & !b3)) & (G(!b1 | next(!b1) | !f1)) & (G(!b2 | !f2)) & (G( next(!b3) )) & (G(next(b1) | c | f1 | !b1)) & (G( c | f2 )) & (G(next(b3) | c | f3 | !b3))": {
         "trace_name_0": [
           [
             [
@@ -2673,7 +2740,7 @@
       }
     },
     "assumptions_conjunct": {
-      "(!b1 & !b2 & !b3) & G( !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | c | !b2) & G(next(b3) | f3 | !b3)": {
+      "((!b1 & !b2 & !b3)) & (G( !f1)) & (G(!b2 | next(!b2) | !f2)) & (G(!b3 | next(!b3) | !f3)) & (G(next(b1) | c | f1 | !b1)) & (G(next(b2) | c | !b2)) & (G(next(b3) | f3 | !b3))": {
         "trace_name_0": [
           [
             [
@@ -2818,7 +2885,7 @@
       }
     },
     "assumptions_conjunct": {
-      "(!b1 & !b2 & !b3) & G(!b1 | next(!b1) | !f1) & G(!b2 | next(!b2) | !f2) & G(!b3 | next(!b3) | !f3) & G(next(b1) | c | f1 | !b1) & G(next(b2) | f2 | !b2) & G(next(b3) | c | f3 | !b3)": {
+      "((!b1 & !b2 & !b3)) & (G(!b1 | next(!b1) | !f1)) & (G(!b2 | next(!b2) | !f2)) & (G(!b3 | next(!b3) | !f3)) & (G(next(b1) | c | f1 | !b1)) & (G(next(b2) | f2 | !b2)) & (G(next(b3) | c | f3 | !b3))": {
         "trace_name_0": [
           [
             [
@@ -2929,11 +2996,7 @@
   },
   ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped0_auto_violation.txt": {
     "assumptions": {},
-    "assumptions_conjunct": {
-      "": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: \n[1.1] failure: '(' expected but end of source found\n\n\n^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
-    },
+    "assumptions_conjunct": {},
     "env": [
       "highwater",
       "methane"
@@ -3034,7 +3097,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G( !pump )": {
+      "(G( !pump ))": {
         "trace_name_0": [
           [
             [
@@ -3243,7 +3306,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G(next(!highwater) | !pump )": {
+      "(G(next(!highwater) | !pump ))": {
         "trace_name_0": [
           [
             [
@@ -3372,11 +3435,7 @@
   },
   ".\\input-files\\buckworth2023\\violation_files\\minepump_fixed1_dropped2_auto_violation.txt": {
     "assumptions": {},
-    "assumptions_conjunct": {
-      "": [
-        "Exception in thread \"main\" java.lang.RuntimeException: Could not parse the input string: \n[1.1] failure: '(' expected but end of source found\n\n\n^\r\n\tat scala.sys.package$.error(package.scala:27)\r\n\tat Util.LTLParser$.apply(LTLParser.scala:75)\r\n\tat MainClass.CausalityLTL$.main(CausalityLTL.scala:60)\r\n\tat MainClass.CausalityLTL.main(CausalityLTL.scala)"
-      ]
-    },
+    "assumptions_conjunct": {},
     "env": [
       "highwater",
       "methane"
@@ -3443,7 +3502,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G( !pump )": {
+      "(G( !pump ))": {
         "trace_name_0": [
           [
             [
@@ -3766,17 +3825,295 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!police) & G(next(car) | emergency | green | !car) & G( !car | next(!car) | !green)": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!police)) & (G(next(car) | emergency | green | !car)) & (G( !car | next(!car) | !green))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              0,
+              "car",
+              true
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "green",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              0,
+              "car",
+              true
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "green",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              2,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -4076,17 +4413,277 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!police) & G(next(car) | emergency | !car) & G(police | !car | next(!car) )": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!police)) & (G(next(car) | emergency | !car)) & (G(police | !car | next(!car) ))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "police",
+              false
+            ],
+            [
+              1,
+              "car",
+              false
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              1,
+              "car",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "car",
+              false
+            ],
+            [
+              1,
+              "police",
+              false
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -4386,17 +4983,266 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!police) & G(next(car) | emergency | green | !car) & G(police | !car | !green)": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!police)) & (G(next(car) | emergency | green | !car)) & (G(police | !car | !green))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              0,
+              "car",
+              true
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "green",
+              false
+            ],
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
+              "police",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -4658,17 +5504,201 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!police) & G( green | !car) & G(police | next(!car) | !green)": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!police)) & (G( green | !car)) & (G(police | next(!car) | !green))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              0,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              0,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "police",
+              false
+            ],
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              false
+            ],
+            [
+              0,
+              "green",
+              true
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              1,
+              "car",
+              true
+            ]
+          ],
+          [
+            [
+              0,
+              "police",
+              false
+            ],
+            [
+              1,
+              "green",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "green",
+              false
+            ],
+            [
+              0,
+              "green",
+              true
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -4944,7 +5974,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G(next(car) | emergency | !car) & G( !car | next(!car) | !green)": {
+      "(G(next(car) | emergency | !car)) & (G( !car | next(!car) | !green))": {
         "trace_name_0": [
           [
             [
@@ -6401,17 +7431,1107 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!emergency) & G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb ) & G(emergency | next(!cara) | !greena) & G(emergency | !carb | next(!carb) | !greenb)": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!emergency)) & (G(next(cara) | emergency | greena | !cara)) & (G(next(carb) | emergency | greenb )) & (G(emergency | next(!cara) | !greena)) & (G(emergency | !carb | next(!carb) | !greenb))": {
+        "trace_name_0": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              1,
+              "carb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              2,
+              "carb",
+              false
+            ],
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ],
+            [
+              2,
+              "carb",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "emergency",
+              false
+            ],
+            [
+              1,
+              "greenb",
+              false
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -6690,17 +8810,167 @@
       }
     },
     "assumptions_conjunct": {
-      "GF(!emergency) & G(next(cara) | emergency | !cara) & G( emergency | greenb ) & G( !cara | next(!cara) ) & G(emergency | !carb | next(!carb) | !greenb)": {
-        "trace_name_0": [],
-        "trace_name_1": [],
-        "trace_name_2": [],
-        "trace_name_3": [],
-        "trace_name_4": [],
-        "trace_name_5": [],
-        "trace_name_6": [],
-        "trace_name_7": [],
-        "trace_name_8": [],
-        "trace_name_9": []
+      "(GF(!emergency)) & (G(next(cara) | emergency | !cara)) & (G( emergency | greenb )) & (G( !cara | next(!cara) )) & (G(emergency | !carb | next(!carb) | !greenb))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_4": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_5": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_6": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_7": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_8": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ],
+        "trace_name_9": [
+          [
+            [
+              0,
+              "emergency",
+              false
+            ]
+          ],
+          [
+            [
+              0,
+              "greenb",
+              false
+            ]
+          ]
+        ]
       }
     },
     "env": [
@@ -6967,7 +9237,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G( greena | !cara) & G( emergency | greenb ) & G(emergency | !cara | next(!cara) | !greena) & G(emergency | !carb | next(!carb) )": {
+      "(G( greena | !cara)) & (G( emergency | greenb )) & (G(emergency | !cara | next(!cara) | !greena)) & (G(emergency | !carb | next(!carb) ))": {
         "trace_name_0": [
           [
             [
@@ -8322,7 +10592,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G(next(cara) | emergency | greena ) & G(next(carb) | emergency | greenb | !carb) & G(emergency | next(!cara) | !greena) & G( !greenb)": {
+      "(G(next(cara) | emergency | greena )) & (G(next(carb) | emergency | greenb | !carb)) & (G(emergency | next(!cara) | !greena)) & (G( !greenb))": {
         "trace_name_0": [
           [
             [
@@ -9619,7 +11889,7 @@
       }
     },
     "assumptions_conjunct": {
-      "G(next(cara) | emergency | greena | !cara) & G(next(carb) | emergency | greenb | !carb) & G(emergency ) & G( !carb | next(!carb) | !greenb)": {
+      "(G(next(cara) | emergency | greena | !cara)) & (G(next(carb) | emergency | greenb | !carb)) & (G(emergency )) & (G( !carb | next(!carb) | !greenb))": {
         "trace_name_0": [
           [
             [

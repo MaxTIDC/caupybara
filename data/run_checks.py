@@ -40,7 +40,12 @@ def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: 
         for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
             for ltl in data.get(trace).get(key).keys():  # For each LTL assumption
                 args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace)]
-                output.get(trace).get(key).update({ltl : run_subprocess(args_head + args_tail)})
+
+                cause_list = run_subprocess(args_head + args_tail)
+                output.get(trace).get(key).update({ltl : cause_list})
+                
+                # for trace_name in cause_list.keys():
+                #     output.get(trace).get(key).get(trace_name).update({ltl : cause_list[trace_name]})
 
     return output
 
