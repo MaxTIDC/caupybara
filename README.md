@@ -1,11 +1,11 @@
-## FYP-Causality
+## Caupybara
 
-Cause computation tool for LTL properties violation.
+Cause computation for LTL formula violations in counterexamples.
 
 ### Usage
 
 ```angular2html
-fyp-causality [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
+caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
 ```
 
 - `-ltl` / `-l`: Violated LTL property (formula) in string format.
@@ -19,17 +19,17 @@ Pre-compiled binaries for Linux and Windows (recommended), JAR files are availab
 
 ##### Linux binary (recommended)
 ```angular2html
-./bin/fyp-causality -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
 ##### Windows executable (recommended)
 ```angular2html
-./bin/fyp-causality.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
 ##### JAR
 ```angular2html
-java -jar ./bin/fyp-causality.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
 
 ### Dependencies
@@ -45,5 +45,5 @@ JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/22/).
 Script used to pre-build binaries (for reference):
 
 ```angular2html
-native-image -O3 -jar ./bin/fyp-causality.jar --no-fallback -o ./bin/fyp-causality
+native-image -O3 -jar ./bin/caupybara.jar --no-fallback -o ./bin/caupybara
 ```

@@ -1,10 +1,10 @@
-ThisBuild / version := "0.1.3"
+ThisBuild / version := "1.0"
 
 ThisBuild / scalaVersion := "3.3.3"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "fyp-causality"
+    name := "caupybara"
   )
 
 mainClass := Some("MainClass.CausalityLTL")

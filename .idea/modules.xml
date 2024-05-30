@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fyp-causality.iml" filepath="$PROJECT_DIR$/.idea/modules/fyp-causality.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fyp-causality.fyp-causality-build.iml" filepath="$PROJECT_DIR$/.idea/modules/fyp-causality.fyp-causality-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/caupybara.iml" filepath="$PROJECT_DIR$/.idea/modules/caupybara.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/caupybara.caupybara-build.iml" filepath="$PROJECT_DIR$/.idea/modules/caupybara.caupybara-build.iml" />
     </modules>
   </component>
 </project>

@@ -10,7 +10,7 @@ import upickle.default.*
 object CausalityLTL {
   private val usage =
     """
-    Usage: java -jar fyp-causality.jar [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
+    Usage: caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
     """
 
   /**

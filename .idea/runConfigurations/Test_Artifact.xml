@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Test+Artifact" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="MainClass.CausalityLTL" />
-    <module name="fyp-causality" />
+    <module name="caupybara" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="MainClass.*" />
@@ -12,7 +12,7 @@
       <option name="Make" enabled="true" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="AllTests" run_configuration_type="ScalaTestRunConfiguration" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="fyp-causality:jar" />
+        <artifact name="caupybara:jar" />
       </option>
     </method>
   </configuration>
