@@ -2966,8 +2966,74 @@
     ]
   },
   "input-files/buckworth2023/violation_files/minepump_fixed1_dropped0_auto_violation.txt": {
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G(next(!highwater) | PREV(!pump))": {
+        "trace_name_0": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "(G(next(!highwater) | PREV(!pump)))": {
+        "trace_name_0": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            2,
+            "highwater"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ]
+      }
+    },
     "env": [
       "highwater",
       "methane"
@@ -3285,8 +3351,94 @@
     ]
   },
   "input-files/buckworth2023/violation_files/minepump_fixed1_dropped2_auto_violation.txt": {
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G( !pump | PREV(!pump))": {
+        "trace_name_0": [
+          [
+            1,
+            "pump"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "pump"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            2,
+            "pump"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            2,
+            "pump"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "(G( !pump | PREV(!pump)))": {
+        "trace_name_0": [
+          [
+            1,
+            "pump"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_1": [
+          [
+            1,
+            "pump"
+          ],
+          [
+            0,
+            "pump"
+          ]
+        ],
+        "trace_name_2": [
+          [
+            2,
+            "pump"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ],
+        "trace_name_3": [
+          [
+            2,
+            "pump"
+          ],
+          [
+            1,
+            "pump"
+          ]
+        ]
+      }
+    },
     "env": [
       "highwater",
       "methane"

@@ -952,8 +952,12 @@
     "sys": [
       "pump"
     ],
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G(next(!highwater) | PREV(!pump))": []
+    },
+    "assumptions_conjunct": {
+      "(G(next(!highwater) | PREV(!pump)))": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane | next(!pump))": []
@@ -1011,8 +1015,12 @@
     "sys": [
       "pump"
     ],
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G( !pump | PREV(!pump))": []
+    },
+    "assumptions_conjunct": {
+      "(G( !pump | PREV(!pump)))": []
+    },
     "guarantees": {
       "G(methane | next(pump) | !highwater)": [],
       "G(!methane | next(!pump))": []

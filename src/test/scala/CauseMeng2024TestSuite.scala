@@ -242,4 +242,18 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
     assert(findViolationCauses(trace, 0, 11, psi) == expectedCauses) // led to blowup
 //    Cause.reset()
   }
+
+  test("MinepumpTest01") {
+    val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
+
+    val rou: Trace = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+
+    val expectedCauses = Set(Set((0, "pump", true)), Set((2, "highwater", true)))
+
+    assert(findViolationCauses(rou, 0, 2, psi) == expectedCauses)
+  }
 }

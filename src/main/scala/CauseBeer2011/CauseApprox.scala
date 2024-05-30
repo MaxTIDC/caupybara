@@ -47,6 +47,8 @@ def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
       causeApprox(pi, i, phiR) union causeApprox(pi, i+1, U(phiL, phiR))
     else
       Set()
+  case Y(phi) => // PastLTL
+    if i > 0 then causeApprox(pi, i - 1, phi) else Set()
   case _ =>   // Do not catch equivalences
     throw new RuntimeException("LTL formula needs to be in NNF")
 

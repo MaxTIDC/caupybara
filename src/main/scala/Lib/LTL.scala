@@ -18,13 +18,15 @@ case class F(right: LTL) extends LTL
 case class G(right: LTL) extends LTL
 case class U(left: LTL, right: LTL) extends LTL
 
+case class Y(right: LTL) extends LTL // PastLTL operator for Spectra
+
 // Type aliases
 //type PropAtoms = Set[String]
 type State = Int
 type Trace = Map[State, Set[String]]
 
 // Methods
-/** */
+/** Get all literals in an LTL formula */
 def getLiterals(psi: LTL): Set[LTL] = psi match
   case l@Atom(_) => Set(l)
   case l@Not(Atom(_)) => Set(l)
@@ -34,9 +36,12 @@ def getLiterals(psi: LTL): Set[LTL] = psi match
   case F(phi) => getLiterals(phi)
   case G(phi) => getLiterals(phi)
 
+  case Y(phi) => getLiterals(phi)
+
   case And(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case Or(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case Implies(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case Iff(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case U(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+
   case _ => Set()

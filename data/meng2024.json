@@ -2995,8 +2995,110 @@
     ]
   },
   "input-files/buckworth2023/violation_files/minepump_fixed1_dropped0_auto_violation.txt": {
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G(next(!highwater) | PREV(!pump))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "(G(next(!highwater) | PREV(!pump)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "highwater",
+              true
+            ]
+          ]
+        ]
+      }
+    },
     "env": [
       "highwater",
       "methane"
@@ -3434,8 +3536,114 @@
     ]
   },
   "input-files/buckworth2023/violation_files/minepump_fixed1_dropped2_auto_violation.txt": {
-    "assumptions": {},
-    "assumptions_conjunct": {},
+    "assumptions": {
+      "G( !pump | PREV(!pump))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              1,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              1,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "pump",
+              true
+            ]
+          ]
+        ]
+      }
+    },
+    "assumptions_conjunct": {
+      "(G( !pump | PREV(!pump)))": {
+        "trace_name_0": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_1": [
+          [
+            [
+              0,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_2": [
+          [
+            [
+              1,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "pump",
+              true
+            ]
+          ]
+        ],
+        "trace_name_3": [
+          [
+            [
+              1,
+              "pump",
+              true
+            ]
+          ],
+          [
+            [
+              2,
+              "pump",
+              true
+            ]
+          ]
+        ]
+      }
+    },
     "env": [
       "highwater",
       "methane"

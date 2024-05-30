@@ -113,4 +113,16 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
     assert(C == Set((6, "start"), (6, "end"), (6, "status_valid"),
       (7, "status_valid"), (8, "status_valid"), (9, "start"), (9, "status_valid")))
   }
+
+  test("MinepumpTest01") {
+    val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
+
+    val rou: Trace = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+
+    assert(causeApprox(rou, 0, psi) == Set((0, "pump"), (2, "highwater")))
+  }
 }

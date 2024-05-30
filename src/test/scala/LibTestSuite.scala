@@ -107,4 +107,34 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(rou, 0, 1, psi) == Trilean.T)
   }
 
+  test("Minepump3VLTest02") {
+    val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
+
+    val rou1: Trace = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+    val rou2: Trace = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set()
+    )
+    val rou3: Trace = Map(
+      0 -> Set(),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+    val rou4: Trace = Map(
+      0 -> Set("pump"),
+      1 -> Set("highwater"),
+      2 -> Set()
+    )
+
+    assert(evalTrilean(rou1, 0, 2, psi) == Trilean.F)
+    assert(evalTrilean(rou4, 0, 2, psi) == Trilean.F)
+
+    assert(evalTrilean(rou2, 0, 2, psi) != Trilean.F)
+    assert(evalTrilean(rou3, 0, 2, psi) != Trilean.F)
+  }
 }

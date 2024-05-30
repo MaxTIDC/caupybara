@@ -23,11 +23,11 @@ def process_spectra(file_path):
     for i in range(len(lines)):
         line = lines[i].strip()
 
-        # Skip over commented lines / PREV operators
+        # Skip over commented lines
         if line.startswith("//"):
             continue
-        elif i + 1 < len(lines) and "PREV" in lines[i + 1]:
-            continue
+        # elif i + 1 < len(lines) and "PREV" in lines[i + 1]:
+        #     continue
         
         # Specification name
         if "module" in line or "spec" in line:

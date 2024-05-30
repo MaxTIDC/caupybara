@@ -8,31 +8,29 @@ import scala.util.parsing.combinator.*
  * Parse input string into internal LTL representation.
  */
 object LTLParser extends RegexParsers {
+  // Special Spectra expressions
+  private def spAlwEvExpr: Parser[LTL] = "alwEv" ~> expr ^^ { phi => G(F(phi)) }
+
+  private def spAlwExpr: Parser[LTL] = "alw" ~> expr ^^ { phi => G(phi) }
+
+  private def spIniExpr: Parser[LTL] = "ini" ~> expr ^^ identity
+
+  private def previous: Parser[Y] = ("Y" | "PREV") ~> factor ^^ { phi => Y(phi) }
+
   // Factors (terminals)
   private def truth: Parser[LTL] = "true" ^^ { _ => True }
-
   private def falsity: Parser[LTL] = "false" ^^ { _ => False }
-
   private def propAtom: Parser[Atom] = """[a-zA-Z_][a-zA-Z0-9_]*""".r ^^ { name => Atom(name) }
 
   // Unary operator rules
   private def next: Parser[X] = ("X" | "next") ~> factor ^^ { phi => X(phi) }
-
   private def eventually: Parser[F] = "F" ~> factor ^^ { phi => F(phi) }
-
   private def always: Parser[G] = "G" ~> factor ^^ { phi => G(phi) }
-
   private def not: Parser[Not] = "!" ~> factor ^^ { phi => Not(phi) }
 
   // Special expressions for GR(1)
   private def GFExpr: Parser[LTL] = "GF" ~> expr ^^ { phi => G(F(phi)) }
-
   private def FGExpr: Parser[LTL] = "FG" ~> expr ^^ { phi => F(G(phi)) }
-
-  // Special Spectra-formatted expressions
-  private def spAlwEvExpr: Parser[LTL] = "alwEv" ~> expr ^^ { phi => G(F(phi)) }
-  private def spAlwExpr: Parser[LTL] = "alw" ~> expr ^^ { phi => G(phi) }
-  private def spIniExpr: Parser[LTL] = "ini" ~> expr ^^ identity
 
   // LTL grammar
   private def expr: Parser[LTL] = spAlwEvExpr | spAlwExpr | spIniExpr | GFExpr | FGExpr | binOps1
@@ -64,7 +62,7 @@ object LTLParser extends RegexParsers {
     }
   }
 
-  private def unOps: Parser[LTL] = eventually | always | next | not | factor
+  private def unOps: Parser[LTL] = eventually | always | next | previous | not | factor
 
   private def factor: Parser[LTL] = truth | falsity | propAtom | ("(" ~> expr <~ ")")
 

@@ -30,6 +30,9 @@ def toNNF(phi: LTL): LTL = toImplFree(phi) match
   case X(phi) => X(toNNF(phi))
   case Not(X(phi)) => toNNF(X(Not(phi)))
 
+  case Y(phi) => Y(toNNF(phi))
+  case Not(Y(phi)) => toNNF(Y(Not(phi)))
+
   // Default catch
   case a => a
 
@@ -50,6 +53,8 @@ def toImplFree(phi: LTL): LTL = phi match
   case F(a) => F(toImplFree(a))
   case G(a) => G(toImplFree(a))
   case U(a, b) => U(toImplFree(a), toImplFree(b))
+
+  case Y(a) => Y(toImplFree(a))
 
   // Default catch for atoms, true, false
   case a => a

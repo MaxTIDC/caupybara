@@ -190,4 +190,11 @@ class UtilTestSuite extends AnyFunSuite {
         == Or(And(Not(Atom("carA")), Not(Atom("carB"))), Not(Atom("emergency")))
     )
   }
+
+  test("MinepumpParseTests01") {
+    assert(
+      LTLParser("G(next(!highwater) | PREV(!pump))")
+        == G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
+    )
+  }
 }
