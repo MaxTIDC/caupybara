@@ -1,5 +1,6 @@
 import Lib.*
 import Lib.EvalFionda2016.eval
+import Lib.Trilean.evalTrilean
 import org.scalatest.funsuite.AnyFunSuite
 
 class LibTestSuite extends AnyFunSuite {
@@ -261,4 +262,33 @@ class LibTestSuite extends AnyFunSuite {
     assert(eval(rou2, 0, 2, psi))
     assert(eval(rou3, 0, 2, psi))
   }
+
+  test("FiondaPaperTest") {
+    val phi =
+      And(
+        And(Atom("a"), Not(Atom("b"))),
+        And(
+          F(
+            And(
+              Atom("c"),
+              G(Atom("a"))
+            )
+          ),
+          X(Atom("b"))
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("a"),
+      1 -> Set("b"),
+      2 -> Set("a", "c"),
+      3 -> Set("a"),
+      4 -> Set("a", "c"),
+      5 -> Set("a"),
+      6 -> Set("a"),
+    )
+
+    assert(eval(trace, 0, 6, phi))
+  }
+
 }

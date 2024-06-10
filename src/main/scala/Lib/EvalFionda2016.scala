@@ -1,5 +1,8 @@
 package Lib
 
+import scala.util.boundary
+import scala.util.boundary.break
+
 /**
  * Finite LTL evaluation for a given state in trace,
  * By Fionda et al. 2016.
@@ -7,57 +10,82 @@ package Lib
  * Pre: LTL formula is in PNF.
  */
 object EvalFionda2016 {
+  var m: State = -1
+  var n: State = -1
+  var sat: Set[(LTL, State)] = Set()
+
   // Public interface
   def eval(pi: Execution, m: State, n: State, phi: LTL): Boolean = {
-    evalFionda2016(pi, m, n, phi) contains m
+    this.m = m
+    this.n = n
+    this.sat = Set()
+    evalFionda2016(pi, phi)
+    sat contains(phi, m)
   }
 
-  private def evalFionda2016(pi: Execution, m: State, n: State, phi: LTL): Set[State] = {
-    var sat: Set[State] = Set()
-    phi match {
+  private def evalFionda2016(pi: Execution, phi: LTL): Unit = {
+    if !(sat contains(phi, m)) then phi match {
       // Original
-      case True => for i <- m to n do sat += i
-      case False => ;
-
-      case Atom(name) => for i <- m to n do
-        if pi(i) contains name then sat += i
-      case Not(Atom(name)) => for i <- m to n do
-        if !(pi(i) contains name) then sat += i
+      case Atom(name) =>
+        for i <- m to n do
+          if pi(i) contains name then sat += (phi, i)
+      case Not(Atom(name)) =>
+        for i <- m to n do
+          if !(pi(i) contains name) then sat += (phi, i)
 
       case And(psi1, psi2) =>
-        sat = evalFionda2016(pi, m, n, psi1) intersect evalFionda2016(pi, m, n, psi2)
+        evalFionda2016(pi, psi1)
+        evalFionda2016(pi, psi2)
+        for i <- m to n do
+          if (sat contains(psi1, i)) & (sat contains(psi2, i)) then sat += (phi, i)
       case Or(psi1, psi2) =>
-        sat = evalFionda2016(pi, m, n, psi1) union evalFionda2016(pi, m, n, psi2)
+        evalFionda2016(pi, psi1)
+        evalFionda2016(pi, psi2)
+        for i <- m to n do
+          if (sat contains(psi1, i)) | (sat contains(psi2, i)) then sat += (phi, i)
 
-      case X(psi) => for i <- m to n do
-        if i > 0 & (evalFionda2016(pi, m, n, psi) contains i) then sat += (i - 1)
+      case X(psi) =>
+        evalFionda2016(pi, psi)
+        for i <- m to n do
+          if i > 0 & (sat contains(psi, i)) then sat += (phi, i - 1)
 
       case F(psi) =>
+        evalFionda2016(pi, psi)
         for j <- m to n do
-          for i <- j to n do
-            if evalFionda2016(pi, m, n, psi) contains i then sat += j
+          boundary:
+            for i <- j to n do
+              if sat contains(psi, i) then
+                sat += (phi, j)
+                break()
 
       case G(psi) =>
+        evalFionda2016(pi, psi)
         for j <- m to n do
-          var flag: Boolean = true
-          for i <- j to n do
-            if !(evalFionda2016(pi, m, n, psi) contains i) then flag = false
-          if flag then sat += j
+          //          var flag: Boolean = true
+          boundary:
+            for i <- j to n do
+              if !(sat contains(psi, i)) then break()
+            sat += (phi, j)
 
       // Additional rules
-      case Y(psi) => for i <- m to (n - 1) do // PastLTL operator for Spectra
-        if evalFionda2016(pi, m, n, psi) contains i then sat += (i + 1)
+      case True => for i <- m to n do sat += (phi, i)
+
+      case Y(psi) =>
+        evalFionda2016(pi, psi)
+        for i <- m to (n - 1) do // PastLTL operator for Spectra
+          if sat contains(psi, i) then sat += (phi, i + 1)
 
       case U(psi1, psi2) =>
+        evalFionda2016(pi, psi1)
+        evalFionda2016(pi, psi2)
         for j <- m to n do
-          var flag: Boolean = true
-          for i <- j to n do
-            if flag & (evalFionda2016(pi, m, n, psi2) contains i) then sat += j
-            if !(evalFionda2016(pi, m, n, psi1) contains i) then flag = false
+          //          var flag: Boolean = true
+          boundary:
+            for i <- j to n do
+              if sat contains(psi2, i) then sat += (phi, j)
+              if !(sat contains(psi1, i)) then break()
 
       case _ => ;
     }
-
-    sat
   }
 }
