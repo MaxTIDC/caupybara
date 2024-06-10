@@ -76,6 +76,13 @@ def max_size_by_spec(causes_dict: dict) -> dict:
         result.update({spec: max(len(c) for c in causes) if causes else 0})
     return result
 
+def min_size_by_spec(causes_dict: dict) -> dict:
+    result = dict()
+    for spec in causes_dict.keys():
+        causes = causes_dict[spec]
+        result.update({spec: min(len(c) for c in causes) if causes else 0})
+    return result
+
 def sum_size_by_spec(causes_dict: dict) -> dict:
     result = dict()
     for spec in causes_dict.keys():
@@ -148,6 +155,7 @@ if __name__ == "__main__":
             "beer_causes": count_by_spec(beer_unique_causes[key]),
             "meng_causes": count_by_spec(meng_unique_causes[key]),
             "meng_max_size": max_size_by_spec(meng_unique_causes[key]),
+            "meng_min_size": min_size_by_spec(meng_unique_causes[key]),
             "meng_mean_size": mean_size_by_spec(meng_sum_size, meng_count)
         })
 

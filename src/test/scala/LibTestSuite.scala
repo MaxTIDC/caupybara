@@ -1,6 +1,7 @@
 import Lib.*
 import Lib.EvalFionda2016.eval
 import Lib.Trilean.evalTrilean
+import Util.toNNF
 import org.scalatest.funsuite.AnyFunSuite
 
 class LibTestSuite extends AnyFunSuite {
@@ -291,4 +292,77 @@ class LibTestSuite extends AnyFunSuite {
     assert(eval(trace, 0, 6, phi))
   }
 
+  test("ArbiterFiondaTest01") {
+    val phi = G(Atom("a"))
+    val trace: Execution = Map(
+      0 -> Set(),
+    )
+
+    assert(!eval(trace, 0, 0, phi))
+  }
+
+  test("ArbiterFiondaTest02") {
+    val phi =
+      G(
+        Implies(
+          Atom("r1"),
+          F(Atom("g1"))
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("r1"),
+    )
+
+    assert(!eval(trace, 0, 0, phi))
+    assert(!eval(trace, 0, 0, toNNF(phi)))
+  }
+
+  test("MinepumpFiondaTest03") {
+    val phi =
+      G(
+        Or(
+          X(Not(Atom("highwater"))),
+          Not(Atom("pump"))
+        )
+      )
+
+    val trace1: Execution = Map(
+      0 -> Set("pump", "highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+    val trace2: Execution = Map(
+      0 -> Set("highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+
+    assert(!eval(trace1, 0, 1, phi))
+    assert(eval(trace2, 0, 1, phi))
+  }
+
+  test("TrafficSingleFiondaTest01") {
+    val phi =
+      G(
+        F(
+          Not(Atom("car"))
+        )
+      )
+
+    val trace0: Execution = Map(
+      0 -> Set("car", "green", "police"),
+      1 -> Set("car"),
+    )
+    val trace1: Execution = Map(
+      0 -> Set("green", "police"),
+      1 -> Set("car"),
+    )
+    val trace2: Execution = Map(
+      0 -> Set("car", "green", "police"),
+      1 -> Set(),
+    )
+
+    assert(!eval(trace0, 0, 1, toNNF(phi)))
+    assert(!eval(trace1, 0, 1, toNNF(phi)))
+    assert(eval(trace2, 0, 1, toNNF(phi)))
+  }
 }

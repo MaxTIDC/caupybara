@@ -256,4 +256,56 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
 
     assert(findViolationCauses(rou, 0, 2, psi) == expectedCauses)
   }
+
+  test("ArbiterTest01") {
+    val phi = G(Atom("a"))
+    val trace: Execution = Map(
+      0 -> Set(),
+    )
+
+    assert(findViolationCauses(trace, 0, 0, phi) == Set(Set((0, "a", false))))
+  }
+
+  test("ArbiterTest02") {
+    val phi =
+      G(
+        Implies(
+          Atom("r1"),
+          F(Atom("g1"))
+        )
+      )
+
+    //    val trace1: Execution = Map(
+    //      0 -> Set("r1"),
+    //    )
+
+    val trace2: Execution = Map(
+      0 -> Set("a", "r1"),
+      1 -> Set(),
+    )
+
+    assert(findViolationCauses(trace2, 0, 1, toNNF(phi)) ==
+      Set(Set((0, "r1", true)), Set((0, "g1", false)), Set((1, "g1", false)))
+    )
+  }
+
+  test("TrafficSingleTest01") {
+    val phi =
+      G(
+        F(
+          Not(Atom("car"))
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("car", "green", "police"),
+      1 -> Set("car"),
+    )
+
+    assert(findViolationCauses(trace, 0, 1, toNNF(phi)) ==
+      Set(
+        Set((1, "car", true)),
+      )
+    )
+  }
 }

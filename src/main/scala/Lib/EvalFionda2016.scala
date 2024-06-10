@@ -7,7 +7,7 @@ import scala.util.boundary.break
  * Finite LTL evaluation for a given state in trace,
  * By Fionda et al. 2016.
  *
- * Pre: LTL formula is in PNF.
+ * Pre: LTL formula is in NNF.
  */
 object EvalFionda2016 {
   var m: State = -1
@@ -44,10 +44,10 @@ object EvalFionda2016 {
         for i <- m to n do
           if (sat contains(psi1, i)) | (sat contains(psi2, i)) then sat += (phi, i)
 
-      case X(psi) =>
+      case X(psi) => // Weak next
         evalFionda2016(pi, psi)
         for i <- m to n do
-          if i > 0 & (sat contains(psi, i)) then sat += (phi, i - 1)
+          if (i + 1 > n) | (sat contains(psi, i + 1)) then sat += (phi, i)
 
       case F(psi) =>
         evalFionda2016(pi, psi)

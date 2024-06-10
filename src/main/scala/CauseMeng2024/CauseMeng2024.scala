@@ -19,18 +19,18 @@ object Cause {
     var causes: Set[CausalSet] = Set()
     if eval(sigma, i, k, phi) then return causes // If trace does not violate property, return empty set
 
-    var availableAtomVals: CausalSet = getNegativeLiteralsAtoms(sigma, i, k, getLiterals(phi))
+    var availableSingletons: CausalSet = getNegativeLiteralsAtoms(sigma, i, k, getLiterals(phi))
 
-    for size <- 1 to math.min(availableAtomVals.size - 1, bound) do
+    for size <- 1 to math.min(availableSingletons.size, bound) do
       // Enumerate all subsets of size <- (1 to maximum)
-      val candidateCausalSets: Iterator[CausalSet] = availableAtomVals.subsets(size)
+      val candidateCausalSets: Iterator[CausalSet] = availableSingletons.subsets(size)
 
       // Find critical sets
       for cs <- candidateCausalSets do
         val sigmaCounter = flipAtomsInTrace(sigma, cs)
         if eval(sigmaCounter, i, k, phi) then
           causes += cs
-          availableAtomVals = availableAtomVals diff cs
+          availableSingletons = availableSingletons diff cs
 
     causes
   }

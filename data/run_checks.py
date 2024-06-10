@@ -19,14 +19,14 @@ def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: 
             return json.loads(stdout.decode('utf-8').strip())
 
         except Exception as e:
-            print("Exception: " + e.str())
-            return [e.str()]
+            print("Exception: " + str(e))
+            return [str(e)]
 
     output = data.copy()
 
-    jar_path = os.path.join(project_dir, "bin", "fyp-causality.jar")
+    jar_path = os.path.join(project_dir, "bin", "caupybara.jar")
     bin_path = os.path.join(project_dir, "bin", 
-                            "fyp-causality" + (".exe" if sys.platform.startswith("win") else ""))
+                            "caupybara" + (".exe" if sys.platform.startswith("win") else ""))
 #     trace_dir = os.path.join(project_dir, "input-files/")
 
     if not use_jar and (sys.platform.startswith("win") or sys.platform.startswith("linux")):
