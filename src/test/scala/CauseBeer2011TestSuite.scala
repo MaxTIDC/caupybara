@@ -15,7 +15,7 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
         )
       )
 
-    val rou1: Trace = Map(
+    val rou1: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -39,7 +39,7 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
         )
       )
 
-    val rou1: Trace = Map(
+    val rou1: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("req1", "ack"),
       2 -> Set(),
@@ -55,7 +55,7 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
   test("ReqAckTest03") {
     val psi = U(Atom("req"), Atom("ack"))
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req"),
       1 -> Set("req"),
       2 -> Set(),
@@ -93,7 +93,7 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
         )
       )
 
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set(),
       1 -> Set("start"),
       2 -> Set(),
@@ -117,7 +117,7 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
   test("MinepumpTest01") {
     val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
 
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("pump"),
       1 -> Set(),
       2 -> Set("highwater")

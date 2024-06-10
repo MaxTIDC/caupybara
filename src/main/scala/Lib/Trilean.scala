@@ -11,7 +11,7 @@ enum Trilean:
  * LTL evaluation for a given state in trace, using three-valued semantics.
  * Equivalent to Kleene / Priest logic semantics.
  */
-def evalTrilean(pi: Trace, i: State, k: State, psi: LTL): Trilean = if i > k then Trilean.U else psi match {
+def evalTrilean(pi: Execution, i: State, k: State, psi: LTL): Trilean = if i > k then Trilean.U else psi match {
   // Propositional
   case True => Trilean.T
   case False => Trilean.F
@@ -39,7 +39,7 @@ def evalTrilean(pi: Trace, i: State, k: State, psi: LTL): Trilean = if i > k the
   // Temporal
   case Atom(name) => if pi(i) contains name then Trilean.T else Trilean.F
 
-  case X(phi) => evalTrilean(pi, i+1, k, phi)
+  case X(phi) => evalTrilean(pi, i + 1, k, phi)
   case Y(phi) => if i > 0 then evalTrilean(pi, i - 1, k, phi) else Trilean.F
 
   case U(phi1, phi2) => evalTrilean(pi, i, k, Or(phi2, And(phi1, X(psi))))

@@ -1,4 +1,5 @@
 import Lib.*
+import Lib.EvalFionda2016.eval
 import org.scalatest.funsuite.AnyFunSuite
 
 class LibTestSuite extends AnyFunSuite {
@@ -17,8 +18,9 @@ class LibTestSuite extends AnyFunSuite {
     assert(getLiterals(psi1) == Set(Not(Atom("req1")), Not(Atom("req2")), Atom("ack")))
   }
 
+  // 3VL tests
   test("ReqAckTrace3VLTest01") {
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -28,7 +30,7 @@ class LibTestSuite extends AnyFunSuite {
   }
 
   test("ReqAckTrace3VLTest02") {
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set(),
@@ -38,7 +40,7 @@ class LibTestSuite extends AnyFunSuite {
   }
 
   test("ReqAckTrace3VLTest03") {
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -48,7 +50,7 @@ class LibTestSuite extends AnyFunSuite {
   }
 
   test("ReqAckTrace3VLTest04") {
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req2"),
@@ -75,7 +77,7 @@ class LibTestSuite extends AnyFunSuite {
         )
       )
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set(),
       1 -> Set("start"),
       2 -> Set(),
@@ -99,7 +101,7 @@ class LibTestSuite extends AnyFunSuite {
   test("Minepump3VLTest01") {
     val psi = And(Not(Atom("highwater")), Not(Atom("methane")))
 
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set(),
       1 -> Set("highwater", "methane")
     )
@@ -110,22 +112,22 @@ class LibTestSuite extends AnyFunSuite {
   test("Minepump3VLTest02") {
     val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
 
-    val rou1: Trace = Map(
+    val rou1: Execution = Map(
       0 -> Set("pump"),
       1 -> Set(),
       2 -> Set("highwater")
     )
-    val rou2: Trace = Map(
+    val rou2: Execution = Map(
       0 -> Set("pump"),
       1 -> Set(),
       2 -> Set()
     )
-    val rou3: Trace = Map(
+    val rou3: Execution = Map(
       0 -> Set(),
       1 -> Set(),
       2 -> Set("highwater")
     )
-    val rou4: Trace = Map(
+    val rou4: Execution = Map(
       0 -> Set("pump"),
       1 -> Set("highwater"),
       2 -> Set()
@@ -136,5 +138,127 @@ class LibTestSuite extends AnyFunSuite {
 
     assert(evalTrilean(rou2, 0, 2, psi) != Trilean.F)
     assert(evalTrilean(rou3, 0, 2, psi) != Trilean.F)
+  }
+
+  // Fionda tests
+  test("ReqAckTraceFiondaTest01") {
+    val rou: Execution = Map(
+      0 -> Set("req1"),
+      1 -> Set("ack"),
+      2 -> Set("req1", "req2"),
+      3 -> Set()
+    )
+    assert(!eval(rou, 0, 3, psi1))
+  }
+
+  test("ReqAckTraceFiondaTest02") {
+    val rou: Execution = Map(
+      0 -> Set("req1"),
+      1 -> Set("ack"),
+      2 -> Set(),
+      3 -> Set()
+    )
+    assert(eval(rou, 0, 3, psi1))
+  }
+
+  test("ReqAckTraceFiondaTest03") {
+    val rou: Execution = Map(
+      0 -> Set("req1"),
+      1 -> Set("ack"),
+      2 -> Set("req1", "req2"),
+      3 -> Set("ack")
+    )
+    assert(eval(rou, 0, 3, psi1))
+  }
+
+  test("ReqAckTraceFiondaTest04") {
+    val rou: Execution = Map(
+      0 -> Set("req1"),
+      1 -> Set("ack"),
+      2 -> Set("req2"),
+      3 -> Set()
+    )
+    assert(!eval(rou, 0, 3, psi1))
+  }
+
+  test("StartEndStatusFiondaTest") {
+    val psi =
+      G(
+        Or(
+          Or(
+            Or(
+              Atom("start"),
+              Atom("status_valid")
+            ),
+            Not(Atom("end")),
+          ),
+          U(
+            Not(Atom("start")),
+            Atom("status_valid")
+          )
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set(),
+      1 -> Set("start"),
+      2 -> Set(),
+      3 -> Set("end"),
+      4 -> Set("start", "status_valid"),
+      5 -> Set(),
+      6 -> Set("end"),
+      7 -> Set(),
+      8 -> Set(),
+      9 -> Set("start"),
+      10 -> Set("status_valid"),
+      11 -> Set(),
+    )
+
+    assert(!eval(trace, 0, 9, psi))
+    assert(!eval(trace, 6, 9, psi))
+    assert(eval(trace, 7, 9, psi))
+    assert(eval(trace, 7, 11, psi))
+  }
+
+  test("MinepumpFiondaTest01") {
+    val psi = And(Not(Atom("highwater")), Not(Atom("methane")))
+
+    val rou: Execution = Map(
+      0 -> Set(),
+      1 -> Set("highwater", "methane")
+    )
+
+    assert(eval(rou, 0, 1, psi))
+  }
+
+  test("MinepumpFiondaTest02") {
+    val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
+
+    val rou1: Execution = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+    val rou2: Execution = Map(
+      0 -> Set("pump"),
+      1 -> Set(),
+      2 -> Set()
+    )
+    val rou3: Execution = Map(
+      0 -> Set(),
+      1 -> Set(),
+      2 -> Set("highwater")
+    )
+    val rou4: Execution = Map(
+      0 -> Set("pump"),
+      1 -> Set("highwater"),
+      2 -> Set()
+    )
+
+    assert(!eval(rou1, 0, 2, psi))
+    assert(!eval(rou4, 0, 2, psi))
+
+    assert(eval(rou2, 0, 2, psi))
+    assert(eval(rou3, 0, 2, psi))
   }
 }

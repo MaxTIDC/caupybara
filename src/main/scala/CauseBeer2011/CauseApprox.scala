@@ -14,7 +14,7 @@ val emptySet = Set()
  * Pre:
  * - NNF LTL formula must be in NNF.
  */
-def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
+def causeApprox(pi: Execution, i: State, psi: LTL): Set[CausalPair] = psi match
   case True => Set()
   case False => Set()
   case Atom(p) =>
@@ -53,7 +53,7 @@ def causeApprox(pi: Trace, i: State, psi: LTL): Set[CausalPair] = psi match
     throw new RuntimeException("LTL formula needs to be in NNF")
 
 /** The "val(pi^i^, psi)" helper function */
-def valFunc(pi: Trace, i: State, phi: LTL): Int = phi match
+def valFunc(pi: Execution, i: State, phi: LTL): Int = phi match
   case True => 1
   case False => 0
   case _ => if causeApprox(pi, i, phi) == emptySet then 1 else 0

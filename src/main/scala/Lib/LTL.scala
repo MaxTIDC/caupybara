@@ -23,7 +23,7 @@ case class Y(right: LTL) extends LTL // PastLTL operator for Spectra
 // Type aliases
 //type PropAtoms = Set[String]
 type State = Int
-type Trace = Map[State, Set[String]]
+type Execution = Map[State, Set[String]]
 
 // Methods
 /** Get all literals in an LTL formula */

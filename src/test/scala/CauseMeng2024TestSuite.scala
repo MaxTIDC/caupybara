@@ -7,7 +7,7 @@ import org.scalatest.funsuite.AnyFunSuite
 class CauseMeng2024TestSuite extends AnyFunSuite {
   // Component unit tests
   test("FlipAtomsTest01") {
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -16,7 +16,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
 
     val cause: CausalSet = Set((2, "req1", true), (2, "req2", true))
 
-    val newTrace: Trace = Map(
+    val newTrace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set(),
@@ -27,7 +27,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
   }
 
   test("FlipAtomsTest02") {
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -36,7 +36,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
 
     val cause: CausalSet = Set((3, "ack", false))
 
-    val newTrace: Trace = Map(
+    val newTrace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -47,7 +47,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
   }
 
   test("GetNegativeLiteralAtomsTest01") {
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -65,7 +65,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
   }
 
   test("GetNegativeLiteralAtomsTest02") {
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set(),
       1 -> Set("start"),
       2 -> Set(),
@@ -127,7 +127,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
         )
       ))
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("ack"),
       2 -> Set("req1", "req2"),
@@ -155,7 +155,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
         )
       )
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req1"),
       1 -> Set("req1", "ack"),
       2 -> Set(),
@@ -175,7 +175,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
   test("ReqAckCausalityTest03") {
     val psi = U(Atom("req"), Atom("ack"))
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set("req"),
       1 -> Set("req"),
       2 -> Set(),
@@ -214,7 +214,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
         )
       )
 
-    val trace: Trace = Map(
+    val trace: Execution = Map(
       0 -> Set(),
       1 -> Set("start"),
       2 -> Set(),
@@ -246,7 +246,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
   test("MinepumpTest01") {
     val psi = G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
 
-    val rou: Trace = Map(
+    val rou: Execution = Map(
       0 -> Set("pump"),
       1 -> Set(),
       2 -> Set("highwater")

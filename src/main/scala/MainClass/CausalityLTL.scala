@@ -56,9 +56,12 @@ object CausalityLTL {
 
     val argMap = parseArgs(args)
 
-    /** e.g. "G(h -> p) & G(m -> !p)" or "G((!req1 & !req2) | X ack)" */
+    /** Motivating examples:
+     *  - The request-acknowledge system: "G((!req1 & !req2) | X ack)"
+     *  - Minepump: "G(highwater -> X(pump)) & G(methane -> X(!pump))"
+     */
     val psi: LTL = toNNF(LTLParser(argMap("psiStr")))
-    val traceMap: Map[String, Trace] = parseMultiTracesFromPath(argMap("traceFilePath"))
+    val traceMap: Map[String, Execution] = parseMultiTracesFromPath(argMap("traceFilePath"))
 
     // Compute and print causes
     if argMap("causeMode") == "beer2011" || argMap("causeMode") == "beer" then
