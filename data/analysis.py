@@ -2,6 +2,25 @@ import json
 import os
 import pandas as pd
 
+# Collect unique causes by spec
+def unique_causes(data: dict) -> dict:
+    result = dict()
+    for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
+        result.update({key: dict()})
+
+        for spec in data.keys():
+            # Setup for set collection
+            result[key].update({spec: set()})
+
+            # Collect unique causes
+            data_spec_key = data.get(spec).get(key)
+            for ltl in data_spec_key.keys():
+                data_spec_key_ltl = data_spec_key.get(ltl)
+                for trace in data_spec_key_ltl.keys():
+                    result[key][spec].update(to_tuple(cause) for cause in data_spec_key_ltl[trace])
+
+    return result
+
 ### Statistics methods ###
 def count_num_traces(data: dict) -> dict:
     result = dict()
@@ -21,46 +40,6 @@ def count_causes(data: dict) -> dict:
                     result[spec][key][ltl][trace] = len(data_spec_key_ltl[trace])
 
     return result 
-
-# def unique_causes_by_trace(data: dict) -> dict:
-#     result = dict()
-#     for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
-#         result.update({key: dict()})
-
-#         for spec in data.keys():
-#             traces = next(iter(data[spec]["guarantees"].values())).keys()
-#             result[key].update({spec: dict()})
-
-#             # Setup for set collection
-#             for t in traces:
-#                 result[key][spec].update({t: set()})
-
-#             # Collect unique causes
-#             data_spec_key = data.get(spec).get(key)
-#             for ltl in data_spec_key.keys():
-#                 data_spec_key_ltl = data_spec_key.get(ltl)
-#                 for trace in data_spec_key_ltl.keys():
-#                     result[key][spec][trace].update(to_tuple(cause) for cause in data_spec_key_ltl[trace])
-
-#     return result 
-
-def unique_causes(data: dict) -> dict:
-    result = dict()
-    for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
-        result.update({key: dict()})
-
-        for spec in data.keys():
-            # Setup for set collection
-            result[key].update({spec: set()})
-
-            # Collect unique causes
-            data_spec_key = data.get(spec).get(key)
-            for ltl in data_spec_key.keys():
-                data_spec_key_ltl = data_spec_key.get(ltl)
-                for trace in data_spec_key_ltl.keys():
-                    result[key][spec].update(to_tuple(cause) for cause in data_spec_key_ltl[trace])
-
-    return result
 
 def count_by_spec(causes_dict: dict) -> dict:
     # Count causes
@@ -95,22 +74,17 @@ def mean_size_by_spec(sum_sizes_dict: dict, counts_dict: dict) -> dict:
         result.update({spec: float(sum_sizes_dict[spec]) / float(counts_dict[spec]) if counts_dict[spec] else 0})
     return result
 
-# def count_by_trace(causes_dict: dict) -> dict:
-#     # Count causes
-#     result = dict()
-#     for spec in causes_dict.keys():
-#         result.update({spec: dict()})
-#         for trace in causes_dict[spec].keys():
-#             result[spec].update({trace: len(causes_dict[spec][trace])})
-#     return result
+### Coverage ###
+def coverage_by_spec(meng_causes: dict, beer_causes: dict) -> dict:
+    result = dict()
+    for spec in beer_causes.keys():
+        covered_count = 0
+        for (state, atom) in beer_causes[spec]:
+            if ((state, atom, False),) in meng_causes[spec] or ((state, atom, True),) in meng_causes[spec]:
+                covered_count += 1
+        result.update({spec: float(covered_count) / float(len(beer_causes[spec])) if beer_causes[spec] else float('nan')})
 
-# def sum_size_by_trace(causes_dict: dict) -> dict:
-#     result = dict()
-#     for spec in causes_dict.keys():
-#         result.update({spec: dict()})
-#         for trace in causes_dict[spec].keys():
-#             result[spec].update({trace: sum(len(c) for c in causes_dict[spec][trace])})
-#     return result
+    return result
 
 ### Helper methods ###
 def load_json(path_str: str) -> dict:
@@ -142,25 +116,25 @@ if __name__ == "__main__":
     # Perform statisics
     beer_unique_causes = unique_causes(input_data_beer)
     meng_unique_causes = unique_causes(input_data_meng)
-    # beer_unique_causes_by_trace = unique_causes_by_trace(input_data_beer)
-    # meng_unique_causes_by_trace = unique_causes_by_trace(input_data_meng)
 
     # Perform statisics
-    stats = dict()
     for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
         meng_sum_size = sum_size_by_spec(meng_unique_causes[key])
         meng_count = count_by_spec(meng_unique_causes[key])
 
-        stats[key] = pd.DataFrame({
+        stats = pd.DataFrame({
             "beer_causes": count_by_spec(beer_unique_causes[key]),
             "meng_causes": count_by_spec(meng_unique_causes[key]),
-            "meng_max_size": max_size_by_spec(meng_unique_causes[key]),
             "meng_min_size": min_size_by_spec(meng_unique_causes[key]),
-            "meng_mean_size": mean_size_by_spec(meng_sum_size, meng_count)
+            "meng_max_size": max_size_by_spec(meng_unique_causes[key]),
+            "meng_mean_size": mean_size_by_spec(meng_sum_size, meng_count),
+            "coverage": coverage_by_spec(meng_unique_causes[key], beer_unique_causes[key])
         })
+        stats["coverage"] = stats["coverage"].map('{:.0%}'.format)
+        stats.sort_index(inplace=True)
 
         # Write DataFrame to CSV file
-        stats[key].to_csv(os.path.join(project_dir, "data", "csv", f"{key}.csv"), index=True)
+        stats.to_csv(os.path.join(project_dir, "data", "csv", f"{key}.csv"), index=True)
 
-    # print(meng_unique_causes["assumptions"]["traffic_updated_FINAL_dropped11"])
-    # print(sum_size_by_spec(meng_unique_causes["assumptions"])["traffic_updated_FINAL_dropped11"])
+    print(beer_unique_causes["assumptions"]["lift_well_sep_dropped0"])
+    print(meng_unique_causes["assumptions"]["lift_well_sep_dropped0"])

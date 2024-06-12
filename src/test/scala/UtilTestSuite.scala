@@ -7,7 +7,7 @@ class UtilTestSuite extends AnyFunSuite {
   test("ReqAckTraceParseTest01") {
     val actualTrace = parseMultiTracesFromPath("input-files/custom/req_ack_violation_1.txt")
     val expectedTrace = Map(
-      "trace_name_0" -> Map(
+      "motivating_example" -> Map(
         0 -> Set("req1"),
         1 -> Set("ack"),
         2 -> Set("req1", "req2"),
