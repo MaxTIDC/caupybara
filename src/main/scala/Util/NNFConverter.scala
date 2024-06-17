@@ -7,31 +7,33 @@ import Lib.*
  *  - G, U, X, And, Or
  *  - literals (atoms + negated atoms)
  */
-def toNNF(phi: LTL): LTL = toImplFree(phi) match
+def toNNF(phi: LTL): LTL = toNNFHelper(toImplFree(phi))
+
+def toNNFHelper(phi: LTL): LTL = phi match
   // Propositional
-  case Not(Not(a)) => toNNF(a)
+  case Not(Not(a)) => toNNFHelper(a)
 
-  case And(a, b) => And(toNNF(a), toNNF(b))
-  case Not(And(a, b)) => toNNF(Or(Not(a), Not(b)))
+  case And(a, b) => And(toNNFHelper(a), toNNFHelper(b))
+  case Not(And(a, b)) => toNNFHelper(Or(Not(a), Not(b)))
 
-  case Or(a, b) => Or(toNNF(a), toNNF(b))
-  case Not(Or(a, b)) => toNNF(And(Not(a), Not(b)))
+  case Or(a, b) => Or(toNNFHelper(a), toNNFHelper(b))
+  case Not(Or(a, b)) => toNNFHelper(And(Not(a), Not(b)))
 
   // Temporal
-  case U(phi1, phi2) => U(toNNF(phi1), toNNF(phi2))
-  case Not(U(phi1, phi2)) => toNNF(Or(U(Not(phi2), And(Not(phi1), Not(phi2))), G(Not(phi2))))
+  case U(phi1, phi2) => U(toNNFHelper(phi1), toNNFHelper(phi2))
+  case Not(U(phi1, phi2)) => toNNFHelper(Or(U(Not(phi2), And(Not(phi1), Not(phi2))), G(Not(phi2))))
 
-  case G(phi) => G(toNNF(phi))
-  case Not(G(phi)) => toNNF(F(Not(phi)))
+  case G(phi) => G(toNNFHelper(phi))
+  case Not(G(phi)) => toNNFHelper(F(Not(phi)))
 
-  case F(phi) => U(True, toNNF(phi))
-  case Not(F(phi)) => toNNF(G(Not(phi)))
+  case F(phi) => U(True, toNNFHelper(phi))
+  case Not(F(phi)) => toNNFHelper(G(Not(phi)))
 
-  case X(phi) => X(toNNF(phi))
-  case Not(X(phi)) => toNNF(X(Not(phi)))
+  case X(phi) => X(toNNFHelper(phi))
+  case Not(X(phi)) => toNNFHelper(X(Not(phi)))
 
-  case Y(phi) => Y(toNNF(phi))
-  case Not(Y(phi)) => toNNF(Y(Not(phi)))
+  case Y(phi) => Y(toNNFHelper(phi))
+  case Not(Y(phi)) => toNNFHelper(Y(Not(phi)))
 
   // Default catch
   case a => a

@@ -142,6 +142,54 @@ class LibTestSuite extends AnyFunSuite {
     assert(evalTrilean(rou3, 0, 2, psi) != Trilean.F)
   }
 
+  test("Minepump3VLTest03") {
+    val phi =
+      G(
+        Or(
+          X(Not(Atom("highwater"))),
+          Not(Atom("pump"))
+        )
+      )
+
+    val trace1: Execution = Map(
+      0 -> Set("pump", "highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+    val trace2: Execution = Map(
+      0 -> Set("highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+
+    assert(evalTrilean(trace1, 0, 1, phi) == Trilean.F)
+    assert(evalTrilean(trace2, 0, 1, phi) != Trilean.F)
+  }
+
+  test("Arbiter3VLTest01") {
+    val phi = G(Atom("a"))
+    val trace: Execution = Map(
+      0 -> Set(),
+    )
+
+    assert(evalTrilean(trace, 0, 0, phi) == Trilean.F)
+  }
+
+  //  test("Arbiter3VLTest02") {
+  //    val phi =
+  //      G(
+  //        Implies(
+  //          Atom("r1"),
+  //          F(Atom("g1"))
+  //        )
+  //      )
+  //
+  //    val trace: Execution = Map(
+  //      0 -> Set("r1"),
+  //    )
+  //
+  ////    assert(evalTrilean(trace, 0, 0, phi) == Trilean.F)
+  //    assert(evalTrilean(trace, 0, 0, toNNF(phi)) == Trilean.F)
+  //  }
+
   // Fionda tests
   test("ReqAckTraceFiondaTest01") {
     val rou: Execution = Map(
@@ -264,6 +312,28 @@ class LibTestSuite extends AnyFunSuite {
     assert(eval(rou3, 0, 2, psi))
   }
 
+  test("MinepumpFiondaTest03") {
+    val phi =
+      G(
+        Or(
+          X(Not(Atom("highwater"))),
+          Not(Atom("pump"))
+        )
+      )
+
+    val trace1: Execution = Map(
+      0 -> Set("pump", "highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+    val trace2: Execution = Map(
+      0 -> Set("highwater"),
+      1 -> Set("pump", "highwater"),
+    )
+
+    assert(!eval(trace1, 0, 1, phi))
+    assert(eval(trace2, 0, 1, phi))
+  }
+
   test("FiondaPaperTest") {
     val phi =
       And(
@@ -316,28 +386,6 @@ class LibTestSuite extends AnyFunSuite {
 
     assert(!eval(trace, 0, 0, phi))
     assert(!eval(trace, 0, 0, toNNF(phi)))
-  }
-
-  test("MinepumpFiondaTest03") {
-    val phi =
-      G(
-        Or(
-          X(Not(Atom("highwater"))),
-          Not(Atom("pump"))
-        )
-      )
-
-    val trace1: Execution = Map(
-      0 -> Set("pump", "highwater"),
-      1 -> Set("pump", "highwater"),
-    )
-    val trace2: Execution = Map(
-      0 -> Set("highwater"),
-      1 -> Set("pump", "highwater"),
-    )
-
-    assert(!eval(trace1, 0, 1, phi))
-    assert(eval(trace2, 0, 1, phi))
   }
 
   test("TrafficSingleFiondaTest01") {

@@ -197,4 +197,34 @@ class UtilTestSuite extends AnyFunSuite {
         == G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
     )
   }
+
+
+  test("GenbufParseTest01") {
+    val input = "(G(btor_req0 )) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)))"
+    val expectedLTL =
+      And(
+        And(
+          G(Atom("btor_req0")),
+          G(
+            Or(
+              Or(
+                X(Atom("rtob_ack0")),
+                Not(Atom("btor_req0"))
+              ),
+              Not(Atom("rtob_ack0"))
+            )
+          )
+        ),
+        G(F(
+          Or(
+            And(Atom("btor_req0"), Atom("rtob_ack0")),
+            And(Not(Atom("btor_req0")), Not(Atom("rtob_ack0")))
+          )
+        ))
+      )
+
+    assert(
+      LTLParser(input) == expectedLTL
+    )
+  }
 }

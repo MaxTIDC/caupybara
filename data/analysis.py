@@ -136,5 +136,30 @@ if __name__ == "__main__":
         # Write DataFrame to CSV file
         stats.to_csv(os.path.join(project_dir, "data", "csv", f"{key}.csv"), index=True)
 
-    print(beer_unique_causes["assumptions"]["lift_well_sep_dropped0"])
-    print(meng_unique_causes["assumptions"]["lift_well_sep_dropped0"])
+    # Stronger causes (10 cases)
+    # print("Stronger causes:\n")
+    # cases_stronger = {
+    #     "assumptions": ["genbuf_05_normalised_dropped107", "traffic_updated_FINAL_dropped7", "traffic_updated_FINAL_dropped11"],
+    #     "guarantees": ["genbuf_05_normalised_dropped122", "traffic_single_FINAL_dropped10"],
+    #     "assumptions_conjunct": ["traffic_single_FINAL_dropped1", "traffic_single_FINAL_dropped2", "traffic_single_FINAL_dropped10", "traffic_updated_FINAL_dropped7", "traffic_updated_FINAL_dropped11"]
+    # }
+
+    # # Liveness difference (2 cases)
+    # print("Liveness differences:\n")
+    # cases_liveness_diff = {
+    #     "guarantees": ["genbuf_05_normalised_dropped115", "traffic_single_FINAL_dropped0"],  # "traffic_single_FINAL_dropped10"
+    #     "assumptions_conjunct": []
+    # }
+
+    # # Conflicting (5 cases)
+    # print("Conflicting conjunction:\n")
+    # cases_conflicting = {
+    #     "assumptions_conjunct": ["genbuf_05_normalised_dropped10", "genbuf_05_normalised_dropped107", "genbuf_05_normalised_dropped122", "traffic_single_FINAL_dropped11", "traffic_updated_FINAL_dropped12"]
+    # }
+
+    # cases = ?
+    # for category in cases:
+    #     for spec in cases[category]:
+    #         print(f"{category} - {spec}")
+    #         print(f"baseline = {beer_unique_causes[category][spec]}")
+    #         print(f"meng2024 = {meng_unique_causes[category][spec]}\n")

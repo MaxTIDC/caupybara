@@ -308,4 +308,38 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
       )
     )
   }
+
+  test("GenbufTest01") {
+    val phi =
+      And(
+        And(
+          G(Atom("btor_req0")),
+          G(
+            Or(
+              Or(
+                X(Atom("rtob_ack0")),
+                Not(Atom("btor_req0"))
+              ),
+              Not(Atom("rtob_ack0"))
+            )
+          )
+        ),
+        G(F(
+          Or(
+            And(Atom("btor_req0"), Atom("rtob_ack0")),
+            And(Not(Atom("btor_req0")), Not(Atom("rtob_ack0")))
+          )
+        ))
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("empty", "stateg7_1"),
+    )
+
+    assert(findViolationCauses(trace, 0, 0, toNNF(phi)) ==
+      Set(
+        Set((0, "rtob_ack0", false), (0, "btor_req0", false)),
+      )
+    )
+  }
 }
