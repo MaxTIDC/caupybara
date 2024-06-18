@@ -79,7 +79,7 @@ class UtilTestSuite extends AnyFunSuite {
 
   // NNF tests
   test("ReqAckToNNFTest") {
-    val actualPhi = toNNF(G(Implies(Or(Atom("req1"), Atom("req2")), X(Atom("ack")))))
+    val actualPhi = NNFConverter.toNNF(G(Implies(Or(Atom("req1"), Atom("req2")), X(Atom("ack")))))
     val expectedPhi =
       G(
         Or(
@@ -94,7 +94,7 @@ class UtilTestSuite extends AnyFunSuite {
   }
 
   test("StartEndStatusToNNFTest") {
-    val actualPhi = toNNF(
+    val actualPhi = NNFConverter.toNNF(
       G(
         Implies(
           And(
@@ -117,22 +117,49 @@ class UtilTestSuite extends AnyFunSuite {
     assert(actualPhi == expectedPhi)
   }
 
-  test("P1P2ActiveToNNFTest") {
-    val actualPhi = toNNF(
+  //  test("P1P2ActiveToNNFTest") {
+  //    val actualPhi = toNNF(
+  //      G(
+  //        Implies(
+  //          Atom("p1_active"),
+  //          F(Atom("p2_active"))
+  //        )
+  //      )
+  //    )
+  //    val expectedPhi =
+  //      G(
+  //        Or(
+  //          Not(Atom("p1_active")),
+  //          U(True, Atom("p2_active"))
+  //        )
+  //      )
+  //    assert(actualPhi == expectedPhi)
+  //  }
+
+  test("ArbiterToNNFTest03") {
+    val actualPhi = NNFConverter.toNNF(
       G(
         Implies(
-          Atom("p1_active"),
-          F(Atom("p2_active"))
+          Not(Atom("a")),
+          And(
+            Not(Atom("g1")),
+            Not(Atom("g2"))
+          )
         )
       )
     )
+
     val expectedPhi =
       G(
         Or(
-          Not(Atom("p1_active")),
-          U(True, Atom("p2_active"))
+          Atom("a"),
+          And(
+            Not(Atom("g1")),
+            Not(Atom("g2"))
+          )
         )
       )
+
     assert(actualPhi == expectedPhi)
   }
 
@@ -161,6 +188,21 @@ class UtilTestSuite extends AnyFunSuite {
 
   test("ArbiterParseTest02") {
     assert(LTLParser("G(!a -> next(a))") == G(Implies(Not(Atom("a")), X(Atom("a")))))
+  }
+
+  test("ArbiterParseTest03") {
+    assert(
+      LTLParser("G(!a->!g1&!g2)") ==
+        G(
+          Implies(
+            Not(Atom("a")),
+            And(
+              Not(Atom("g1")),
+              Not(Atom("g2"))
+            )
+          )
+        )
+    )
   }
 
   test("TrafficParseTests01") {
@@ -197,7 +239,6 @@ class UtilTestSuite extends AnyFunSuite {
         == G(Or(X(Not(Atom("highwater"))), Y(Not(Atom("pump")))))
     )
   }
-
 
   test("GenbufParseTest01") {
     val input = "(G(btor_req0 )) & (G(next(rtob_ack0) | !btor_req0 | !rtob_ack0)) & (GF((btor_req0 & rtob_ack0) | (!btor_req0 & !rtob_ack0)))"

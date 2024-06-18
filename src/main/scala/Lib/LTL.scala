@@ -28,8 +28,8 @@ type Execution = Map[State, Set[String]]
 // Methods
 /** Get all literals in an LTL formula */
 def getLiterals(psi: LTL): Set[LTL] = psi match
-  case l@Atom(_) => Set(l)
-  case l@Not(Atom(_)) => Set(l)
+  case Atom(_) => Set(psi)
+  case Not(Atom(_)) => Set(psi)
 
   case Not(phi) => getLiterals(phi)
   case X(phi) => getLiterals(phi)
@@ -43,5 +43,24 @@ def getLiterals(psi: LTL): Set[LTL] = psi match
   case Implies(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case Iff(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
   case U(phiL, phiR) => getLiterals(phiL) union getLiterals(phiR)
+
+  case _ => Set()
+
+/** Get all atoms in an LTL formula */
+def getAtoms(psi: LTL): Set[String] = psi match
+  case Atom(name) => Set(name)
+
+  case Not(phi) => getAtoms(phi)
+  case X(phi) => getAtoms(phi)
+  case F(phi) => getAtoms(phi)
+  case G(phi) => getAtoms(phi)
+
+  case Y(phi) => getAtoms(phi)
+
+  case And(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Or(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Implies(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case Iff(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
+  case U(phiL, phiR) => getAtoms(phiL) union getAtoms(phiR)
 
   case _ => Set()

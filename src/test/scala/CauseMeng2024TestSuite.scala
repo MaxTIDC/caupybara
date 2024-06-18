@@ -1,7 +1,7 @@
 import CauseMeng2024.*
 import CauseMeng2024.Cause.*
 import Lib.*
-import Util.toNNF
+import Util.NNFConverter
 import org.scalatest.funsuite.AnyFunSuite
 
 class CauseMeng2024TestSuite extends AnyFunSuite {
@@ -116,7 +116,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
 
   // Tests for cause computation
   test("ReqAckCausalityTest01") {
-    val psi = toNNF(
+    val psi = NNFConverter.toNNF(
       G(
         Or(
           And(
@@ -284,9 +284,29 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
       1 -> Set(),
     )
 
-    assert(findViolationCauses(trace2, 0, 1, toNNF(phi)) ==
+    assert(findViolationCauses(trace2, 0, 1, NNFConverter.toNNF(phi)) ==
       Set(Set((0, "r1", true)), Set((0, "g1", false)), Set((1, "g1", false)))
     )
+  }
+
+  test("ArbiterTest03") {
+    val phi =
+      G(
+        Or(
+          Not(Not(Atom("a"))),
+          And(
+            Not(Atom("g1")),
+            Not(Atom("g2"))
+          )
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("a", "g1", "r1", "r2"),
+      1 -> Set(),
+    )
+
+    assert(findViolationCauses(trace, 0, 1, NNFConverter.toNNF(phi)) == Set())
   }
 
   test("TrafficSingleTest01") {
@@ -302,7 +322,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
       1 -> Set("car"),
     )
 
-    assert(findViolationCauses(trace, 0, 1, toNNF(phi)) ==
+    assert(findViolationCauses(trace, 0, 1, NNFConverter.toNNF(phi)) ==
       Set(
         Set((1, "car", true)),
       )
@@ -336,7 +356,7 @@ class CauseMeng2024TestSuite extends AnyFunSuite {
       0 -> Set("empty", "stateg7_1"),
     )
 
-    assert(findViolationCauses(trace, 0, 0, toNNF(phi)) ==
+    assert(findViolationCauses(trace, 0, 0, NNFConverter.toNNF(phi)) ==
       Set(
         Set((0, "rtob_ack0", false), (0, "btor_req0", false)),
       )

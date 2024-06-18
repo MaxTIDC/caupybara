@@ -51,35 +51,35 @@ object EvalFionda2016 {
 
       case F(psi) =>
         evalFionda2016(pi, psi)
-        var j = m
-        for i <- m to n do
-          if sat contains(psi, i) then
-            while j <= i do
-              sat += (phi, j)
-              j += 1
-      //        for j <- m to n do
-      //          boundary:
-      //            for i <- j to n do
-      //              if sat contains(psi, i) then
-      //                sat += (phi, j)
-      //                break()
+        //        var j = m
+        //        for i <- m to n do
+        //          if sat contains(psi, i) then
+        //            while j <= i do
+        //              sat += (phi, j)
+        //              j += 1
+        for j <- m to n do
+          boundary:
+            for i <- j to n do
+              if sat contains(psi, i) then
+                sat += (phi, j)
+                break()
 
       case G(psi) =>
         evalFionda2016(pi, psi)
-        var j = m
-        while j <= n do
+        //        var j = m
+        //        while j <= n do
+        //          boundary:
+        //            for i <- j to n do
+        //              if !(sat contains(psi, i)) then
+        //                j = i
+        //                break()
+        //            sat += (phi, j)
+        //          j += 1
+        for j <- m to n do
           boundary:
             for i <- j to n do
-              if !(sat contains(psi, i)) then
-                j = i + 1
-                break()
+              if !(sat contains(psi, i)) then break()
             sat += (phi, j)
-          j += 1
-      //        for i <- m to n do
-      //          boundary:
-      //            for i <- j to n do
-      //              if !(sat contains(psi, i)) then break()
-      //            sat += (phi, j)
 
       // Additional rules
       case True => for i <- m to n do sat += (phi, i)

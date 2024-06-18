@@ -125,4 +125,24 @@ class CauseBeer2011TestSuite extends AnyFunSuite {
 
     assert(causeApprox(rou, 0, psi) == Set((0, "pump"), (2, "highwater")))
   }
+
+  test("ArbiterTest03") {
+    val phi =
+      G(
+        Or(
+          Atom("a"),
+          And(
+            Not(Atom("g1")),
+            Not(Atom("g2"))
+          )
+        )
+      )
+
+    val trace: Execution = Map(
+      0 -> Set("a", "g1", "r1", "r2"),
+      1 -> Set(),
+    )
+
+    assert(causeApprox(trace, 0, phi) == Set())
+  }
 }

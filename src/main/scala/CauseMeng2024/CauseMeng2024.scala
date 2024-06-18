@@ -19,7 +19,8 @@ object Cause {
     var causes: Set[CausalSet] = Set()
     if eval(sigma, i, k, phi) then return causes // If trace does not violate property, return empty set
 
-    var availableSingletons: CausalSet = getNegativeLiteralsAtoms(sigma, i, k, getLiterals(phi))
+    //    var availableSingletons: CausalSet = getNegativeLiteralsAtoms(sigma, i, k, getLiterals(phi))
+    var availableSingletons: CausalSet = getSingletons(sigma, i, k, getAtoms(phi))
 
     for size <- 1 to math.min(availableSingletons.size, bound) do
       // Enumerate all subsets of size <- (1 to maximum)
@@ -68,6 +69,19 @@ object Cause {
         case Atom(name) => if !valuate(sigma, j, name) then cs += ((j, name, valuate(sigma, j, name)))
         case Not(Atom(name)) => if valuate(sigma, j, name) then cs += ((j, name, valuate(sigma, j, name)))
         case _ => ;
+
+    cs
+  }
+
+  /**
+   * Return all singletons (state, atom, value) in input execution,
+   * with the specified set of atoms.
+   */
+  private def getSingletons(sigma: Execution, i: State, k: State, atoms: Set[String]): CausalSet = {
+    var cs: CausalSet = Set()
+    for j <- i to k do
+      for p <- atoms do
+        cs += ((j, p, sigma(j) contains p))
 
     cs
   }

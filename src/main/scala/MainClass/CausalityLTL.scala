@@ -10,7 +10,7 @@ import upickle.default.*
 object CausalityLTL {
   private val usage =
     """
-    Usage: caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
+    Usage: caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] ([--cause | -c causality mode] [--bound | -b])
     """
 
   /**
@@ -28,12 +28,13 @@ object CausalityLTL {
       case Array("--cause", causeMode: String) => argMap += ("causeMode" -> causeMode.toLowerCase)
       case Array("-c", causeMode: String) => argMap += ("causeMode" -> causeMode.toLowerCase)
 
-      case Array("--out", outputMode: String) => argMap += ("outputMode" -> outputMode.toLowerCase)
-      case Array("-o", outputMode: String) => argMap += ("outputMode" -> outputMode.toLowerCase)
+      case Array("--bound", boundStr: String) => argMap += ("boundStr" -> boundStr)
+      case Array("-b", boundStr: String) => argMap += ("boundStr" -> boundStr)
     }
 
     // Catch default options
-    if !(argMap contains "outputMode") then argMap.+=("outputMode" -> "")
+    //    if !(argMap contains "outputMode") then argMap.+=("outputMode" -> "")
+    if !(argMap contains "boundStr") then argMap.+=("boundStr" -> "5")
     if !(argMap contains "causeMode") then argMap.+=("causeMode" -> "meng2024")
 
     // Throw errors when crucial fields not included
@@ -42,6 +43,9 @@ object CausalityLTL {
 
     if !(argMap("causeMode") contains "beer") && !(argMap("causeMode") contains "meng") then
       throw sys.error("Please enter valid causality mode: beer2011 | meng2024.")
+
+    if !argMap("boundStr").forall(_.isDigit) then
+      throw sys.error("Bound " + argMap("boundStr") + " not an integer.")
 
     argMap
   }
@@ -60,24 +64,21 @@ object CausalityLTL {
      *  - The request-acknowledge system: "G((!req1 & !req2) | X ack)"
      *  - Minepump: "G(highwater -> X(pump)) & G(methane -> X(!pump))"
      */
-    val psi: LTL = toNNF(LTLParser(argMap("psiStr")))
+    val property: LTL = LTLParser(argMap("psiStr"))
     val traceMap: Map[String, Execution] = parseMultiTracesFromPath(argMap("traceFilePath"))
+    val bound = argMap("boundStr").toInt
 
     // Compute and print causes
     if argMap("causeMode") == "beer2011" || argMap("causeMode") == "beer" then
-      val computedCauses: Map[String, Set[CausalPair]] =
-        traceMap.map((name, trace) => (name, causeApprox(trace, 0, psi)))
-
-      argMap("outputMode") match
-        case "original" => print(computedCauses.toString())
-        case _ => print(write(computedCauses))
+      val computedCauses: Map[String, Set[CausalPair]] = traceMap.map(
+        (name, trace) => (name, causeApprox(trace, 0, NNFConverter.toNNF(property, beer2011 = true)))
+      )
+      print(write(computedCauses))
 
     else if argMap("causeMode") == "meng2024" || argMap("causeMode") == "meng" then
-      val computedCauses: Map[String, Set[CausalSet]] =
-        traceMap.map((name, trace) => (name, findViolationCauses(trace, 0, trace.size - 1, psi)))
-
-      argMap("outputMode") match
-        case "original" => print(computedCauses.toString())
-        case _ => print(write(computedCauses))
+      val computedCauses: Map[String, Set[CausalSet]] = traceMap.map(
+        (name, trace) => (name, findViolationCauses(trace, 0, trace.size - 1, NNFConverter.toNNF(property), bound))
+      )
+      print(write(computedCauses))
   }
 }

@@ -2040,8 +2040,8 @@
           [
             [
               0,
-              "empty",
-              true
+              "deq",
+              false
             ]
           ],
           [
@@ -2054,8 +2054,8 @@
           [
             [
               0,
-              "deq",
-              false
+              "empty",
+              true
             ]
           ],
           [
@@ -2581,15 +2581,15 @@
           [
             [
               2,
-              "f1",
-              false
+              "b1",
+              true
             ]
           ],
           [
             [
               2,
-              "b1",
-              true
+              "f1",
+              false
             ]
           ]
         ],
@@ -2604,15 +2604,15 @@
           [
             [
               2,
-              "f1",
-              false
+              "b1",
+              true
             ]
           ],
           [
             [
               2,
-              "b1",
-              true
+              "f1",
+              false
             ]
           ]
         ]
@@ -2728,6 +2728,13 @@
           [
             [
               2,
+              "c",
+              false
+            ]
+          ],
+          [
+            [
+              2,
               "b1",
               true
             ]
@@ -2736,13 +2743,6 @@
             [
               2,
               "f1",
-              false
-            ]
-          ],
-          [
-            [
-              2,
-              "c",
               false
             ]
           ]
@@ -2758,15 +2758,15 @@
           [
             [
               2,
-              "f1",
-              false
+              "b1",
+              true
             ]
           ],
           [
             [
               2,
-              "b1",
-              true
+              "f1",
+              false
             ]
           ]
         ]
@@ -3249,15 +3249,15 @@
         "trace_name_0": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3265,15 +3265,15 @@
         "trace_name_1": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3281,15 +3281,15 @@
         "trace_name_2": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3301,15 +3301,15 @@
         "trace_name_0": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3317,15 +3317,15 @@
         "trace_name_1": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3333,15 +3333,15 @@
         "trace_name_2": [
           [
             [
-              0,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              0,
+              "pump",
               true
             ]
           ]
@@ -3625,15 +3625,15 @@
         "trace_name_4": [
           [
             [
-              1,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              1,
+              "pump",
               true
             ]
           ]
@@ -3641,15 +3641,15 @@
         "trace_name_5": [
           [
             [
-              1,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              1,
+              "pump",
               true
             ]
           ]
@@ -3725,15 +3725,15 @@
         "trace_name_4": [
           [
             [
-              1,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              1,
+              "pump",
               true
             ]
           ]
@@ -3741,15 +3741,15 @@
         "trace_name_5": [
           [
             [
-              1,
-              "pump",
+              2,
+              "highwater",
               true
             ]
           ],
           [
             [
-              2,
-              "highwater",
+              1,
+              "pump",
               true
             ]
           ]
@@ -4074,7 +4074,7 @@
         "trace_name_2": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4088,7 +4088,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4097,7 +4097,7 @@
         "trace_name_3": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4111,7 +4111,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4120,7 +4120,7 @@
         "trace_name_4": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4134,7 +4134,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4143,7 +4143,7 @@
         "trace_name_5": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4157,7 +4157,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4166,7 +4166,7 @@
         "trace_name_6": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4180,7 +4180,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4189,7 +4189,7 @@
         "trace_name_7": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4203,7 +4203,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4212,7 +4212,7 @@
         "trace_name_8": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4226,7 +4226,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4235,7 +4235,7 @@
         "trace_name_9": [
           [
             [
-              1,
+              2,
               "car",
               true
             ]
@@ -4249,7 +4249,7 @@
           ],
           [
             [
-              2,
+              1,
               "car",
               true
             ]
@@ -4849,15 +4849,15 @@
           [
             [
               0,
-              "emergency",
-              false
+              "car",
+              true
             ]
           ],
           [
             [
               0,
-              "car",
-              true
+              "emergency",
+              false
             ]
           ],
           [
@@ -4872,15 +4872,15 @@
           [
             [
               0,
-              "emergency",
-              false
+              "car",
+              true
             ]
           ],
           [
             [
               0,
-              "car",
-              true
+              "emergency",
+              false
             ]
           ],
           [
@@ -5601,6 +5601,13 @@
           [
             [
               1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
               "police",
               false
             ]
@@ -5609,13 +5616,6 @@
             [
               1,
               "car",
-              true
-            ]
-          ],
-          [
-            [
-              1,
-              "green",
               true
             ]
           ]
@@ -5624,6 +5624,13 @@
           [
             [
               1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
               "police",
               false
             ]
@@ -5632,13 +5639,6 @@
             [
               1,
               "car",
-              true
-            ]
-          ],
-          [
-            [
-              1,
-              "green",
               true
             ]
           ]
@@ -5693,6 +5693,13 @@
           [
             [
               1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
               "police",
               false
             ]
@@ -5701,13 +5708,6 @@
             [
               1,
               "car",
-              true
-            ]
-          ],
-          [
-            [
-              1,
-              "green",
               true
             ]
           ]
@@ -5716,6 +5716,13 @@
           [
             [
               1,
+              "green",
+              true
+            ]
+          ],
+          [
+            [
+              1,
               "police",
               false
             ]
@@ -5724,13 +5731,6 @@
             [
               1,
               "car",
-              true
-            ]
-          ],
-          [
-            [
-              1,
-              "green",
               true
             ]
           ]
@@ -6674,15 +6674,15 @@
           [
             [
               0,
-              "emergency",
-              false
+              "car",
+              true
             ]
           ],
           [
             [
               0,
-              "car",
-              true
+              "emergency",
+              false
             ]
           ],
           [
@@ -6890,14 +6890,14 @@
           [
             [
               0,
-              "car",
+              "green",
               true
             ]
           ],
           [
             [
               0,
-              "green",
+              "car",
               true
             ]
           ],
@@ -10085,14 +10085,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10101,14 +10101,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10117,14 +10117,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10133,14 +10133,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10149,14 +10149,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10165,14 +10165,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10181,14 +10181,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10197,14 +10197,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10213,14 +10213,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
@@ -10229,14 +10229,14 @@
           [
             [
               0,
-              "emergency",
+              "greenb",
               false
             ]
           ],
           [
             [
               0,
-              "greenb",
+              "emergency",
               false
             ]
           ]
