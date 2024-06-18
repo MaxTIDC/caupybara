@@ -10,7 +10,7 @@ import upickle.default.*
 object CausalityLTL {
   private val usage =
     """
-    Usage: caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] ([--cause | -c causality mode] [--bound | -b])
+    Usage: caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
     """
 
   /**
@@ -33,9 +33,9 @@ object CausalityLTL {
     }
 
     // Catch default options
-    //    if !(argMap contains "outputMode") then argMap.+=("outputMode" -> "")
-    if !(argMap contains "boundStr") then argMap.+=("boundStr" -> "5")
-    if !(argMap contains "causeMode") then argMap.+=("causeMode" -> "meng2024")
+    //    if !(argMap contains "outputMode") then argMap += ("outputMode" -> "")
+    if !(argMap contains "boundStr") then argMap += ("boundStr" -> "5")
+    if !(argMap contains "causeMode") then argMap += ("causeMode" -> "meng2024")
 
     // Throw errors when crucial fields not included
     if !(argMap contains "psiStr") then throw sys.error("LTL property not specified!")

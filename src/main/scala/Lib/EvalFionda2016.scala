@@ -10,95 +10,93 @@ import scala.util.boundary.break
  * Pre: LTL formula is in NNF.
  */
 object EvalFionda2016 {
-  var m: State = -1
-  var n: State = -1
-  var sat: Set[(LTL, State)] = Set()
+  private var m: State = -1
+  private var n: State = -1
+  private var sat: Map[LTL, Set[State]] = Map()
 
   // Public interface
   def eval(pi: Execution, m: State, n: State, phi: LTL): Boolean = {
     this.m = m
     this.n = n
-    this.sat = Set()
+    this.sat = Map()
     evalFionda2016(pi, phi)
-    sat contains(phi, m)
+
+    sat(phi) contains m
   }
 
-  private def evalFionda2016(pi: Execution, phi: LTL): Unit = {
-    if !(sat contains(phi, m)) then phi match {
+  private def evalFionda2016(sigma: Execution, phi: LTL): Unit = {
+    if sat contains phi then return
+
+    var satPhi: Set[State] = Set()
+
+    phi match {
       // Original
       case Atom(name) =>
-        for i <- m to n do
-          if pi(i) contains name then sat += (phi, i)
+        satPhi = (m to n).filter(i => sigma(i) contains name).toSet
+
       case Not(Atom(name)) =>
-        for i <- m to n do
-          if !(pi(i) contains name) then sat += (phi, i)
+        satPhi = (m to n).filter(i => !(sigma(i) contains name)).toSet
 
       case And(psi1, psi2) =>
-        evalFionda2016(pi, psi1)
-        evalFionda2016(pi, psi2)
-        for i <- m to n do
-          if (sat contains(psi1, i)) & (sat contains(psi2, i)) then sat += (phi, i)
+        evalFionda2016(sigma, psi1)
+        evalFionda2016(sigma, psi2)
+        val satPsi1 = sat(psi1)
+        val satPsi2 = sat(psi2)
+        satPhi = (m to n).filter(i => (satPsi1 contains i) & (satPsi2 contains i)).toSet
+
       case Or(psi1, psi2) =>
-        evalFionda2016(pi, psi1)
-        evalFionda2016(pi, psi2)
-        for i <- m to n do
-          if (sat contains(psi1, i)) | (sat contains(psi2, i)) then sat += (phi, i)
+        evalFionda2016(sigma, psi1)
+        evalFionda2016(sigma, psi2)
+        val satPsi1 = sat(psi1)
+        val satPsi2 = sat(psi2)
+        satPhi = (m to n).filter(i => (satPsi1 contains i) | (satPsi2 contains i)).toSet
 
       case X(psi) => // Weak next
-        evalFionda2016(pi, psi)
-        for i <- m to n do
-          if (i + 1 > n) | (sat contains(psi, i + 1)) then sat += (phi, i)
+        evalFionda2016(sigma, psi)
+        val satPsi = sat(psi)
+        satPhi = (m to n).filter(i => (satPsi contains i + 1) | (i + 1 > n)).toSet
 
       case F(psi) =>
-        evalFionda2016(pi, psi)
-        //        var j = m
-        //        for i <- m to n do
-        //          if sat contains(psi, i) then
-        //            while j <= i do
-        //              sat += (phi, j)
-        //              j += 1
+        evalFionda2016(sigma, psi)
+        val satPsi = sat(psi)
         for j <- m to n do
           boundary:
             for i <- j to n do
-              if sat contains(psi, i) then
-                sat += (phi, j)
+              if satPsi contains i then
+                satPhi += j
                 break()
 
       case G(psi) =>
-        evalFionda2016(pi, psi)
-        //        var j = m
-        //        while j <= n do
-        //          boundary:
-        //            for i <- j to n do
-        //              if !(sat contains(psi, i)) then
-        //                j = i
-        //                break()
-        //            sat += (phi, j)
-        //          j += 1
+        evalFionda2016(sigma, psi)
+        val satPsi = sat(psi)
         for j <- m to n do
           boundary:
             for i <- j to n do
-              if !(sat contains(psi, i)) then break()
-            sat += (phi, j)
+              if !(satPsi contains i) then break()
+            satPhi += j
 
       // Additional rules
-      case True => for i <- m to n do sat += (phi, i)
+      case True => satPhi = (m to n).toSet
 
       case Y(psi) =>
-        evalFionda2016(pi, psi)
-        for i <- m to (n - 1) do // PastLTL operator for Spectra
-          if sat contains(psi, i) then sat += (phi, i + 1)
+        evalFionda2016(sigma, psi)
+        val satPsi = sat(psi)
+        satPhi = (m + 1 to n).filter(i => satPsi contains i - 1).toSet
 
       case U(psi1, psi2) =>
-        evalFionda2016(pi, psi1)
-        evalFionda2016(pi, psi2)
+        evalFionda2016(sigma, psi1)
+        evalFionda2016(sigma, psi2)
+        val satPsi1 = sat(psi1)
+        val satPsi2 = sat(psi2)
         for j <- m to n do
           boundary:
             for i <- j to n do
-              if sat contains(psi2, i) then sat += (phi, j)
-              if !(sat contains(psi1, i)) then break()
+              if satPsi2 contains i then satPhi += j
+              if !(satPsi1 contains i) then break()
 
       case _ => ;
     }
+
+    sat += (phi -> satPhi)
   }
 }

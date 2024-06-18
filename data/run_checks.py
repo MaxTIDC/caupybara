@@ -36,17 +36,20 @@ def run_causality_checks(data: dict, project_dir: str, causality: str, use_jar: 
         print(f"Running jar ({sys.platform}): {jar_path}")
         args_head = [ 'java', '-jar', jar_path ]
 
+    call_count = 0
     for trace in data.keys():  # For each trace file
         for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
             for ltl in data.get(trace).get(key).keys():  # For each LTL assumption
                 args_tail = ["-c", causality, "-l", ltl, "-t", os.path.join(project_dir, trace), "-b", "4"]
 
                 cause_list = run_subprocess(args_head + args_tail)
+                call_count += 1
                 output.get(trace).get(key).update({ltl : cause_list})
                 
                 # for trace_name in cause_list.keys():
                 #     output.get(trace).get(key).get(trace_name).update({ltl : cause_list[trace_name]})
 
+    print(f"*** run_causality_checks(): call_count = {call_count} ***")
     return output
 
 def write_to_file(json_file: str, output: dict) -> None:
