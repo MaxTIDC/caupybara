@@ -75,6 +75,8 @@ if __name__ == "__main__":
         output_path = f"{os.path.splitext(input_path)[0]}.json"
     else:
         output_path = sys.argv[2]
+        if not os.path.isdir(os.path.split(output_path)[0]):
+            os.mkdir(os.path.split(output_path)[0])
 
     # Process inputs
     processed_dict = dict()

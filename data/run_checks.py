@@ -75,9 +75,9 @@ if __name__ == "__main__":
         print(f"'{project_dir}' is not a valid directiory!")
     else:
         # Read input JSON
-        input_json = os.path.join(project_dir, "data", "input.json")
-        output_json_beer = os.path.join(project_dir, "data", "beer2011.json")
-        output_json_meng = os.path.join(project_dir, "data", "meng2024.json")
+        input_json = os.path.join(project_dir, "data", "json", "input.json")
+        output_json_beer = os.path.join(project_dir, "data", "json", "beer2011.json")
+        output_json_meng = os.path.join(project_dir, "data", "json", "meng2024.json")
 
         with open(input_json, 'r') as f:
             data = json.load(f)

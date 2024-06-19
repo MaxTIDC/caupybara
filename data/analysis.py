@@ -106,12 +106,17 @@ def to_tuple(nested_list):
 
 ### Main method ###
 if __name__ == "__main__":
-    # Set up project directory
+    # Set up directories
     project_dir = os.getcwd()  # Assume script ran from project root
 
+    json_dir = os.path.join(project_dir, "data", "json")
+    csv_dir = os.path.join(project_dir, "data", "csv")
+    if not os.path.isdir(csv_dir):
+        os.mkdir(csv_dir)
+
     # Read input JSONs
-    input_data_beer = load_json(os.path.join(project_dir, "data", "beer2011.json"))
-    input_data_meng = load_json(os.path.join(project_dir, "data", "meng2024.json"))
+    input_data_beer = load_json(os.path.join(json_dir, "beer2011.json"))
+    input_data_meng = load_json(os.path.join(json_dir, "meng2024.json"))
 
     # Perform statisics
     beer_unique_causes = unique_causes(input_data_beer)

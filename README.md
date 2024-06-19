@@ -1,6 +1,7 @@
 ## Caupybara
 
-Cause computation for LTL formula violations in counterexamples.
+Tool for computing causes to LTL property violations in counterexamples. Software component of the 70011 Individual
+Project, “Revisiting Causality of Violations to LTL Formulae in Counterexamples”.
 
 ### Usage
 
@@ -13,11 +14,11 @@ caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 - `--cause` / `-c`: Causality mode, supported: `beer2011` (Beer et al. 2011), `meng2024`. Default = `meng2024`.
 - `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
-Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin`.
+Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin/`.
 
 #### Examples
 
-##### Linux binary (recommended)
+##### Linux x86-64 binary (recommended)
 ```angular2html
 ./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
@@ -31,19 +32,21 @@ Pre-compiled binaries for Linux / Windows (recommended) and JAR files are availa
 ```angular2html
 java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
 ```
-
 ### Evaluation
 
-Raw data and statistics for evaluation computed by automated Python scripts under `./data`. For dependencies
+Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies
 see `./data/requirements.txt`.
 
-To recreate the evaluation results, run the following on command line under root directory:
+To recreate the evaluation results, remove all existing files under `./data/json/` and `./data/csv/`, then run the
+following on command line under root directory in order:
 
 ```angular2html
-python ./data/process_spectra.py ./input-files/buckworth2023 ./data/input.json
+python ./data/process_spectra.py ./input-files/buckworth2023 ./data/json/input.json
 python ./data/run_checks.py .
 python ./data/analysis.py
 ```
+
+And the new CSV tables under `./data/csv/` should correspond with the tables in Chapter 4.4 Quantitative Analysis.
 
 ### Dependencies
 
@@ -55,7 +58,7 @@ JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/22/).
 
 [GraalVM](https://www.graalvm.org/downloads/) can be used to produce AOT optimized binaries. See [Native Image](https://www.graalvm.org/jdk21/reference-manual/native-image/) for details.
 
-Script used to pre-build binaries (for reference):
+Native Image script for building binaries (for reference):
 
 ```angular2html
 native-image -O3 -jar ./bin/caupybara.jar --no-fallback -o ./bin/caupybara
