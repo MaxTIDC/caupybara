@@ -5,15 +5,15 @@ Cause computation for LTL formula violations in counterexamples.
 ### Usage
 
 ```angular2html
-caupybara [--ltl | -l LTL property string] [--trace | -t trace file path] [--cause | -c causality mode] [--out | -o output mode]
+caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 ```
 
-- `-ltl` / `-l`: Violated LTL property (formula) in string format.
-- `--trace` / `-t`: File describing the trace where the violation occurred. See `input-files` for format.
-- `--cause` / `-c`: Causality mode. Currently supported: `beer2011` (Beer et al. 2011), `meng2024`.
-- `--out` / `-o`: Output mode, `original` for original Scala AST format, otherwise as pickled version (default).
+- `-ltl` / `-l`: Violated LTL property (formula), in string format.
+- `--trace` / `-t`: File containing the counterexample trace. See `input-files` for format.
+- `--cause` / `-c`: Causality mode, supported: `beer2011` (Beer et al. 2011), `meng2024`. Default = `meng2024`.
+- `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
-Pre-compiled binaries for Linux and Windows (recommended), JAR files are available under `./bin`.
+Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin`.
 
 #### Examples
 
@@ -30,6 +30,19 @@ Pre-compiled binaries for Linux and Windows (recommended), JAR files are availab
 ##### JAR
 ```angular2html
 java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+```
+
+### Evaluation
+
+Raw data and statistics for evaluation computed by automated Python scripts under `./data`. For dependencies
+see `./data/requirements.txt`.
+
+To recreate the evaluation results, run the following on command line under root directory:
+
+```angular2html
+python ./data/process_spectra.py ./input-files/buckworth2023 ./data/input.json
+python ./data/run_checks.py .
+python ./data/analysis.py
 ```
 
 ### Dependencies
