@@ -1,7 +1,6 @@
 ## Caupybara
 
-Tool for computing causes to LTL property violations in counterexamples. Software component of the 70011 Individual
-Project, “Revisiting Causality of Violations to LTL Formulae in Counterexamples”.
+Tool for computing causes to LTL property violations in counterexamples.
 
 ### Usage
 
@@ -20,17 +19,17 @@ Pre-compiled binaries for Linux / Windows (recommended) and JAR files are availa
 
 ##### Linux x86-64 binary (recommended)
 ```angular2html
-./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
 ```
 
 ##### Windows executable (recommended)
 ```angular2html
-./bin/caupybara.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
 ```
 
 ##### JAR
 ```angular2html
-java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
 ```
 ### Evaluation
 
@@ -46,7 +45,7 @@ python ./data/run_checks.py .
 python ./data/analysis.py
 ```
 
-And the new CSV tables under `./data/csv/` should correspond with the tables in Chapter 4.4 Quantitative Analysis.
+And the new CSV tables under `./data/csv/` should show replicated raw data.
 
 ### Dependencies
 

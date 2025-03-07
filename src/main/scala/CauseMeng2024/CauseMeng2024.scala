@@ -1,4 +1,4 @@
-/** Newly proposed causality definition */
+/** Implements newly proposed algorithm for LTL violation cause computation */
 
 package CauseMeng2024
 
@@ -10,7 +10,7 @@ type CausalSet = Set[(State, String, Boolean)]
 object Cause {
   /**
    * Compute all causes of violation to given LTL property in the counterexample execution,
-   * from state i to k. Follows Meng 2024 definition of causality.
+   * from state i to k. Follows newly revised definition of causality.
    *
    * Pre:
    * - NNF LTL formula must be in NNF.
