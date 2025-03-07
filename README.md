@@ -10,7 +10,7 @@ caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 
 - `-ltl` / `-l`: Violated LTL property (formula), in string format.
 - `--trace` / `-t`: File containing the counterexample trace. See `input-files` for format.
-- `--cause` / `-c`: Causality mode, supported: `beer2011` (Beer et al. 2011), `meng2024`. Default = `meng2024`.
+- `--cause` / `-c`: Causality mode, supported: `beer` (Beer et al. 2011), `new` (newly revised). Default = `new`.
 - `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
 Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin/`.
@@ -19,18 +19,22 @@ Pre-compiled binaries for Linux / Windows (recommended) and JAR files are availa
 
 ##### Linux x86-64 binary (recommended)
 ```angular2html
-./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
-```
-
-##### Windows executable (recommended)
-```angular2html
-./bin/caupybara.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
+./bin/caupybara -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
 
 ##### JAR
 ```angular2html
-java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt
+java -jar ./bin/caupybara.jar -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
+
+##### Windows executable
+
+Requires compiling locally (see below)
+
+```angular2html
+./bin/caupybara.exe -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
+```
+
 ### Evaluation
 
 Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies

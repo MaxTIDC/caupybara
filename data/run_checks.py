@@ -76,27 +76,27 @@ if __name__ == "__main__":
     else:
         # Read input JSON
         input_json = os.path.join(project_dir, "data", "json", "input.json")
-        output_json_beer = os.path.join(project_dir, "data", "json", "beer2011.json")
-        output_json_meng = os.path.join(project_dir, "data", "json", "meng2024.json")
+        output_json_beer = os.path.join(project_dir, "data", "json", "beer.json")
+        output_json_new = os.path.join(project_dir, "data", "json", "new.json")
 
         with open(input_json, 'r') as f:
             data = json.load(f)
 
         # Run checks on both definitions
-        print("Running checks (Beer2011)...")
+        print("Running checks (beer)...")
         timer = time.perf_counter()
-        output_beer = run_causality_checks(data, project_dir, "beer2011", use_jar)
+        output_beer = run_causality_checks(data, project_dir, "beer", use_jar)
         elapsed_time = time.perf_counter() - timer
-        print(f"Checks (Beer2011) complete, took {elapsed_time} seconds")
+        print(f"Checks (beer) complete, took {elapsed_time} seconds")
 
         print("Writing outputs to files.")
         write_to_file(output_json_beer, output_beer)
 
-        print("Running checks (Meng2024)...")
+        print("Running checks (new)...")
         timer = time.perf_counter()
-        output_meng = run_causality_checks(data, project_dir, "meng2024", use_jar)
+        output_new = run_causality_checks(data, project_dir, "new", use_jar)
         elapsed_time = time.perf_counter() - timer
-        print(f"Checks (Meng2024) complete, took {elapsed_time} seconds")
+        print(f"Checks (new) complete, took {elapsed_time} seconds")
 
         print("Writing outputs to files.")
-        write_to_file(output_json_meng, output_meng)
+        write_to_file(output_json_new, output_new)

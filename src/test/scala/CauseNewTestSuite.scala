@@ -1,10 +1,10 @@
-import CauseMeng2024.*
-import CauseMeng2024.Cause.*
+import CauseNew.*
+import CauseNew.Cause.*
 import Lib.*
 import Util.NNFConverter
 import org.scalatest.funsuite.AnyFunSuite
 
-class CauseMeng2024TestSuite extends AnyFunSuite {
+class CauseNewTestSuite extends AnyFunSuite {
   // Component unit tests
   test("FlipAtomsTest01") {
     val trace: Execution = Map(
