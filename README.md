@@ -13,7 +13,7 @@ caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 - `--cause` / `-c`: Causality mode, supported: `beer` (Beer et al. 2011), `new` (newly revised). Default = `new`.
 - `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
-Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin/`.
+Pre-compiled Linux binary (recommended) and JAR file are available under `./bin/`. It is possible to generate Windows executable from the JAR file (see below).
 
 #### Examples
 
