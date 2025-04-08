@@ -2,6 +2,9 @@
 
 Tool for computing causes to LTL property violations in counterexamples.
 
+Software component of the paper "Causal Detection in Linear Temporal Counterexamples" and thesis "Revisiting Causality
+of Violations to LTL Formulae in Counterexamples".
+
 ### Usage
 
 ```angular2html
@@ -13,7 +16,7 @@ caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 - `--cause` / `-c`: Causality mode, supported: `beer` (Beer et al. 2011), `new` (newly revised). Default = `new`.
 - `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
-Pre-compiled Linux binary (recommended) and JAR file are available under `./bin/`. It is possible to generate Windows executable from the JAR file (see below).
+Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin/`.
 
 #### Examples
 
@@ -22,23 +25,21 @@ Pre-compiled Linux binary (recommended) and JAR file are available under `./bin/
 ./bin/caupybara -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
 
-##### JAR
-```angular2html
-java -jar ./bin/caupybara.jar -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
-```
-
-##### Windows executable
-
-Requires compiling locally (see below)
+##### Windows executable (recommended)
 
 ```angular2html
 ./bin/caupybara.exe -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
 
+##### JAR
+```angular2html
+java -jar ./bin/caupybara.jar -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
+```
+
 ### Evaluation
 
-Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies
-see `./data/requirements.txt`.
+Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies see
+`./data/requirements.txt`.
 
 To recreate the evaluation results, remove all existing files under `./data/json/` and `./data/csv/`, then run the
 following on command line under root directory in order:
@@ -55,11 +56,12 @@ And the new CSV tables under `./data/csv/` should show replicated raw data.
 
 #### Running pre-built Jar
 
-JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/22/).
+JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/).
 
 #### Compiling locally
 
-[GraalVM](https://www.graalvm.org/downloads/) can be used to produce AOT optimized binaries. See [Native Image](https://www.graalvm.org/jdk21/reference-manual/native-image/) for details.
+[GraalVM Community](https://github.com/graalvm/graalvm-ce-builds/releases/) can be used to produce AOT optimized
+binaries. See [Native Image](https://www.graalvm.org/jdk21/reference-manual/native-image/) for details.
 
 Native Image script for building binaries (for reference):
 
