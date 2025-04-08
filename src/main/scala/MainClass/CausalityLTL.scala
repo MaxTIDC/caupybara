@@ -1,17 +1,27 @@
 package MainClass
 
 import CauseBeer2011.{CausalPair, causeApprox}
-import CauseMeng2024.CausalSet
-import CauseMeng2024.Cause.findViolationCauses
+import CauseNew.CausalSet
+import CauseNew.Cause.findViolationCauses
 import Lib.*
 import Util.*
 import upickle.default.*
 
 object CausalityLTL {
+  private val DEFAULT_BOUND_STR = "5"
+  private val DEFAULT_CAUSE_MODE = "new"
   private val usage =
     """
     Usage: caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
     """
+
+  private def isCauseBeer2011(mode: String): Boolean = {
+    mode == "beer" || mode == "beer2011"
+  }
+
+  private def isCauseNew(mode: String): Boolean = {
+    mode == "new"
+  }
 
   /**
    * Parse input arguments.
@@ -33,16 +43,15 @@ object CausalityLTL {
     }
 
     // Catch default options
-    //    if !(argMap contains "outputMode") then argMap += ("outputMode" -> "")
-    if !(argMap contains "boundStr") then argMap += ("boundStr" -> "5")
-    if !(argMap contains "causeMode") then argMap += ("causeMode" -> "meng2024")
+    if !(argMap contains "boundStr") then argMap += ("boundStr" -> DEFAULT_BOUND_STR)
+    if !(argMap contains "causeMode") then argMap += ("causeMode" -> DEFAULT_CAUSE_MODE)
 
     // Throw errors when crucial fields not included
     if !(argMap contains "psiStr") then throw sys.error("LTL property not specified!")
     if !(argMap contains "traceFilePath") then throw sys.error("Trace file not specified!")
 
-    if !(argMap("causeMode") contains "beer") && !(argMap("causeMode") contains "meng") then
-      throw sys.error("Please enter valid causality mode: beer2011 | meng2024.")
+    if !isCauseBeer2011(argMap("causeMode")) && !isCauseNew(argMap("causeMode")) then
+      throw sys.error("Please enter valid causality mode: beer | new.")
 
     if !argMap("boundStr").forall(_.isDigit) then
       throw sys.error("Bound " + argMap("boundStr") + " not an integer.")
@@ -62,20 +71,20 @@ object CausalityLTL {
 
     /** Motivating examples:
      *  - The request-acknowledge system: "G((!req1 & !req2) | X ack)"
-     *  - Minepump: "G(highwater -> X(pump)) & G(methane -> X(!pump))"
+     *  - Minepump: "G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))"
      */
     val property: LTL = LTLParser(argMap("psiStr"))
     val traceMap: Map[String, Execution] = parseMultiTracesFromPath(argMap("traceFilePath"))
     val bound = argMap("boundStr").toInt
 
     // Compute and print causes
-    if argMap("causeMode") == "beer2011" || argMap("causeMode") == "beer" then
+    if isCauseBeer2011(argMap("causeMode")) then
       val computedCauses: Map[String, Set[CausalPair]] = traceMap.map(
         (name, trace) => (name, causeApprox(trace, 0, NNFConverter.toNNF(property, beer2011 = true)))
       )
       print(write(computedCauses))
 
-    else if argMap("causeMode") == "meng2024" || argMap("causeMode") == "meng" then
+    else if isCauseNew(argMap("causeMode")) then
       val computedCauses: Map[String, Set[CausalSet]] = traceMap.map(
         (name, trace) => (name, findViolationCauses(trace, 0, trace.size - 1, NNFConverter.toNNF(property), bound))
       )

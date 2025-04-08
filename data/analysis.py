@@ -75,12 +75,12 @@ def mean_size_by_spec(sum_sizes_dict: dict, counts_dict: dict) -> dict:
     return result
 
 ### Coverage ###
-def coverage_by_spec(meng_causes: dict, beer_causes: dict) -> dict:
+def coverage_by_spec(new_causes: dict, beer_causes: dict) -> dict:
     result = dict()
     for spec in beer_causes.keys():
         covered_count = 0
         for (state, atom) in beer_causes[spec]:
-            if ((state, atom, False),) in meng_causes[spec] or ((state, atom, True),) in meng_causes[spec]:
+            if ((state, atom, False),) in new_causes[spec] or ((state, atom, True),) in new_causes[spec]:
                 covered_count += 1
         result.update({spec: float(covered_count) / float(len(beer_causes[spec])) if beer_causes[spec] else float('nan')})
 
@@ -115,56 +115,28 @@ if __name__ == "__main__":
         os.mkdir(csv_dir)
 
     # Read input JSONs
-    input_data_beer = load_json(os.path.join(json_dir, "beer2011.json"))
-    input_data_meng = load_json(os.path.join(json_dir, "meng2024.json"))
+    input_data_beer = load_json(os.path.join(json_dir, "beer.json"))
+    input_data_new = load_json(os.path.join(json_dir, "new.json"))
 
     # Perform statisics
     beer_unique_causes = unique_causes(input_data_beer)
-    meng_unique_causes = unique_causes(input_data_meng)
+    new_unique_causes = unique_causes(input_data_new)
 
     # Perform statisics
     for key in ["assumptions", "assumptions_conjunct", "guarantees"]:
-        meng_sum_size = sum_size_by_spec(meng_unique_causes[key])
-        meng_count = count_by_spec(meng_unique_causes[key])
+        new_sum_size = sum_size_by_spec(new_unique_causes[key])
+        new_count = count_by_spec(new_unique_causes[key])
 
         stats = pd.DataFrame({
             "beer_causes": count_by_spec(beer_unique_causes[key]),
-            "meng_causes": count_by_spec(meng_unique_causes[key]),
-            "meng_min_size": min_size_by_spec(meng_unique_causes[key]),
-            "meng_max_size": max_size_by_spec(meng_unique_causes[key]),
-            "meng_mean_size": mean_size_by_spec(meng_sum_size, meng_count),
-            "coverage": coverage_by_spec(meng_unique_causes[key], beer_unique_causes[key])
+            "new_causes": count_by_spec(new_unique_causes[key]),
+            "new_min_size": min_size_by_spec(new_unique_causes[key]),
+            "new_max_size": max_size_by_spec(new_unique_causes[key]),
+            "new_mean_size": mean_size_by_spec(new_sum_size, new_count),
+            "coverage": coverage_by_spec(new_unique_causes[key], beer_unique_causes[key])
         })
         stats["coverage"] = stats["coverage"].map('{:.0%}'.format)
         stats.sort_index(inplace=True)
 
         # Write DataFrame to CSV file
         stats.to_csv(os.path.join(project_dir, "data", "csv", f"{key}.csv"), index=True)
-
-    # Stronger causes (10 cases)
-    # print("Stronger causes:\n")
-    # cases_stronger = {
-    #     "assumptions": ["genbuf_05_normalised_dropped107", "traffic_updated_FINAL_dropped7", "traffic_updated_FINAL_dropped11"],
-    #     "guarantees": ["genbuf_05_normalised_dropped122", "traffic_single_FINAL_dropped10"],
-    #     "assumptions_conjunct": ["traffic_single_FINAL_dropped1", "traffic_single_FINAL_dropped2", "traffic_single_FINAL_dropped10", "traffic_updated_FINAL_dropped7", "traffic_updated_FINAL_dropped11"]
-    # }
-
-    # # Liveness difference (2 cases)
-    # print("Liveness differences:\n")
-    # cases_liveness_diff = {
-    #     "guarantees": ["genbuf_05_normalised_dropped115", "traffic_single_FINAL_dropped0"],  # "traffic_single_FINAL_dropped10"
-    #     "assumptions_conjunct": []
-    # }
-
-    # # Conflicting (5 cases)
-    # print("Conflicting conjunction:\n")
-    # cases_conflicting = {
-    #     "assumptions_conjunct": ["genbuf_05_normalised_dropped10", "genbuf_05_normalised_dropped107", "genbuf_05_normalised_dropped122", "traffic_single_FINAL_dropped11", "traffic_updated_FINAL_dropped12"]
-    # }
-
-    # cases = ?
-    # for category in cases:
-    #     for spec in cases[category]:
-    #         print(f"{category} - {spec}")
-    #         print(f"baseline = {beer_unique_causes[category][spec]}")
-    #         print(f"meng2024 = {meng_unique_causes[category][spec]}\n")

@@ -1,7 +1,9 @@
 ## Caupybara
 
-Tool for computing causes to LTL property violations in counterexamples. Software component of the 70011 Individual
-Project, “Revisiting Causality of Violations to LTL Formulae in Counterexamples”.
+Tool for computing causes to LTL property violations in counterexamples.
+
+Software component of the paper "Causal Detection in Linear Temporal Counterexamples" and thesis "Revisiting Causality
+of Violations to LTL Formulae in Counterexamples".
 
 ### Usage
 
@@ -11,7 +13,7 @@ caupybara [--ltl | -l] [--trace | -t] ([--cause | -c] [--bound | -b])
 
 - `-ltl` / `-l`: Violated LTL property (formula), in string format.
 - `--trace` / `-t`: File containing the counterexample trace. See `input-files` for format.
-- `--cause` / `-c`: Causality mode, supported: `beer2011` (Beer et al. 2011), `meng2024`. Default = `meng2024`.
+- `--cause` / `-c`: Causality mode, supported: `beer` (Beer et al. 2011), `new` (newly revised). Default = `new`.
 - `--bound` / `-b`: Upper bound on size of causes (>= 1). Default = 5.
 
 Pre-compiled binaries for Linux / Windows (recommended) and JAR files are available under `./bin/`.
@@ -20,22 +22,24 @@ Pre-compiled binaries for Linux / Windows (recommended) and JAR files are availa
 
 ##### Linux x86-64 binary (recommended)
 ```angular2html
-./bin/caupybara -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
 
 ##### Windows executable (recommended)
+
 ```angular2html
-./bin/caupybara.exe -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+./bin/caupybara.exe -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
 
 ##### JAR
 ```angular2html
-java -jar ./bin/caupybara.jar -l 'G((!req1 & !req2) | X ack)' -t ./input-files/custom/req_ack_violation_1.txt -c meng2024
+java -jar ./bin/caupybara.jar -l 'G(HighWater -> X(Pump)) & G(Methane -> X(!Pump))' -t ./input-files/custom/minepump_1.txt
 ```
+
 ### Evaluation
 
-Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies
-see `./data/requirements.txt`.
+Raw data and statistics for evaluation computed by automated Python scripts under `./data/`. For dependencies see
+`./data/requirements.txt`.
 
 To recreate the evaluation results, remove all existing files under `./data/json/` and `./data/csv/`, then run the
 following on command line under root directory in order:
@@ -46,17 +50,18 @@ python ./data/run_checks.py .
 python ./data/analysis.py
 ```
 
-And the new CSV tables under `./data/csv/` should correspond with the tables in Chapter 4.4 Quantitative Analysis.
+And the new CSV tables under `./data/csv/` should show replicated raw data.
 
 ### Dependencies
 
 #### Running pre-built Jar
 
-JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/22/).
+JRE for Java SE 21 or newer, e.g. [OpenJDK](https://jdk.java.net/).
 
 #### Compiling locally
 
-[GraalVM](https://www.graalvm.org/downloads/) can be used to produce AOT optimized binaries. See [Native Image](https://www.graalvm.org/jdk21/reference-manual/native-image/) for details.
+[GraalVM Community](https://github.com/graalvm/graalvm-ce-builds/releases/) can be used to produce AOT optimized
+binaries. See [Native Image](https://www.graalvm.org/jdk21/reference-manual/native-image/) for details.
 
 Native Image script for building binaries (for reference):
 

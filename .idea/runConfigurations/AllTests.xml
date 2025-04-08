@@ -23,8 +23,8 @@
       <list>
         <option value="LibTestSuite" />
         <option value="UtilTestSuite" />
+        <option value="CauseNewTestSuite" />
         <option value="CauseBeer2011TestSuite" />
-        <option value="CauseMeng2024TestSuite" />
       </list>
     </option>
     <option name="shortenClasspath" value="NONE" />
