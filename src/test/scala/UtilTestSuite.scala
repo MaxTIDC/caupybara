@@ -164,6 +164,10 @@ class UtilTestSuite extends AnyFunSuite {
   }
 
   // LTL parse tests
+//  test("GenericParseTest01") {
+//    assert(LTLParser("G(Fphi && Galways)") == G(And(Atom("Fphi"), Atom("Galways"))))
+//  }
+
   test("PLParseTest01") {
     assert(LTLParser("!req1 & !req2") == And(Not(Atom("req1")), Not(Atom("req2"))))
   }
